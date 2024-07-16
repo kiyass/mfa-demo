@@ -1,0 +1,27 @@
+{
+  "name": "app-1",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.16.1",
+    "antd": "^5.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1",
+    "wujie-react": "^1.0.22"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "1.0.1-beta.1",
+    "@rsbuild/plugin-react": "1.0.1-beta.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.5.2"
+  }
+}
