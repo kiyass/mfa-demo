@@ -11,6 +11,7 @@ const App = () => {
       <Header />
       <div id="subapp">
         <Routes>
+          <Route exact path="/home" element={<div>home</div>} />
           <Route exact path="/app1" element={<ChildApp />} />
         </Routes>
       </div>
