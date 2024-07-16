@@ -29,6 +29,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.24.1
     version: 6.24.1(react-dom@17.0.2)(react@17.0.2)
+  wujie:
+    specifier: ^1.0.22
+    version: 1.0.22
   wujie-react:
     specifier: ^1.0.22
     version: 1.0.22(react@17.0.2)

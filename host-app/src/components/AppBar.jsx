@@ -90,6 +90,11 @@ export default function Header() {
     setOpen(false);
   };
 
+  const handleClick = (url) => {
+    navigate(url);
+    handleDrawerClose();
+  };
+
   return (
     <>
       <AppBar
@@ -130,13 +135,19 @@ export default function Header() {
         </div>
         <Divider />
         <List>
-          <ListItem button key={"app1"} onClick={() => navigate("/app1")}>
+          <ListItem button onClick={() => handleClick("/home")}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary={"home"} />
+          </ListItem>
+          <ListItem button onClick={() => handleClick("/app1")}>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
             <ListItemText primary={"app1 - wujie"} />
           </ListItem>
-          <ListItem button key={"app2"} onClick={() => navigate("/app2")}>
+          <ListItem button onClick={() => handleClick("/app2")}>
             <ListItemIcon>
               <MailIcon />
             </ListItemIcon>
