@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, Outlet, NavLink, useNavigate } from "react-router-dom";
 import { routes } from "../../routes/router";
 import { Layout, Menu } from "antd";
 
@@ -7,6 +7,19 @@ const { Content, Sider, Header } = Layout;
 const { SubMenu } = Menu;
 
 function BasicLayout(props) {
+  const navigate = useNavigate();
+  // 主应用告诉子应用跳转路由
+  // WUJIE
+  // useEffect(() => {
+  //   // eslint-disable-next-line
+  //   const routerJump = (path) => navigate(path);
+  //   window.$wujie?.bus.$on("app-1-1-router", routerJump);
+  //   // TODO delete routerJump
+  // }, []);
+  const location = useLocation();
+  useEffect(() => {
+    window.$wujie?.bus.$emit("sub-route-change", "app-1-1", location.pathname);
+  }, [location]);
   return (
     <Layout style={{ background: "#fff", width: "100%", height: "100%" }}>
       {/* 菜单栏 */}
@@ -25,7 +38,7 @@ function BasicLayout(props) {
                 >
                   {item.children.map((subItem, subItemIdx) => (
                     <Menu.Item key={subItem.name}>
-                      <Link to={subItem.path}>{subItem.name}</Link>
+                      <NavLink to={subItem.path}>{subItem.name}</NavLink>
                     </Menu.Item>
                   ))}
                 </SubMenu>
@@ -33,9 +46,9 @@ function BasicLayout(props) {
             } else {
               return (
                 <Menu.Item key={item.name}>
-                  <Link to={item.path}>
+                  <NavLink to={item.path}>
                     <span>{item.name}</span>
-                  </Link>
+                  </NavLink>
                 </Menu.Item>
               );
             }

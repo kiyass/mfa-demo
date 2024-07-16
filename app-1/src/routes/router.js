@@ -1,4 +1,4 @@
-// import React17 from "../pages/child-app";
+import React17 from "../pages/app-1-1";
 import BasicLayout from "../components/BasicLayout/index";
 
 export const routes = [
@@ -9,7 +9,7 @@ export const routes = [
       {
         path: "/app-1-1",
         name: "/app-1-1",
-        element: <>test11</>,
+        element: <React17 />,
       },
       {
         path: "/test",

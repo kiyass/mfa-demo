@@ -2,16 +2,13 @@ import React from "react";
 import hostMap from "../../hostMap";
 import WujieReact from "wujie-react";
 import { useNavigate, useLocation } from "react-router-dom";
-
+const { bus } = WujieReact;
 export default function React17() {
   const location = useLocation();
   const navigation = useNavigate();
-  const react17Url = hostMap("//localhost:7100/");
-  const path = location.pathname
-    .replace("/react17-sub", "")
-    .replace("/react17", ""); ////
-  // 告诉子应用要跳转哪个路由
-  path && WujieReact.bus.$emit("react17-router-change", path);
+  const appUrl = hostMap("//localhost:2011/");
+  const path = location.pathname.replace("/app-1-1", "");
+  path && bus.$emit("app-1-1-router", path);
   const props = {
     jump: (name) => {
       navigation(`/${name}`);
@@ -22,8 +19,8 @@ export default function React17() {
     <WujieReact
       width="100%"
       height="100%"
-      name="react17"
-      url={react17Url}
+      name="app-1-1"
+      url={appUrl}
       sync={!path}
       props={props}
     />
