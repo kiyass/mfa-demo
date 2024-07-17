@@ -47,7 +47,6 @@ function BasicLayout(props) {
       </Sider>
       <Layout>
         <Content>
-          {path === "/app-2-1" ? <div id="sub-app" /> : null}
           <Outlet />
         </Content>
       </Layout>
