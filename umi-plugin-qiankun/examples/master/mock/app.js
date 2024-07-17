@@ -8,12 +8,9 @@ export default {
     },
     {
       name: 'app2',
-      entry: 'http://localhost:8002/app2',
+      entry: 'http://localhost:8002',
       base: '/app2',
       mountElementId: 'root-subapp-container',
-      props: {
-        testProp: 'test',
-      },
     },
     {
       name: 'app3',

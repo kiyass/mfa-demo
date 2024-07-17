@@ -4,5 +4,8 @@
     "start": "umi dev",
     "build": "COMPRESS=none umi build",
     "test": "umi test"
+  },
+  "dependencies": {
+    "qiankun": "^2.10.16"
   }
 }
