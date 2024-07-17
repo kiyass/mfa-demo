@@ -31,7 +31,6 @@
     "release": "np --no-cleanup --yolo --no-publish",
     "start:master": "cd examples/master && umi dev",
     "start:app1": "cd examples/app1 && umi dev",
-    "start:app2": "cd examples/app2 && umi dev",
     "start:app3": "cd examples/app3 && umi dev",
     "test": "umi-test"
   },
