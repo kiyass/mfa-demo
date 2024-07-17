@@ -24,3 +24,7 @@ body {
 #subapp{
   flex: 1;
 }
+
+div[id^='__qiankun_microapp_wrapper_'] {
+  height: 100%;
+}
