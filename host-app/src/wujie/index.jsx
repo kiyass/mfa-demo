@@ -4,7 +4,7 @@ import { lifecycles } from "./lifecycles";
 
 setupApp({
   name: "app1",
-  url: "//localhost:3001",
+  url: "//localhost:2001",
   exec: true,
   sync: true,
   ...lifecycles,
