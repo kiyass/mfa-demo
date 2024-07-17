@@ -7,8 +7,8 @@ export const routes = [
     element: <BasicLayout />,
     children: [
       {
-        path: "/app-1-1-1",
-        name: "/app-1-1-1",
+        path: "/app-2-1-1",
+        name: "/app-2-1-1",
         element: <>test11</>,
       },
       {

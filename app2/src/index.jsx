@@ -33,3 +33,16 @@ export async function unmount(props) {
       : document.querySelector("#root")
   );
 }
+
+import { registerMicroApps, start } from "qiankun";
+
+registerMicroApps([
+  {
+    name: "app-2-1",
+    entry: "//localhost:8021",
+    container: "#root",
+    activeRule: "/app-2-1",
+  },
+]);
+// 启动 qiankun
+start();
