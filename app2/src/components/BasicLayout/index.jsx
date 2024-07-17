@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
 import { routes } from "../../routes/router";
 import { Layout, Menu } from "antd";
 
@@ -7,6 +7,9 @@ const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
 
 function BasicLayout(props) {
+  const location = useLocation();
+  const path = location.pathname;
+  console.log(path, "kkkk");
   return (
     <Layout style={{ background: "#fff", width: "100%", height: "100%" }}>
       {/* 菜单栏 */}
@@ -44,6 +47,7 @@ function BasicLayout(props) {
       </Sider>
       <Layout>
         <Content>
+          {path === "/app-2-1" ? <div id="sub-app" /> : null}
           <Outlet />
         </Content>
       </Layout>

@@ -40,7 +40,7 @@ registerMicroApps([
   {
     name: "app-2-1",
     entry: "//localhost:8021",
-    container: "#root",
+    container: "#sub-app",
     activeRule: "/app-2-1",
   },
 ]);
