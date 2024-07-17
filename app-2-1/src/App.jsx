@@ -10,7 +10,7 @@ const AppRoutes = () => {
 };
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? "/app-2-1" : "/"}>
       <Suspense fallback="loading">
         <AppRoutes />
       </Suspense>
