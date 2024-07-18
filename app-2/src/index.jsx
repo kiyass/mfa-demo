@@ -7,19 +7,20 @@ import "./App.css";
 // import "./public-path"; // 注意需要引入public-path
 
 let flag = false;
+let rootDom = null;
 
 function render(props) {
   const { container } = props;
-  console.log("app-2 render");
+  rootDom = container
+    ? container.querySelector("#app-2")
+    : document.querySelector("#app-2");
   ReactDOM.render(
     <BrowserRouter
       basename={window.__POWERED_BY_QIANKUN_PARENT__ ? "/app2" : "/"}
     >
       <App />
     </BrowserRouter>,
-    container
-      ? container.querySelector("#app-2")
-      : document.querySelector("#app-2")
+    rootDom
   );
 }
 
@@ -47,11 +48,8 @@ export async function mount(props) {
  * 应用每次 切出/卸载 会调用的方法，通常在这里我们会卸载微应用的应用实例
  */
 export async function unmount(props) {
-  ReactDOM.unmountComponentAtNode(
-    props.container
-      ? props.container.querySelector("#root")
-      : document.getElementById("root")
-  );
+  ReactDOM.unmountComponentAtNode(rootDom);
+  rootDom = null;
 }
 
 /**

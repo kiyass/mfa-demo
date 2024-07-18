@@ -1,31 +1,46 @@
-import React, { useEffect } from "react";
-import { useLocation, Outlet, NavLink, useNavigate } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { routes } from "../../routes/router";
-import { Layout, Menu } from "antd";
-
-const { Content, Sider, Header } = Layout;
 
 function BasicLayout({ children }) {
   return (
-    <Layout style={{ background: "#fff", width: "100%", height: "100%" }}>
-      {/* 菜单栏 */}
-      <Header style={{ display: "flex", alignItems: "center" }}>
-        <Menu theme="dark" mode="horizontal">
-          {routes.map((item) => {
-            return (
-              <Menu.Item key={item.name}>
-                <NavLink to={item.path}>
-                  <span>{item.name}</span>
-                </NavLink>
-              </Menu.Item>
-            );
-          })}
-        </Menu>
-      </Header>
-      <Layout>
-        <Content>{children}</Content>
-      </Layout>
-    </Layout>
+    <div
+      style={{
+        background: "#fff",
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          height: "64px",
+          padding: "0 50px",
+          color: "rgba(255, 255, 255, 0.65)",
+          lineHeight: "64px",
+          background: "#001529",
+        }}
+      >
+        {routes.map((item) => {
+          return (
+            <NavLink
+              to={item.path}
+              style={{
+                color: "rgba(255, 255, 255, 0.65)",
+                textDecoration: "none",
+                padding: "0 10px",
+              }}
+            >
+              <span>{item.name}</span>
+            </NavLink>
+          );
+        })}
+      </div>
+      <div>{children}</div>
+    </div>
   );
 }
 export default BasicLayout;

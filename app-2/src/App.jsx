@@ -43,7 +43,9 @@ const useStyles = makeStyles({
   testItem: {
     padding: "10px",
   },
-  container: {},
+  container: {
+    flex: 1,
+  },
 });
 
 const InnerApp = () => {
