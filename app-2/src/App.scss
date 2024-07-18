@@ -3,13 +3,14 @@ body {
   /* color: #fff; */
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   /* background-image: linear-gradient(to bottom, #020917, #101725); */
-}
 
-html, body {
-  width: 100%;
-  height: 100%;
-}
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
 
-#app-2{
-  height: 100%;
+  div[id='app-2'] {
+    height: 100%;
+  }
 }

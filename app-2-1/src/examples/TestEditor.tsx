@@ -54,7 +54,7 @@ function TestEditor() {
           onCreated={setEditor}
           onChange={(editor) => setHtml(editor.getHtml())}
           mode="default"
-          style={{ height: "500px", overflowY: "hidden" }}
+          style={{ width: "100%", height: "100%", overflowY: "hidden" }}
         />
       </div>
       <div style={{ marginTop: "15px" }}>{html}</div>

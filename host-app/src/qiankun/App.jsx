@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "../App.css";
+import "../App.scss";
 import Header from "../components/AppBar";
 
 const App = () => {

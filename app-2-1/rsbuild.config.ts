@@ -1,5 +1,6 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginSass } from "@rsbuild/plugin-sass";
 import { pluginStyledComponents } from "@rsbuild/plugin-styled-components";
 
 const packageName = require("./package.json").name;
@@ -32,5 +33,5 @@ export default defineConfig({
     hmr: false,
     liveReload: false,
   },
-  plugins: [pluginReact(), pluginStyledComponents()],
+  plugins: [pluginReact(), pluginStyledComponents(), pluginSass()],
 });

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import "./App.css";
+import "./App.scss";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import BasicLayout from "./components/BasicLayout";
