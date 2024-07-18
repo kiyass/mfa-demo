@@ -8,12 +8,9 @@ body {
 #root {
   height: 100%;
 }
-#root>div {
-  height: 100%;
-}
+
 .content {
   display: flex;
-  min-height: 100vh;
   line-height: 1.1;
   text-align: center;
   flex-direction: column;

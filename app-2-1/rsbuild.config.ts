@@ -26,9 +26,9 @@ export default defineConfig({
     port: 8021,
     host: "localhost",
   },
-  // dev: {
-  //   hmr: false,
-  //   liveReload: false,
-  // },
+  dev: {
+    hmr: false,
+    liveReload: false,
+  },
   plugins: [pluginReact()],
 });
