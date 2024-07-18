@@ -34,3 +34,9 @@ export async function unmount(props) {
   app.unmount();
   app = null;
 }
+/**
+ * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
+ */
+export async function update(props) {
+  console.log("update props", props);
+}

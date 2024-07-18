@@ -11,7 +11,6 @@ const { bus } = WujieReact;
 function BasicLayout(props) {
   const navigation = useNavigate();
   bus.$on("sub-route-change", (name, path) => {
-    console.log(name, path, "kkkk");
     const currentPath = window.location.hash.replace("#", "");
     if (currentPath.includes(name) && currentPath !== path) {
       navigation(mainPath);

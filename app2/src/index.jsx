@@ -1,9 +1,13 @@
+import { registerMicroApps, start } from "qiankun";
 import React from "react";
 import ReactDOM from "react-dom";
+
 import App from "./App";
 import "./public-path";
+let flag = false;
 function render(props) {
   const { container } = props;
+  console.log(container, "container");
   ReactDOM.render(
     <App />,
     container
@@ -11,11 +15,6 @@ function render(props) {
       : document.querySelector("#root")
   );
 }
-
-if (!window.__POWERED_BY_QIANKUN__) {
-  render({});
-}
-
 export async function bootstrap() {
   console.log("[react16] react app bootstraped");
 }
@@ -34,22 +33,28 @@ export async function unmount(props) {
   );
 }
 
-import { registerMicroApps, start } from "qiankun";
+if (!flag) {
+  // loadMicroApp({
+  //   name: "app-2-1",
+  //   entry: "//localhost:8021",
+  //   container: "#sub-app",
+  // });
 
-console.log(
-  "window.__POWERED_BY_QIANKUN_PARENT__",
-  window.__POWERED_BY_QIANKUN_PARENT__
-);
-
-registerMicroApps([
-  {
-    name: "app-2-1",
-    entry: "//localhost:8021",
-    container: "#sub-app-container",
-    activeRule: window.__POWERED_BY_QIANKUN_PARENT__
-      ? "/app2/app-2-1"
-      : "/app-2-1",
-  },
-]);
-// 启动 qiankun
-start();
+  console.log("xxx");
+  registerMicroApps([
+    {
+      name: "app-2-1",
+      entry: "//localhost:8021",
+      container: "#sub-app",
+      activeRule: window?.__POWERED_BY_QIANKUN_PARENT__
+        ? "/app2/app-2-1"
+        : "/app-2-1",
+    },
+  ]);
+  // 启动 qiankun
+  start();
+  flag = true;
+}
+if (!window?.__POWERED_BY_QIANKUN_PARENT__) {
+  render({});
+}

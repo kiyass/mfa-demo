@@ -1,57 +1,30 @@
-import { Layout, Menu } from "antd";
-import React from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import React, { memo } from "react";
+import { Link } from "react-router-dom";
 import { routes } from "../../routes/router";
 
 const { Content, Sider } = Layout;
-const { SubMenu } = Menu;
 
-function BasicLayout(props) {
-  const location = useLocation();
-  const path = location.pathname;
-  console.log(path, "kkkk");
+function BasicLayout({ children }) {
   return (
     <Layout style={{ background: "#fff", width: "100%", height: "100%" }}>
       {/* 菜单栏 */}
       <Sider trigger={null} collapsible={true}>
         <Menu theme="dark" mode="inline">
-          {routes[0].children.map((item, menuIdx) => {
-            if (item.children instanceof Array) {
-              return (
-                <SubMenu
-                  key={item.name}
-                  title={
-                    <span>
-                      <span>{item.name}</span>
-                    </span>
-                  }
-                >
-                  {item.children.map((subItem, subItemIdx) => (
-                    <Menu.Item key={subItem.name}>
-                      <Link to={subItem.path}>{subItem.name}</Link>
-                    </Menu.Item>
-                  ))}
-                </SubMenu>
-              );
-            } else {
-              return (
-                <Menu.Item key={item.name}>
-                  <Link to={item.path}>
-                    <span>{item.name}</span>
-                  </Link>
-                </Menu.Item>
-              );
-            }
+          {routes.map((item) => {
+            return (
+              <Menu.Item key={item.name}>
+                <Link to={item.path}>
+                  <span>{item.name}</span>
+                </Link>
+              </Menu.Item>
+            );
           })}
         </Menu>
       </Sider>
       <Layout>
-        <Content>
-          {path === "/app-2-1" ? <div id="sub-app-container" /> : null}
-          <Outlet />
-        </Content>
+        <Content>{children}</Content>
       </Layout>
     </Layout>
   );
 }
-export default BasicLayout;
+export default memo(BasicLayout);

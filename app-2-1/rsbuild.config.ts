@@ -9,8 +9,9 @@ export default defineConfig({
   tools: {
     rspack: {
       output: {
-        library: `${packageName}-[name]`,
+        library: `${packageName}`,
         libraryTarget: "umd",
+        globalObject: "window",
         chunkLoadingGlobal: `webpackJsonp_${packageName}`,
       },
     },

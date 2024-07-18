@@ -1,20 +1,19 @@
 import React, { Suspense } from "react";
-import { BrowserRouter, useRoutes } from "react-router-dom";
-import "./App.css";
-import { routes } from "./routes/router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BasicLayout from "./components/BasicLayout";
 
-const AppRoutes = () => {
-  const element = useRoutes(routes);
-
-  return <>{element}</>;
-};
 const App = () => {
   return (
     <BrowserRouter
       basename={window.__POWERED_BY_QIANKUN_PARENT__ ? "/app2" : "/"}
     >
       <Suspense fallback="loading">
-        <AppRoutes />
+        <BasicLayout>
+          <Routes>
+            <Route path="test" element={<>test</>} />
+          </Routes>
+          <div id="sub-app" />
+        </BasicLayout>
       </Suspense>
     </BrowserRouter>
   );
