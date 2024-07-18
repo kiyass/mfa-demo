@@ -13,14 +13,23 @@ export default defineConfig({
         libraryTarget: "umd",
         chunkLoadingGlobal: `webpackJsonp_${packageName}`,
       },
+      devServer: {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        historyApiFallback: true,
+        hot: false,
+        watchContentBase: false,
+        liveReload: false,
+      },
     },
   },
   server: {
     port: 3001,
   },
-  dev: {
-    hmr: false,
-    liveReload: false,
-  },
+  // dev: {
+  //   hmr: false,
+  //   liveReload: false,
+  // },
   plugins: [pluginReact()],
 });
