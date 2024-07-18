@@ -1,20 +1,15 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
-// import "./public-path";
-
-let app = null;
-
+import "./public-path";
 function render(props) {
   const { container } = props;
-  console.log("app-2 render");
-  app = createRoot(
+  ReactDOM.render(
+    <App />,
     container
-      ? container.querySelector("#app-2-1")
-      : document.querySelector("#app-2-1")
+      ? container.querySelector("#root")
+      : document.querySelector("#root")
   );
-
-  app.render(<App />);
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -31,8 +26,12 @@ export async function mount(props) {
 }
 
 export async function unmount(props) {
-  app.unmount();
-  app = null;
+  const { container } = props;
+  ReactDOM.unmountComponentAtNode(
+    container
+      ? container.querySelector("#root")
+      : document.querySelector("#root")
+  );
 }
 /**
  * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
