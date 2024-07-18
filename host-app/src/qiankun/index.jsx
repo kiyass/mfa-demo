@@ -70,3 +70,13 @@ start();
 runAfterFirstMounted(() => {
   console.log("[HostApp] first app mounted");
 });
+
+// window.onbeforeunload = () => {
+//   console.log("in");
+//   debugger;
+// };
+
+// window.onunload = () => {
+//   console.log("in");
+//   debugger;
+// };
