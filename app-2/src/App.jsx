@@ -5,15 +5,25 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { orange } from "@material-ui/core/colors";
 import {
+  StylesProvider,
   ThemeProvider,
+  createGenerateClassName,
   createTheme,
   makeStyles,
 } from "@material-ui/core/styles";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import CustomCheckbox from "./components/CustomCheckbox";
+import TestCustomTheme from "./examples/TestCustomTheme";
+import TestDialog from "./examples/TestDialog";
+import TestSelect from "./examples/TestSelect";
+import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
+
+const generateClassName = createGenerateClassName({
+  productionPrefix: "app2",
+  seed: "app2",
+});
 
 const theme = createTheme({
   status: {
@@ -28,7 +38,10 @@ const useStyles = makeStyles({
   },
   menu: {
     width: "240px",
-    background: "#c4e6c4",
+    background: "#afbcc5",
+  },
+  testItem: {
+    padding: "10px",
   },
   container: {},
 });
@@ -44,8 +57,6 @@ const InnerApp = () => {
   return (
     <div className={classes.root}>
       <div className={classes.menu}>
-        <CustomCheckbox />
-        <Divider />
         <List>
           <ListItem button onClick={() => handleClick("/home")}>
             <ListItemIcon>
@@ -66,6 +77,22 @@ const InnerApp = () => {
             <ListItemText primary={"app-2-1"} />
           </ListItem>
         </List>
+        <Divider />
+        <div className={classes.testItem}>
+          <TestCustomTheme />
+        </div>
+        <Divider />
+        <div className={classes.testItem}>
+          <TestDialog />
+        </div>
+        <Divider />
+        <div className={classes.testItem}>
+          <TestSelect />
+        </div>
+        <Divider />
+        <div className={classes.testItem}>
+          <TestTooltip />
+        </div>
       </div>
       <div className={classes.container}>
         <Routes>
@@ -80,9 +107,11 @@ const InnerApp = () => {
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <InnerApp />
-    </ThemeProvider>
+    <StylesProvider generateClassName={generateClassName}>
+      <ThemeProvider theme={theme}>
+        <InnerApp />
+      </ThemeProvider>
+    </StylesProvider>
   );
 };
 
