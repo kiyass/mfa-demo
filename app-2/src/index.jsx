@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import "./App.css";
+import "./App.scss";
 // import "./public-path"; // 注意需要引入public-path
 
 let flag = false;
