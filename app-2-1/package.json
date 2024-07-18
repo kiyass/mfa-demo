@@ -14,15 +14,21 @@
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-react": "^1.0.6",
     "antd": "^5.19.2",
+    "echarts": "^5.5.1",
+    "echarts-for-react": "^3.0.2",
     "mui-modal-provider": "^2.4.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-echarts": "^0.1.1",
     "react-router-dom": "^6.24.1",
-    "react-toastify": "^9.1.3"
+    "react-toastify": "^9.1.3",
+    "styled-components": "^6.1.12",
+    "video.js": "^8.16.1"
   },
   "devDependencies": {
     "@rsbuild/core": "1.0.1-beta.1",
     "@rsbuild/plugin-react": "1.0.1-beta.1",
+    "@rsbuild/plugin-styled-components": "^1.0.1-beta.3",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.2",
     "typescript": "^5.5.2"

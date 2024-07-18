@@ -12,6 +12,10 @@ import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
 import TestSelect from "./examples/TestSelect";
 import TestEditor from "./examples/TestEditor";
+import TestVideo from "./examples/TestVideo";
+import TestEcharts from "./examples/TestEcharts";
+import TestCssinJs from "./examples/TestCssinJs";
+
 const theme = createTheme({
   components: {
     MuiTooltip: {
@@ -53,13 +57,13 @@ const App = () => {
             <BasicLayout>
               <Routes>
                 <Route path="/" element={<TestDialog />} />
-                <Route path="/cssinjs" element={<>css in js </>} />
+                <Route path="/cssinjs" element={<TestCssinJs />} />
                 <Route path="/toastMessage" element={<TestToast />} />
                 <Route path="/tooltip" element={<TestTooltip />} />
                 <Route path="/select" element={<TestSelect />} />
                 <Route path="/editor" element={<TestEditor />} />
-                <Route path="/video" element={<>视频播放器</>} />
-                <Route path="/echart" element={<>echarts</>} />
+                <Route path="/video" element={<TestVideo />} />
+                <Route path="/echart" element={<TestEcharts />} />
               </Routes>
             </BasicLayout>
           </Suspense>
