@@ -11,3 +11,4 @@ dist/
 .vscode/*
 !.vscode/extensions.json
 .idea
+app-2/yarn.lock
