@@ -53,6 +53,12 @@ const InnerApp = () => {
             </ListItemIcon>
             <ListItemText primary={"home"} />
           </ListItem>
+          <ListItem button onClick={() => handleClick("/page1")}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary={"page1"} />
+          </ListItem>
           <ListItem button onClick={() => handleClick("/app-2-1")}>
             <ListItemIcon>
               <InboxIcon />
@@ -64,8 +70,9 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/page1" element={<div>page1</div>} />
         </Routes>
-        <div id="subapp">111</div>
+        <div id="subapp-container"></div>
       </div>
     </div>
   );

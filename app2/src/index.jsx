@@ -36,12 +36,19 @@ export async function unmount(props) {
 
 import { registerMicroApps, start } from "qiankun";
 
+console.log(
+  "window.__POWERED_BY_QIANKUN_PARENT__",
+  window.__POWERED_BY_QIANKUN_PARENT__
+);
+
 registerMicroApps([
   {
     name: "app-2-1",
     entry: "//localhost:8021",
-    container: "#sub-app",
-    activeRule: "/app-2-1",
+    container: "#sub-app-container",
+    activeRule: window.__POWERED_BY_QIANKUN_PARENT__
+      ? "/app2/app-2-1"
+      : "/app-2-1",
   },
 ]);
 // 启动 qiankun

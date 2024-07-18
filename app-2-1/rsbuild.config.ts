@@ -3,6 +3,9 @@ import { pluginReact } from "@rsbuild/plugin-react";
 const packageName = require("./package.json").name;
 
 export default defineConfig({
+  html: {
+    mountId: "app-2-1",
+  },
   tools: {
     rspack: {
       output: {

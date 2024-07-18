@@ -1,7 +1,7 @@
-import React from "react";
-import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
-import { routes } from "../../routes/router";
 import { Layout, Menu } from "antd";
+import React from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { routes } from "../../routes/router";
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -47,7 +47,7 @@ function BasicLayout(props) {
       </Sider>
       <Layout>
         <Content>
-          {path === "/app-2-1" ? <div id="sub-app" /> : null}
+          {path === "/app-2-1" ? <div id="sub-app-container" /> : null}
           <Outlet />
         </Content>
       </Layout>

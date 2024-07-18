@@ -1,15 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import App from "./App";
-import "./public-path";
+// import "./public-path";
+
+let app = null;
+
 function render(props) {
   const { container } = props;
-  ReactDOM.render(
-    <App />,
+  console.log("app-2 render");
+  app = createRoot(
     container
-      ? container.querySelector("#root")
-      : document.querySelector("#root")
+      ? container.querySelector("#app-2-1")
+      : document.querySelector("#app-2-1")
   );
+
+  app.render(<App />);
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -26,10 +31,6 @@ export async function mount(props) {
 }
 
 export async function unmount(props) {
-  const { container } = props;
-  ReactDOM.unmountComponentAtNode(
-    container
-      ? container.querySelector("#root")
-      : document.querySelector("#root")
-  );
+  app.unmount();
+  app = null;
 }

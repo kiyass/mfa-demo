@@ -7,6 +7,8 @@ renderApp();
  * Step2 注册子应用
  */
 
+window.__POWERED_BY_QIANKUN_PARENT__ = true;
+
 registerMicroApps(
   [
     {
