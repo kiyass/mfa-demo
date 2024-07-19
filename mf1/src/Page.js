@@ -1,6 +1,5 @@
 import { Tooltip } from "@material-ui/core";
-import React, { Profiler, useLayoutEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 
 const arr = new Array(100).fill(0);
 
@@ -34,16 +33,7 @@ const List = React.memo(() => {
 // });
 
 const Page = React.memo(() => {
-  return (
-    <Profiler
-      id="test-light-comp-demo"
-      onRender={(id, phase, duration) => {
-        console.log({ id, phase, duration });
-      }}
-    >
-      <List />
-    </Profiler>
-  );
+  return <List />;
 });
 
 export default Page;

@@ -7,11 +7,11 @@ module.exports = {
   },
   mode: "development",
   devServer: {
-    port: 9001,
+    port: 7001,
   },
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "http://localhost:3002/",
+    publicPath: "http://localhost:7001/",
   },
   module: {
     rules: [
@@ -33,7 +33,7 @@ module.exports = {
       exposes: {
         "./Mf1": "./src/Page",
       },
-      shared: { react: { eager: false }, "react-dom": { eager: false } },
+      shared: { react: { eager: true }, "react-dom": { eager: true } },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

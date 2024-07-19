@@ -20,19 +20,9 @@ const routes = [
   },
 ];
 
-const AppRoutes = () => {
-  const element = useRoutes(routes);
-
-  return <>{element}</>;
-};
-
 const App = () => (
   <Suspense fallback="">
-    <div>
-      <h1>Basic Host-Remote</h1>
-      <h2>App 2啊</h2>
-      <AppRoutes />
-    </div>
+    <Page />
   </Suspense>
 );
 

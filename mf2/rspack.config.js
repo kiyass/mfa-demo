@@ -15,7 +15,7 @@ const webpackConfig = {
       directory: path.join(__dirname, "dist"),
     },
     hot: true,
-    port: 9002,
+    port: 7002,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",

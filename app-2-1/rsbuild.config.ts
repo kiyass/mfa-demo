@@ -20,8 +20,8 @@ export default defineConfig({
         new ModuleFederationPlugin({
           name: "main",
           remotes: {
-            mf1: "mf1@http://localhost:9001/remoteEntry.js",
-            mf2: "mf2@http://localhost:9002/mf-manifest.json",
+            mf1: "mf1@http://localhost:7001/remoteEntry.js",
+            mf2: "mf2@http://localhost:7002/mf-manifest.json",
           },
           shared: {
             react: {
