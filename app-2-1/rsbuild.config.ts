@@ -23,6 +23,9 @@ export default defineConfig({
             mf1: "mf1@http://localhost:7001/remoteEntry.js",
             mf2: "mf2@http://localhost:7002/mf-manifest.json",
           },
+          runtimePlugins: [
+            require.resolve("./react-adapter-runtime-plugin.ts"),
+          ],
           shared: {
             react: {
               requiredVersion: dependencies["react"],

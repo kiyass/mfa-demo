@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
+const dependencies = require("./package.json").dependencies;
 
 module.exports = {
   entry: {
@@ -28,12 +29,25 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "mf1",
-      library: { type: "umd", name: "app1" },
+      library: { type: "umd", name: "mf1" },
       remoteType: "script",
+      filename: "remoteEntry.js",
+      remotes: {
+        mf2: "mf2@http://localhost:7002/remoteEntry.js",
+      },
       exposes: {
         "./Mf1": "./src/Page",
       },
-      shared: { react: { eager: true }, "react-dom": { eager: true } },
+      //   react: {
+      //     requiredVersion: dependencies["react"],
+      //   },
+      //   "react-dom": {
+      //     requiredVersion: dependencies["react-dom"],
+      //   },
+      shared: {
+        react: { requiredVersion: dependencies["react"] },
+        "react-dom": { requiredVersion: dependencies["react-dom"] },
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

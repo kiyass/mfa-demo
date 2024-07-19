@@ -59,9 +59,17 @@ const webpackConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: "mf2",
+      library: { type: "umd", name: "mf2" },
+      filename: "remoteEntry.js",
+      remoteType: "script",
       exposes: {
         "./Mf2": "./src/components/ModernReactComponent",
       },
+      // shared: ["react", "react-dom"],
+      // shared: {
+      //   react: { singleton: true },
+      //   "react-dom": { singleton: true },
+      // },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
