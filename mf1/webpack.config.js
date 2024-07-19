@@ -9,6 +9,9 @@ module.exports = {
   mode: "development",
   devServer: {
     port: 7001,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   output: {
     filename: "[name].[contenthash].js",
@@ -45,8 +48,11 @@ module.exports = {
       //     requiredVersion: dependencies["react-dom"],
       //   },
       shared: {
-        react: { requiredVersion: dependencies["react"] },
-        "react-dom": { requiredVersion: dependencies["react-dom"] },
+        react: { requiredVersion: dependencies["react"], singleton: true },
+        "react-dom": {
+          requiredVersion: dependencies["react-dom"],
+          singleton: true,
+        },
       },
     }),
     new HtmlWebpackPlugin({

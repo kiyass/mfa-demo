@@ -66,10 +66,10 @@ const webpackConfig = {
         "./Mf2": "./src/components/ModernReactComponent",
       },
       // shared: ["react", "react-dom"],
-      // shared: {
-      //   react: { singleton: true },
-      //   "react-dom": { singleton: true },
-      // },
+      shared: {
+        react: { singleton: true },
+        "react-dom": { singleton: true },
+      },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
