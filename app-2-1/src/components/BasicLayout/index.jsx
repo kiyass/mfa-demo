@@ -28,6 +28,7 @@ function BasicLayout({ children }) {
           return (
             <NavLink
               to={item.path}
+              key={item.path}
               style={{
                 color: "rgba(255, 255, 255, 0.65)",
                 textDecoration: "none",
