@@ -15,6 +15,8 @@ import TestEditor from "./examples/TestEditor";
 import TestVideo from "./examples/TestVideo";
 import TestEcharts from "./examples/TestEcharts";
 import TestCssinJs from "./examples/TestCssinJs";
+import TestMf1 from "./examples/TestMf1";
+import TestMf2 from "./examples/TestMf2";
 
 const theme = createTheme({
   components: {
@@ -64,6 +66,8 @@ const App = () => {
                 <Route path="/editor" element={<TestEditor />} />
                 <Route path="/video" element={<TestVideo />} />
                 <Route path="/echart" element={<TestEcharts />} />
+                <Route path="/mf1" element={<TestMf1 />} />
+                <Route path="/mf2" element={<TestMf2 />} />
               </Routes>
             </BasicLayout>
           </Suspense>

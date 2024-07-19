@@ -31,4 +31,12 @@ export const routes = [
     path: "/echart",
     name: "echarts",
   },
+  {
+    path: "/mf1",
+    name: "mf测试",
+  },
+  {
+    path: "/mf2",
+    name: "mf 2.0测试",
+  },
 ];
