@@ -2,7 +2,6 @@
  *  Author:
  *  Description:
  */
-import type { FederationRuntimePlugin } from "@module-federation/enhanced/runtime";
 /**
  * The react-adapter-runtime-plugin.ts and fallback.js files work together to enable compatibility
  * between different versions of React used by the host and remote modules in a Module Federation setup.
@@ -27,22 +26,9 @@ import type { FederationRuntimePlugin } from "@module-federation/enhanced/runtim
  * use different versions of React without conflicts, enabling compatibility in a Module Federation architecture.
  */
 
-const runtimePlugin: () => FederationRuntimePlugin = () => ({
+const runtimePlugin = () => ({
   name: "my-runtime-plugin",
   beforeInit(args) {
-    const { userOptions, shareInfo } = args;
-    const shared = userOptions.shared;
-    if (shared) {
-      Object.keys(shareInfo).forEach((sharedKey) => {
-        const sharedConfigs = shared[sharedKey];
-        const arraySharedConfigs = Array.isArray(sharedConfigs)
-          ? sharedConfigs
-          : [sharedConfigs];
-        arraySharedConfigs.forEach((s) => {
-          s.strategy = "loaded-first";
-        });
-      });
-    }
     return args;
   },
   init(args) {
@@ -59,6 +45,7 @@ const runtimePlugin: () => FederationRuntimePlugin = () => ({
     const remoteInstance = __FEDERATION__.__INSTANCES__.find(
       (instance) => instance.name === args.pkgNameOrAlias
     );
+    console.log(remoteInstance, "remoteInstance");
     const remoteVersion = remoteInstance
       ? remoteInstance.options.shared["react-dom"][0].version
       : false;
@@ -67,9 +54,13 @@ const runtimePlugin: () => FederationRuntimePlugin = () => ({
       const remoteReactDOMVersion = await remoteInstance.loadShare(
         "react-dom",
         {
-          resolver: (sharedOptions) =>
-            sharedOptions.find((i) => i.version === remoteVersion) ??
-            sharedOptions[0],
+          resolver: (sharedOptions) => {
+            console.log(sharedOptions, "sharedOptions");
+            return (
+              sharedOptions.find((i) => i.version === remoteVersion) ??
+              sharedOptions[0]
+            );
+          },
         }
       );
 
@@ -78,7 +69,7 @@ const runtimePlugin: () => FederationRuntimePlugin = () => ({
           sharedOptions.find((i) => i.version === remoteVersion) ??
           sharedOptions[0],
       });
-
+      console.log(remoteReactVersion(), "remoteReactVersion");
       const res = (await import("./fallback.js")).default;
 
       return () =>

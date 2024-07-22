@@ -2,10 +2,6 @@
  *  Author:
  *  Description:
  */
-/*
- *  Author:
- *  Description:
- */
 import React from "react";
 
 class Component extends React.Component {

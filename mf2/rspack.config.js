@@ -3,6 +3,7 @@ const {
   ModuleFederationPlugin,
 } = require("@module-federation/enhanced/rspack");
 const path = require("path");
+const dependencies = require("./package.json").dependencies;
 
 /**
  * @type {import('webpack').Configuration}
@@ -65,10 +66,11 @@ const webpackConfig = {
       exposes: {
         "./Mf2": "./src/components/ModernReactComponent",
       },
-      // shared: ["react", "react-dom"],
       shared: {
-        react: { singleton: true },
-        "react-dom": { singleton: true },
+        react: { requiredVersion: false },
+        "react-dom": {
+          requiredVersion: false,
+        },
       },
     }),
     new HtmlWebpackPlugin({
