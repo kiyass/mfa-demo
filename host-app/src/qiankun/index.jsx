@@ -1,4 +1,9 @@
-import { registerMicroApps, runAfterFirstMounted, start } from "qiankun";
+import {
+  registerMicroApps,
+  runAfterFirstMounted,
+  start,
+  initGlobalState,
+} from "qiankun";
 import { renderApp } from "./App";
 
 renderApp();
@@ -7,6 +12,17 @@ renderApp();
  * Step2 注册子应用
  */
 
+// 初始化 state
+// const actions = initGlobalState({
+
+// });
+
+// actions.onGlobalStateChange((state, prev) => {
+//   // state: 变更后的状态; prev 变更前的状态
+//   console.log(state, prev);
+// });
+// actions.setGlobalState(state);
+// actions.offGlobalStateChange();
 window.__POWERED_BY_QIANKUN_PARENT__ = true;
 
 registerMicroApps(
@@ -16,6 +32,9 @@ registerMicroApps(
       entry: "//localhost:3001",
       container: "#subapp",
       activeRule: "/app2",
+      props: {
+        currentMicroAppRoute: "/app2",
+      },
     },
   ],
   {

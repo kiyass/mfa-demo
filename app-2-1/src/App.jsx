@@ -6,7 +6,7 @@ import BasicLayout from "./components/BasicLayout";
 import ModalProvider from "mui-modal-provider";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-
+import { getBaseUrl } from "./getBaseUrl";
 import TestDialog from "./examples/TestDialog";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
@@ -35,10 +35,6 @@ const theme = createTheme({
   },
 });
 const App = () => {
-  const url = window?.__POWERED_BY_QIANKUN_PARENT__
-    ? "/app2/app-2-1"
-    : "/app-2-1";
-
   return (
     <ModalProvider>
       <ToastContainer
@@ -54,24 +50,22 @@ const App = () => {
         theme="light"
       />
       <ThemeProvider theme={theme}>
-        <BrowserRouter basename={window.__POWERED_BY_QIANKUN__ ? url : "/"}>
-          <Suspense fallback="loading">
-            <BasicLayout>
-              <Routes>
-                <Route path="/" element={<TestDialog />} />
-                <Route path="/cssinjs" element={<TestCssinJs />} />
-                <Route path="/toastMessage" element={<TestToast />} />
-                <Route path="/tooltip" element={<TestTooltip />} />
-                <Route path="/select" element={<TestSelect />} />
-                <Route path="/editor" element={<TestEditor />} />
-                <Route path="/video" element={<TestVideo />} />
-                <Route path="/echart" element={<TestEcharts />} />
-                <Route path="/mf1" element={<TestMf1 />} />
-                <Route path="/mf2" element={<TestMf2 />} />
-              </Routes>
-            </BasicLayout>
-          </Suspense>
-        </BrowserRouter>
+        <Suspense fallback="loading">
+          <BasicLayout>
+            <Routes>
+              <Route path="/" element={<TestDialog />} />
+              <Route path="/cssinjs" element={<TestCssinJs />} />
+              <Route path="/toastMessage" element={<TestToast />} />
+              <Route path="/tooltip" element={<TestTooltip />} />
+              <Route path="/select" element={<TestSelect />} />
+              <Route path="/editor" element={<TestEditor />} />
+              <Route path="/video" element={<TestVideo />} />
+              <Route path="/echart" element={<TestEcharts />} />
+              <Route path="/mf1" element={<TestMf1 />} />
+              <Route path="/mf2" element={<TestMf2 />} />
+            </Routes>
+          </BasicLayout>
+        </Suspense>
       </ThemeProvider>
     </ModalProvider>
   );

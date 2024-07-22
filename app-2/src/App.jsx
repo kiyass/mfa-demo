@@ -111,15 +111,11 @@ const InnerApp = () => {
 
 const App = () => {
   return (
-    <BrowserRouter
-      basename={window.__POWERED_BY_QIANKUN_PARENT__ ? "/app2" : "/"}
-    >
-      <StylesProvider generateClassName={generateClassName}>
-        <ThemeProvider theme={theme}>
-          <InnerApp />
-        </ThemeProvider>
-      </StylesProvider>
-    </BrowserRouter>
+    <StylesProvider generateClassName={generateClassName}>
+      <ThemeProvider theme={theme}>
+        <InnerApp />
+      </ThemeProvider>
+    </StylesProvider>
   );
 };
 

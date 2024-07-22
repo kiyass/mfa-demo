@@ -9,11 +9,13 @@ export default function registerMicroApps({
     return {
       ...item,
       activeRule: window.__POWERED_BY_QIANKUN_PARENT__
-        ? `${currentMicroAppRoute}/app-2-1`
-        : "/app-2-1",
+        ? `${currentMicroAppRoute}${item.activeRule}`
+        : item.activeRule,
     };
   });
   if (!flag) {
+    console.log(data, currentMicroAppRoute, 789);
+
     register(data);
     // 启动 qiankun
     start({ prefetch: false });

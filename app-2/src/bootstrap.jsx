@@ -1,9 +1,13 @@
-import lifecycles from "./lifecycles";
+import { lifecycles, registerMicroApps } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
-import registerMicroApps from "./registerMicroApp";
 
-const { bootstrap, mount, unmount } = lifecycles(<App />, ReactDOM, "#app-2");
+const { bootstrap, mount, unmount, currentMicroAppRoute } = await lifecycles(
+  <App />,
+  ReactDOM,
+  "#app-2"
+);
+// TODO fix get currentMicroAppRoute is null
 registerMicroApps({
   registerMicroAppsData: [
     {
@@ -11,9 +15,13 @@ registerMicroApps({
       entry: "//localhost:8021",
       container: "#subapp-container",
       activeRule: "/app-2-1",
+      props: {
+        currentMicroAppRoute: currentMicroAppRoute
+          ? `${currentMicroAppRoute}/app-2-1`
+          : "/app-2-1",
+      },
     },
   ],
-  currentMicroAppRoute: "/app2",
+  currentMicroAppRoute: currentMicroAppRoute,
 });
-
 export { bootstrap, mount, unmount };

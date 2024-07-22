@@ -1,4 +1,4 @@
-import lifecycles from "./lifecycles";
+import { lifecycles } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
 
