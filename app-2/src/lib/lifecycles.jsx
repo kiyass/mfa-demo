@@ -16,6 +16,8 @@ if (window.__POWERED_BY_QIANKUN__) {
  * @param {*} ReactDOM react-dom
  * @param {*} mountId "#root"
  * @param {*} registerMicroAppsData 微前端注册数据
+ * @param {*} handleMount handleMount
+ * @param {*} handleUnMount handleUnMount
  * @return {*}
  */
 export default function lifecycles({
@@ -23,6 +25,8 @@ export default function lifecycles({
   ReactDOM,
   mountId = "#root",
   registerMicroAppsData,
+  handleMount,
+  handleUnMount,
 }) {
   let rootDom = null;
   let app = null;
@@ -63,9 +67,10 @@ export default function lifecycles({
       app.unmount();
       app = null;
     }
+    handleUnMount?.(props);
   }
 
-  if (!window.__POWERED_BY_QIANKUN_PARENT__) {
+  if (!window.__POWERED_BY_QIANKUN__) {
     render({});
   }
 
@@ -73,6 +78,7 @@ export default function lifecycles({
 
   async function mount(props) {
     render(props);
+    handleMount?.(props);
   }
   /**
    * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
