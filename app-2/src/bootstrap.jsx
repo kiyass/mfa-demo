@@ -1,4 +1,4 @@
-import { lifecycles } from "./lib";
+import { startMicroApp } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
 
@@ -17,8 +17,7 @@ function mock() {
   });
 }
 const registerMicroAppsData = await mock();
-console.log(registerMicroAppsData, "registerMicroAppsData");
-const { bootstrap, mount, unmount } = await lifecycles({
+const { bootstrap, mount, unmount } = await startMicroApp({
   appContainer: <App />,
   ReactDOM,
   mountId: "#app-2",

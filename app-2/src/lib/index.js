@@ -1,4 +1,3 @@
-import lifecycles from "./lifecycles";
-import registerMicroApps from "./registerMicroApp";
+import startMicroApp from "./startMicroApp";
 
-export { lifecycles, registerMicroApps };
+export { startMicroApp };

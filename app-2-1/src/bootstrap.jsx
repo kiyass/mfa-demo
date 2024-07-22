@@ -1,8 +1,8 @@
-import { lifecycles } from "./lib";
+import { startMicroApp } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-const { bootstrap, mount, unmount } = lifecycles({
+const { bootstrap, mount, unmount } = startMicroApp({
   appContainer: <App />,
   ReactDOM,
 });

@@ -1,7 +1,3 @@
-/*
- *  Author:
- *  Description:
- */
 import { BrowserRouter } from "react-router-dom";
 import getBaseUrl from "./getBaseUrl";
 import registerMicroApps from "./registerMicroApp";
@@ -18,15 +14,17 @@ if (window.__POWERED_BY_QIANKUN__) {
  * @param {*} registerMicroAppsData 微前端注册数据
  * @param {*} handleMount handleMount
  * @param {*} handleUnMount handleUnMount
+ * @param {*} handleUpdate handleUpdate
  * @return {*}
  */
-export default function lifecycles({
+export default function startMicroApp({
   appContainer,
   ReactDOM,
   mountId = "#root",
   registerMicroAppsData,
   handleMount,
   handleUnMount,
+  handleUpdate,
 }) {
   let rootDom = null;
   let app = null;
@@ -84,6 +82,8 @@ export default function lifecycles({
   /**
    * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
    */
-  async function update(props) {}
+  async function update(props) {
+    handleUpdate?.();
+  }
   return { bootstrap, unmount, mount, update };
 }
