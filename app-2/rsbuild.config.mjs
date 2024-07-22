@@ -12,7 +12,9 @@ export default defineConfig({
       output: {
         library: `${packageName}-[name]`,
         libraryTarget: "umd",
+        globalObject: "window",
         chunkLoadingGlobal: `webpackJsonp_${packageName}`,
+        publicPath: "http://localhost:3001/",
       },
       devServer: {
         headers: {
