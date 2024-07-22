@@ -1,4 +1,5 @@
 import Divider from "@material-ui/core/Divider";
+import "./App.scss";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -11,6 +12,7 @@ import {
   createTheme,
   makeStyles,
 } from "@material-ui/core/styles";
+import { BrowserRouter } from "react-router-dom";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -109,11 +111,15 @@ const InnerApp = () => {
 
 const App = () => {
   return (
-    <StylesProvider generateClassName={generateClassName}>
-      <ThemeProvider theme={theme}>
-        <InnerApp />
-      </ThemeProvider>
-    </StylesProvider>
+    <BrowserRouter
+      basename={window.__POWERED_BY_QIANKUN_PARENT__ ? "/app2" : "/"}
+    >
+      <StylesProvider generateClassName={generateClassName}>
+        <ThemeProvider theme={theme}>
+          <InnerApp />
+        </ThemeProvider>
+      </StylesProvider>
+    </BrowserRouter>
   );
 };
 
