@@ -20,6 +20,8 @@ import TestCustomTheme from "./examples/TestCustomTheme";
 import TestDialog from "./examples/TestDialog";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
+import TestMf1 from "./examples/TestMf1";
+import TestMf2 from "./examples/TestMf2";
 import Home from "./pages/Home";
 
 const generateClassName = createGenerateClassName({
@@ -83,7 +85,8 @@ const InnerApp = () => {
         </List>
         <Divider />
         <div className={classes.testItem}>
-          <TestCustomTheme />
+          {/* <TestCustomTheme /> */}
+          <TestMf1 />
         </div>
         <Divider />
         <div className={classes.testItem}>
@@ -101,7 +104,7 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
-          <Route exact path="/page1" element={<div>page1</div>} />
+          <Route exact path="/page1" element={<TestMf1 />} />
         </Routes>
         <div id="subapp-container"></div>
       </div>
