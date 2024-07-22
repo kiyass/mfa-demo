@@ -1,6 +1,6 @@
-import { lifecycles } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { lifecycles } from "./lib";
 
 const { bootstrap, mount, unmount } = await lifecycles({
   appContainer: <App />,

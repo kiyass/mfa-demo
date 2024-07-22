@@ -16,6 +16,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import clsx from "clsx";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { GlobalStore } from "redux-micro-frontend";
 
 const drawerWidth = 240;
 
@@ -80,7 +81,20 @@ export default function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [count, setCount] = React.useState(0);
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    GlobalStore.Get().SubscribeToGlobalState("CounterApp", (state) => {
+      setCount(state.CounterApp.global);
+    });
+  }, []);
+
+  React.useEffect(() => {
+    GlobalStore.Get().SubscribeToGlobalState("App2", (state) => {
+      console.log("App2 state change: ", state.App2);
+    });
+  }, []);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -113,6 +127,7 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
+          <p>count: {count}</p>
         </Toolbar>
       </AppBar>
       <Drawer
