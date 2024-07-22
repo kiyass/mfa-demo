@@ -32,10 +32,11 @@ export default function lifecycles({
   let app = null;
   function render(props) {
     const { container, currentMicroAppRoute } = props;
-    registerMicroApps({
-      registerMicroAppsData: registerMicroAppsData,
-      currentMicroAppRoute: currentMicroAppRoute,
-    });
+    !!registerMicroAppsData &&
+      registerMicroApps({
+        registerMicroAppsData: registerMicroAppsData,
+        currentMicroAppRoute: currentMicroAppRoute,
+      });
     const App = (
       <BrowserRouter basename={getBaseUrl(currentMicroAppRoute)}>
         {appContainer}
