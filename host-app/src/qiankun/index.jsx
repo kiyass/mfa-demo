@@ -1,10 +1,6 @@
-import {
-  registerMicroApps,
-  runAfterFirstMounted,
-  start,
-  initGlobalState,
-} from "qiankun";
+import { registerMicroApps, runAfterFirstMounted, start } from "qiankun";
 import { renderApp } from "./App";
+import "./store";
 
 renderApp();
 
