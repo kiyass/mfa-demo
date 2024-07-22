@@ -4,6 +4,7 @@
  */
 import { BrowserRouter } from "react-router-dom";
 import getBaseUrl from "./getBaseUrl";
+import registerMicroApps from "./registerMicroApp";
 
 if (window.__POWERED_BY_QIANKUN__) {
   __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
@@ -14,16 +15,23 @@ if (window.__POWERED_BY_QIANKUN__) {
  * @param {*} appContainer App实例 <App />
  * @param {*} ReactDOM react-dom
  * @param {*} mountId "#root"
+ * @param {*} registerMicroAppsData 微前端注册数据
  * @return {*}
  */
-export default function lifecycles(appContainer, ReactDOM, mountId = "#root") {
+export default function lifecycles({
+  appContainer,
+  ReactDOM,
+  mountId = "#root",
+  registerMicroAppsData,
+}) {
   let rootDom = null;
   let app = null;
-  let currentMicroAppRoute = null;
   function render(props) {
-    const { container, currentMicroAppRoute: route } = props;
-    currentMicroAppRoute = route;
-    console.log(currentMicroAppRoute, "currentMicroAppRoute");
+    const { container, currentMicroAppRoute } = props;
+    registerMicroApps({
+      registerMicroAppsData: registerMicroAppsData,
+      currentMicroAppRoute: currentMicroAppRoute,
+    });
     const App = (
       <BrowserRouter basename={getBaseUrl(currentMicroAppRoute)}>
         {appContainer}
@@ -70,5 +78,5 @@ export default function lifecycles(appContainer, ReactDOM, mountId = "#root") {
    * 可选生命周期钩子，仅使用 loadMicroApp 方式加载微应用时生效
    */
   async function update(props) {}
-  return { bootstrap, unmount, mount, update, currentMicroAppRoute };
+  return { bootstrap, unmount, mount, update };
 }

@@ -8,9 +8,15 @@ export default function registerMicroApps({
   const data = registerMicroAppsData.map((item) => {
     return {
       ...item,
-      activeRule: window.__POWERED_BY_QIANKUN_PARENT__
+      activeRule: currentMicroAppRoute
         ? `${currentMicroAppRoute}${item.activeRule}`
         : item.activeRule,
+      props: {
+        currentMicroAppRoute: currentMicroAppRoute
+          ? `${currentMicroAppRoute}${item.activeRule}`
+          : item.activeRule,
+        ...item.props,
+      },
     };
   });
   if (!flag) {

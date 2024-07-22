@@ -12,7 +12,7 @@ import {
   createTheme,
   makeStyles,
 } from "@material-ui/core/styles";
-import { BrowserRouter } from "react-router-dom";
+
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
