@@ -1,7 +1,3 @@
-/*
- *  Author:
- *  Description:
- */
 /**
  * The react-adapter-runtime-plugin.ts and fallback.js files work together to enable compatibility
  * between different versions of React used by the host and remote modules in a Module Federation setup.
@@ -28,6 +24,21 @@
 
 const runtimePlugin = () => ({
   name: "my-runtime-plugin",
+  // resolveShare(args) {
+  //   const { shareScopeMap, scope, pkgName, version } = args;
+
+  //   if (!["react", "react-dom"].includes(pkgName)) {
+  //     return args;
+  //   }
+
+  //   args.resolver = function () {
+  //     shareScopeMap[scope][pkgName][version] =
+  //       pkgName === "react" ? window.React : window.ReactDOM; // replace local share scope manually with desired module
+  //     return shareScopeMap[scope][pkgName][version];
+  //   };
+
+  //   return args;
+  // },
   beforeInit(args) {
     return args;
   },
@@ -41,13 +52,16 @@ const runtimePlugin = () => ({
     return args;
   },
   async onLoad(args) {
-    const hostVersion = args.origin.options.shared["react-dom"][0].version;
+    const hostVersion = args.origin.options.shared?.["react-dom"]?.[0]?.version;
+    if (!hostVersion) {
+      return;
+    }
     const remoteInstance = __FEDERATION__.__INSTANCES__.find(
       (instance) => instance.name === args.pkgNameOrAlias
     );
     console.log(remoteInstance, "remoteInstance");
     const remoteVersion = remoteInstance
-      ? remoteInstance.options.shared["react-dom"][0].version
+      ? remoteInstance?.options?.shared?.["react-dom"]?.[0]?.version
       : false;
 
     if (remoteVersion && hostVersion && remoteVersion !== hostVersion) {

@@ -3,12 +3,17 @@ import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
 
-const requireFromUrl = require("require-from-url/sync");
 const packageName = require("./package.json").name;
-
+console.log(process.env.NODE_ENV, "kkk");
 export default defineConfig({
-  html: {
-    mountId: "app-2",
+  server: {
+    port: 3001,
+  },
+  output: {
+    externals: {
+      react: "React",
+      "react-dom": "ReactDOM",
+    },
   },
   tools: {
     rspack: {
@@ -46,15 +51,6 @@ export default defineConfig({
         watchContentBase: false,
         liveReload: false,
       },
-    },
-  },
-  server: {
-    port: 3001,
-  },
-  output: {
-    externals: {
-      react: "react",
-      "react-dom": "ReactDOM",
     },
   },
   dev: {

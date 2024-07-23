@@ -1,10 +1,17 @@
-import { registerMicroApps, runAfterFirstMounted, start } from "qiankun";
+import {
+  registerMicroApps,
+  runAfterFirstMounted,
+  start,
+  initGlobalState,
+  MicroAppStateActions,
+} from "qiankun";
 import React from "react";
 import ReactDOM from "react-dom";
 import { renderApp } from "./App";
 import "./store";
-window.react = React;
-window.ReactDOM = ReactDOM;
+
+// window.React = React;
+// window.ReactDOM = ReactDOM;
 renderApp();
 
 /**

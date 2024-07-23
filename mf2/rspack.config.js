@@ -26,6 +26,10 @@ const webpackConfig = {
   },
   output: {
     publicPath: "auto",
+    externals: {
+      react: "React",
+      "react-dom": "ReactDOM",
+    },
   },
   module: {
     rules: [

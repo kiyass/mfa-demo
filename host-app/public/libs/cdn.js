@@ -1,4 +1,32 @@
-// CDN 链接（读取本地配置）
-exports.cdn = {
-  js: ["http://localhost:3000/global/libs/axios@0.24.0/axios.min.js"],
-};
+exports.tags = [
+  {
+    tag: "script",
+    attrs: {
+      defer: true,
+      crossorigin: "anonymous",
+      src: "https://unpkg.com/react@17/umd/react.development.js",
+    },
+    head: true,
+    append: false,
+  },
+  {
+    tag: "script",
+    attrs: {
+      defer: true,
+      crossorigin: "anonymous",
+      src: "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
+    },
+    head: true,
+    append: false,
+  },
+  {
+    tag: "script",
+    attrs: {
+      defer: true,
+      crossorigin: "anonymous",
+      src: "https://unpkg.com/babel-standalone@6/babel.min.js",
+    },
+    head: true,
+    append: false,
+  },
+];

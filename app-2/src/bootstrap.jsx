@@ -20,7 +20,6 @@ const registerMicroAppsData = await mock();
 const { bootstrap, mount, unmount } = startMicroApp({
   appContainer: <App />,
   ReactDOM,
-  mountId: "#app-2",
   registerMicroAppsData,
   handleMount: () => {
     console.log("handleMount");

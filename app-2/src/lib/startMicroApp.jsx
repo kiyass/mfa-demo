@@ -76,7 +76,6 @@ export default function startMicroApp({
   async function bootstrap() {}
 
   async function mount(props) {
-    console.log(props, "jjjj");
     render(props);
     handleMount?.(props);
   }
