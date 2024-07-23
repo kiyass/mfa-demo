@@ -1,7 +1,10 @@
 import { registerMicroApps, runAfterFirstMounted, start } from "qiankun";
+import React from "react";
+import ReactDOM from "react-dom";
 import { renderApp } from "./App";
 import "./store";
-
+window.react = React;
+window.ReactDOM = ReactDOM;
 renderApp();
 
 /**
@@ -26,6 +29,10 @@ registerMicroApps(
     {
       name: "app2",
       entry: "//localhost:3001",
+      entries: {
+        dev: "//localhost:3001",
+        // product:"xx"
+      },
       container: "#subapp",
       activeRule: "/app2",
       props: {

@@ -1,10 +1,10 @@
 import { Button as MuiButton } from "@material-ui/core";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 
 function TestToast() {
-  const handleClick = () => {
-    toast.error("system error");
-  };
+  // const handleClick = () => {
+  //   toast.error("system error");
+  // };
   return (
     <div style={{ margin: 100 }}>
       <MuiButton

@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../App.scss";
 import Header from "../components/AppBar";
@@ -17,7 +17,7 @@ const App = () => {
 };
 
 export const renderApp = () => {
-  render(
+  ReactDOM.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>,

@@ -1,11 +1,3 @@
-/*
- *  Author:
- *  Description:
- */
-/*
- *  Author:
- *  Description:
- */
 /**
  * The react-adapter-runtime-plugin.ts and fallback.js files work together to enable compatibility
  * between different versions of React used by the host and remote modules in a Module Federation setup.
@@ -45,7 +37,10 @@ const runtimePlugin = () => ({
     return args;
   },
   async onLoad(args) {
-    const hostVersion = args.origin.options.shared["react-dom"][0].version;
+    const hostVersion = args.origin.options.shared?.["react-dom"]?.[0]?.version;
+    if (!hostVersion) {
+      return;
+    }
     const remoteInstance = __FEDERATION__.__INSTANCES__.find(
       (instance) => instance.name === args.pkgNameOrAlias
     );

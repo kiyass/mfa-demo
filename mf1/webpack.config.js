@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
-const dependencies = require("./package.json").dependencies;
 
 module.exports = {
   entry: {
@@ -41,12 +40,6 @@ module.exports = {
       exposes: {
         "./Mf1": "./src/Page",
       },
-      //   react: {
-      //     requiredVersion: dependencies["react"],
-      //   },
-      //   "react-dom": {
-      //     requiredVersion: dependencies["react-dom"],
-      //   },
       shared: {
         react: { requiredVersion: false },
         "react-dom": {

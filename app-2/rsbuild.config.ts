@@ -2,6 +2,8 @@ import { defineConfig } from "@rsbuild/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
+
+const requireFromUrl = require("require-from-url/sync");
 const packageName = require("./package.json").name;
 
 export default defineConfig({
@@ -48,6 +50,12 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+  },
+  output: {
+    externals: {
+      react: "react",
+      "react-dom": "ReactDOM",
+    },
   },
   dev: {
     hmr: false,
