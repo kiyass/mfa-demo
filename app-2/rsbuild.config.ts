@@ -1,5 +1,5 @@
-import { defineConfig } from "@rsbuild/core";
 import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
+import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
 
@@ -8,6 +8,43 @@ console.log(process.env.NODE_ENV, "kkk");
 export default defineConfig({
   server: {
     port: 3001,
+  },
+  html: {
+    // tags: [
+    //   {
+    //     tag: "script",
+    //     attrs: {
+    //       defer: true,
+    //       crossorigin: "anonymous",
+    //       src: "https://unpkg.com/react@17/umd/react.development.js",
+    //       ignore: true,
+    //     },
+    //     head: true,
+    //     append: false,
+    //   },
+    //   {
+    //     tag: "script",
+    //     attrs: {
+    //       defer: true,
+    //       crossorigin: "anonymous",
+    //       src: "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
+    //       ignore: true,
+    //     },
+    //     head: true,
+    //     append: false,
+    //   },
+    //   {
+    //     tag: "script",
+    //     attrs: {
+    //       defer: true,
+    //       crossorigin: "anonymous",
+    //       src: "https://unpkg.com/babel-standalone@6/babel.min.js",
+    //       ignore: true,
+    //     },
+    //     head: true,
+    //     append: false,
+    //   },
+    // ],
   },
   output: {
     externals: {
@@ -31,9 +68,14 @@ export default defineConfig({
             mf1: "mf1@http://localhost:7001/remoteEntry.js",
             mf2: "mf2@http://localhost:7002/mf-manifest.json",
           },
-          runtimePlugins: [
-            require.resolve("./react-adapter-runtime-plugin.ts"),
-          ],
+          // runtimePlugins: [require.resolve("./runtime.js")],
+          // shared: {
+          //   react: { requiredVersion: "17.0.2", singleton: true },
+          //   "react-dom": {
+          //     requiredVersion: "17.0.2",
+          //     singleton: true,
+          //   },
+          // },
           shared: {
             react: { requiredVersion: false },
             "react-dom": {

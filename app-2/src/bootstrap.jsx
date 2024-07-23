@@ -1,6 +1,6 @@
-import { startMicroApp } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { startMicroApp } from "./lib";
 
 function mock() {
   return new Promise((resolve, reject) => {
@@ -17,6 +17,7 @@ function mock() {
   });
 }
 const registerMicroAppsData = await mock();
+
 const { bootstrap, mount, unmount } = startMicroApp({
   appContainer: <App />,
   ReactDOM,

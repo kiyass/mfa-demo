@@ -46,6 +46,13 @@ module.exports = {
           requiredVersion: false,
         },
       },
+      // shared: {
+      //   react: { requiredVersion: "17.0.2", singleton: true },
+      //   "react-dom": {
+      //     requiredVersion: "17.0.2",
+      //     singleton: true,
+      //   },
+      // },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

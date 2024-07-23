@@ -54,7 +54,7 @@ const runtimePlugin = () => ({
   async onLoad(args) {
     const hostVersion = args.origin.options.shared?.["react-dom"]?.[0]?.version;
     if (!hostVersion) {
-      return;
+      return args;
     }
     const remoteInstance = __FEDERATION__.__INSTANCES__.find(
       (instance) => instance.name === args.pkgNameOrAlias

@@ -1,5 +1,4 @@
 import Divider from "@material-ui/core/Divider";
-import "./App.scss";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -12,16 +11,15 @@ import {
   createTheme,
   makeStyles,
 } from "@material-ui/core/styles";
+import "./App.scss";
 
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import TestCustomTheme from "./examples/TestCustomTheme";
 import TestDialog from "./examples/TestDialog";
+import TestMf1 from "./examples/TestMf1";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
-import TestMf1 from "./examples/TestMf1";
-import TestMf2 from "./examples/TestMf2";
 import Home from "./pages/Home";
 
 const generateClassName = createGenerateClassName({
@@ -86,7 +84,7 @@ const InnerApp = () => {
         <Divider />
         <div className={classes.testItem}>
           {/* <TestCustomTheme /> */}
-          {/* <TestMf1 /> */}
+          <TestMf1 />
         </div>
         <Divider />
         <div className={classes.testItem}>
