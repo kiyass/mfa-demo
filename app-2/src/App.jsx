@@ -17,6 +17,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
+import TestMf1 from "./examples/TestMf1";
 import TestMf2 from "./examples/TestMf2";
 import TestMf1 from "./examples/TestMf1";
 import TestSelect from "./examples/TestSelect";
