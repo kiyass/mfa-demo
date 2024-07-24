@@ -17,7 +17,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
-import TestMf1 from "./examples/TestMf1";
+import TestMf2 from "./examples/TestMf2";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
@@ -84,7 +84,7 @@ const InnerApp = () => {
         <Divider />
         <div className={classes.testItem}>
           {/* <TestCustomTheme /> */}
-          <TestMf1 />
+          <TestMf2 />
         </div>
         <Divider />
         <div className={classes.testItem}>
@@ -102,7 +102,7 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
-          <Route exact path="/page1" element={<TestMf1 />} />
+          {/* <Route exact path="/page1" element={<TestMf1 />} /> */}
         </Routes>
         <div id="subapp-container"></div>
       </div>

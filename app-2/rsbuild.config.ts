@@ -5,6 +5,7 @@ import { pluginSass } from "@rsbuild/plugin-sass";
 
 const packageName = require("./package.json").name;
 console.log(process.env.NODE_ENV, "kkk");
+
 export default defineConfig({
   server: {
     port: 3001,
@@ -68,18 +69,14 @@ export default defineConfig({
             mf1: "mf1@http://localhost:7001/remoteEntry.js",
             mf2: "mf2@http://localhost:7002/mf-manifest.json",
           },
-          // runtimePlugins: [require.resolve("./runtime.js")],
-          // shared: {
-          //   react: { requiredVersion: "17.0.2", singleton: true },
-          //   "react-dom": {
-          //     requiredVersion: "17.0.2",
-          //     singleton: true,
-          //   },
-          // },
+          runtimePlugins: [
+            require.resolve("./react-adapter-runtime-plugin.js"),
+          ],
           shared: {
-            react: { requiredVersion: false },
+            react: { requiredVersion: "17.0.2", singleton: true },
             "react-dom": {
-              requiredVersion: false,
+              requiredVersion: "17.0.2",
+              singleton: true,
             },
           },
         }),

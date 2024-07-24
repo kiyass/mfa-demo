@@ -24,45 +24,47 @@
 
 const runtimePlugin = () => ({
   name: "my-runtime-plugin",
-  // resolveShare(args) {
-  //   console.log("[xxx] resolveShare: ", args);
+  resolveShare(args) {
+    console.log("[build time inject] resolveShare: ", args);
 
-  //   const { shareScopeMap, scope, pkgName, version } = args;
+    // const { shareScopeMap, scope, pkgName, version } = args;
 
-  //   if (!["react", "react-dom"].includes(pkgName)) {
-  //     return args;
-  //   }
-  //   console.log(args, "args");
-  //   args.resolver = function () {
-  //     shareScopeMap[scope][pkgName][version] =
-  //       pkgName === "react" ? window.React : window.ReactDOM; // replace local share scope manually with desired module
-  //     return shareScopeMap[scope][pkgName][version];
-  //   };
-  //   return args;
-  // },
+    // if (!["react", "react-dom"].includes(pkgName)) {
+    //   return args;
+    // }
+    // console.log(args, "args");
+    // args.resolver = function () {
+    //   shareScopeMap[scope][pkgName][version] =
+    //     pkgName === "react" ? window.React : window.ReactDOM; // replace local share scope manually with desired module
+    //   return shareScopeMap[scope][pkgName][version];
+    // };
+    return args;
+  },
   beforeInit(args) {
-    console.log("[xxx] beforeInit: ", args);
+    console.log("[build time inject] beforeInit: ", args);
     return args;
   },
   init(args) {
-    console.log("[xxx] init: ", args);
+    console.log("[build time inject] init: ", args);
     return args;
   },
   loadRemote(args) {
-    console.log("[xxx] loadRemote: ", args);
+    console.log("[build time inject] loadRemote: ", args);
     return args;
   },
   afterResolve(args) {
-    console.log("[xxx] afterResolve: ", args);
+    console.log("[build time inject] afterResolve: ", args);
 
     return args;
   },
   async onLoad(args) {
-    console.log("[xxx] onLoad: ", args, __FEDERATION__.__INSTANCES__);
-    //  TODO window.react
-    const hostVersion = "17.0.2";
-    console.log(__FEDERATION__.__INSTANCES__, "hostVersion");
+    console.log("[build time inject] onLoad: ", args);
 
+    const hostVersion = args.origin.options.shared?.["react-dom"]?.[0]?.version;
+    console.log(__FEDERATION__.__INSTANCES__, "hostVersion");
+    if (!hostVersion) {
+      return;
+    }
     const remoteInstance = __FEDERATION__.__INSTANCES__.find(
       (instance) => instance.name === args.pkgNameOrAlias
     );
@@ -71,7 +73,7 @@ const runtimePlugin = () => ({
       ? remoteInstance?.options?.shared?.["react-dom"]?.[0]?.version
       : false;
 
-    if (remoteVersion && hostVersion && remoteInstance) {
+    if (remoteVersion && hostVersion && remoteVersion !== hostVersion) {
       const remoteReactDOMVersion = await remoteInstance.loadShare(
         "react-dom",
         {
@@ -105,7 +107,7 @@ const runtimePlugin = () => ({
     return args;
   },
   async beforeLoadShare(args) {
-    console.log("[xxx] beforeLoadShare: ", args);
+    console.log("[build time inject] beforeLoadShare: ", args);
 
     return args;
   },
