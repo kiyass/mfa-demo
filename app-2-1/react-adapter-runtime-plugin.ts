@@ -25,37 +25,44 @@
 const runtimePlugin = () => ({
   name: "my-runtime-plugin",
   // resolveShare(args) {
+  //   console.log("[xxx] resolveShare: ", args);
+
   //   const { shareScopeMap, scope, pkgName, version } = args;
 
   //   if (!["react", "react-dom"].includes(pkgName)) {
   //     return args;
   //   }
-
+  //   console.log(args, "args");
   //   args.resolver = function () {
   //     shareScopeMap[scope][pkgName][version] =
   //       pkgName === "react" ? window.React : window.ReactDOM; // replace local share scope manually with desired module
   //     return shareScopeMap[scope][pkgName][version];
   //   };
-
   //   return args;
   // },
   beforeInit(args) {
+    console.log("[xxx] beforeInit: ", args);
     return args;
   },
   init(args) {
+    console.log("[xxx] init: ", args);
     return args;
   },
   loadRemote(args) {
+    console.log("[xxx] loadRemote: ", args);
     return args;
   },
   afterResolve(args) {
+    console.log("[xxx] afterResolve: ", args);
+
     return args;
   },
   async onLoad(args) {
-    const hostVersion = args.origin.options.shared?.["react-dom"]?.[0]?.version;
-    if (!hostVersion) {
-      return;
-    }
+    console.log("[xxx] onLoad: ", args, __FEDERATION__.__INSTANCES__);
+    //  TODO window.react
+    const hostVersion = "17.0.2";
+    console.log(__FEDERATION__.__INSTANCES__, "hostVersion");
+
     const remoteInstance = __FEDERATION__.__INSTANCES__.find(
       (instance) => instance.name === args.pkgNameOrAlias
     );
@@ -64,7 +71,7 @@ const runtimePlugin = () => ({
       ? remoteInstance?.options?.shared?.["react-dom"]?.[0]?.version
       : false;
 
-    if (remoteVersion && hostVersion && remoteVersion !== hostVersion) {
+    if (remoteVersion && hostVersion && remoteInstance) {
       const remoteReactDOMVersion = await remoteInstance.loadShare(
         "react-dom",
         {
@@ -98,6 +105,8 @@ const runtimePlugin = () => ({
     return args;
   },
   async beforeLoadShare(args) {
+    console.log("[xxx] beforeLoadShare: ", args);
+
     return args;
   },
 });
