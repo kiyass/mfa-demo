@@ -13,7 +13,7 @@ function mock() {
           activeRule: "/app-2-1",
         },
       ]);
-    }, 2000);
+    }, 200);
   });
 }
 const registerMicroAppsData = await mock();
