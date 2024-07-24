@@ -59,7 +59,6 @@ const runtimePlugin = () => ({
   },
   async onLoad(args) {
     console.log("[xxx] onLoad: ", args, __FEDERATION__.__INSTANCES__);
-    //  TODO window.react
     const hostVersion = "17.0.2";
     console.log(__FEDERATION__.__INSTANCES__, "hostVersion");
 
@@ -90,7 +89,6 @@ const runtimePlugin = () => ({
           sharedOptions.find((i) => i.version === remoteVersion) ??
           sharedOptions[0],
       });
-      console.log(remoteReactVersion(), "remoteReactVersion");
       const res = (await import("./fallback.js")).default;
 
       return () =>

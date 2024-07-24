@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
-import * as echarts from "echarts";
+// import * as echarts from "echarts";
 
 const getOption = () => {
   return {
