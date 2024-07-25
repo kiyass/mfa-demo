@@ -41,7 +41,7 @@ module.exports = {
         "./Mf1": "./src/Page",
       },
       shared: {
-        react: { requiredVersion: false },
+        react: { requiredVersion: "17.0.2" },
         "react-dom": {
           requiredVersion: false,
         },

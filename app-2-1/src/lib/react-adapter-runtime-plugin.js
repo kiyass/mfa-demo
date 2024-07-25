@@ -28,6 +28,7 @@ const runtimePlugin = () => ({
     return args;
   },
   init(args) {
+    console.log(args, "initargsargsargs");
     return args;
   },
   loadRemote(args) {
@@ -36,12 +37,17 @@ const runtimePlugin = () => ({
   afterResolve(args) {
     return args;
   },
-  async onLoad(args) {
+  async onLoad(args, a) {
+    console.log(args, a, "args");
     const hostVersion = "17.0.2";
-    console.log(args, "argsargsargs");
-    const remoteInstance = __FEDERATION__.__INSTANCES__.find(
-      (instance) => instance.name === args.pkgNameOrAlias
-    );
+    const remoteInstance =
+      __FEDERATION__.__INSTANCES__.find(
+        (instance) => instance.name === args.pkgNameOrAlias // !mf1
+      ) ??
+      __FEDERATION__.__INSTANCES__.find(
+        (instance) => instance.options.shared?.["react-dom"]
+      );
+
     const remoteVersion = remoteInstance
       ? remoteInstance?.options?.shared?.["react-dom"]?.[0]?.version
       : false;
@@ -51,7 +57,6 @@ const runtimePlugin = () => ({
         "react-dom",
         {
           resolver: (sharedOptions) => {
-            console.log(sharedOptions, "sharedOptions");
             return (
               sharedOptions.find((i) => i.version === remoteVersion) ??
               sharedOptions[0]

@@ -80,9 +80,7 @@ export default function defineConfig({ packageName, ...config }: Config) {
               "Access-Control-Allow-Origin": "*",
             },
             historyApiFallback: true,
-            hot: false,
             watchContentBase: false,
-            liveReload: false,
           },
         },
       },
@@ -95,5 +93,8 @@ export default function defineConfig({ packageName, ...config }: Config) {
   );
 }
 
-type ModuleFederationPluginOptions = Rspack.ModuleFederationPluginOptions;
+interface ModuleFederationPluginOptions
+  extends Rspack.ModuleFederationPluginOptions {
+  dts: boolean;
+}
 export type { ModuleFederationPluginOptions };

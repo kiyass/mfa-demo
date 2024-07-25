@@ -24,48 +24,30 @@
 
 const runtimePlugin = () => ({
   name: "my-runtime-plugin",
-  // resolveShare(args) {
-  //   console.log("[xxx] resolveShare: ", args);
-
-  //   const { shareScopeMap, scope, pkgName, version } = args;
-
-  //   if (!["react", "react-dom"].includes(pkgName)) {
-  //     return args;
-  //   }
-  //   console.log(args, "args");
-  //   args.resolver = function () {
-  //     shareScopeMap[scope][pkgName][version] =
-  //       pkgName === "react" ? window.React : window.ReactDOM; // replace local share scope manually with desired module
-  //     return shareScopeMap[scope][pkgName][version];
-  //   };
-  //   return args;
-  // },
   beforeInit(args) {
-    console.log("[xxx] beforeInit: ", args);
     return args;
   },
   init(args) {
-    console.log("[xxx] init: ", args);
+    console.log(args, "initargsargsargs");
     return args;
   },
   loadRemote(args) {
-    console.log("[xxx] loadRemote: ", args);
     return args;
   },
   afterResolve(args) {
-    console.log("[xxx] afterResolve: ", args);
-
     return args;
   },
-  async onLoad(args) {
-    console.log("[xxx] onLoad: ", args, __FEDERATION__.__INSTANCES__);
+  async onLoad(args, a) {
+    console.log(args, a, "args");
     const hostVersion = "17.0.2";
-    console.log(__FEDERATION__.__INSTANCES__, "hostVersion");
+    const remoteInstance =
+      __FEDERATION__.__INSTANCES__.find(
+        (instance) => instance.name === args.pkgNameOrAlias // !mf1
+      ) ??
+      __FEDERATION__.__INSTANCES__.find(
+        (instance) => instance.options.shared?.["react-dom"]
+      );
 
-    const remoteInstance = __FEDERATION__.__INSTANCES__.find(
-      (instance) => instance.name === args.pkgNameOrAlias
-    );
-    console.log(remoteInstance, "remoteInstance");
     const remoteVersion = remoteInstance
       ? remoteInstance?.options?.shared?.["react-dom"]?.[0]?.version
       : false;
@@ -75,7 +57,6 @@ const runtimePlugin = () => ({
         "react-dom",
         {
           resolver: (sharedOptions) => {
-            console.log(sharedOptions, "sharedOptions");
             return (
               sharedOptions.find((i) => i.version === remoteVersion) ??
               sharedOptions[0]
@@ -103,8 +84,6 @@ const runtimePlugin = () => ({
     return args;
   },
   async beforeLoadShare(args) {
-    console.log("[xxx] beforeLoadShare: ", args);
-
     return args;
   },
 });

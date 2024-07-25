@@ -7,7 +7,6 @@ const withVersions = (
   remoteReactVersion
 ) => {
   const ReactDOM = remoteReactDOMVersion();
-  console.log("xxxx");
   const React = remoteReactVersion();
 
   class WrappedComponent extends React.Component {

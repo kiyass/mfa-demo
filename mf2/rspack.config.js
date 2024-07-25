@@ -24,12 +24,12 @@ const webpackConfig = {
         "X-Requested-With, content-type, Authorization",
     },
   },
+  // externals: {
+  //   react: "React",
+  //   "react-dom": "ReactDOM",
+  // },
   output: {
     publicPath: "auto",
-    externals: {
-      react: "React",
-      "react-dom": "ReactDOM",
-    },
   },
   module: {
     rules: [
@@ -77,13 +77,6 @@ const webpackConfig = {
         },
       },
       runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.ts")],
-      // shared: {
-      //   react: { requiredVersion: "17.0.2", singleton: true },
-      //   "react-dom": {
-      //     requiredVersion: "17.0.2",
-      //     singleton: true,
-      //   },
-      // },
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
