@@ -3,7 +3,7 @@
  *  Description:
  */
 import React, { useState, useEffect } from "react";
-import Mf1 from "mf1/Mf1";
+// import Mf1 from "mf1/Mf1";
 import TestEcharts from "appx/TestEcharts";
 import { a } from "mf3/utils";
 
@@ -17,7 +17,7 @@ export default () => {
       >
         xxx
       </button>
-      <Mf1 />
+      {/* <Mf1 /> */}
 
       <TestEcharts />
     </div>

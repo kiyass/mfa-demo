@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useId } from "react";
-import Mf1 from "mf1/Mf1";
+// import Mf1 from "mf1/Mf1";
 import { a } from "mf3/utils";
 // webopack mf1 16   , shareScorpe 18
 export default () => {
@@ -13,7 +13,7 @@ export default () => {
       >
         MF1
       </button>
-      <Mf1 />
+      {/* <Mf1 /> */}
     </div>
   );
 };
