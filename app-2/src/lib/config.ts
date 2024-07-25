@@ -95,6 +95,6 @@ export default function defineConfig({ packageName, ...config }: Config) {
 
 interface ModuleFederationPluginOptions
   extends Rspack.ModuleFederationPluginOptions {
-  dts: boolean;
+  dts?: boolean;
 }
 export type { ModuleFederationPluginOptions };

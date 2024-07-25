@@ -28,7 +28,7 @@ const runtimePlugin = () => ({
     return args;
   },
   init(args) {
-    console.log(args, "initargsargsargs");
+    console.log(args, "argsargsargs");
     return args;
   },
   loadRemote(args) {
@@ -38,7 +38,6 @@ const runtimePlugin = () => ({
     return args;
   },
   async onLoad(args, a) {
-    // https://www.npmjs.com/package/semver
     console.log(args, a, "args");
     const hostVersion = "17.0.2";
     const remoteInstance =

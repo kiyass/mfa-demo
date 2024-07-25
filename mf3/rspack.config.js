@@ -3,7 +3,6 @@ const {
   ModuleFederationPlugin,
 } = require("@module-federation/enhanced/rspack");
 const path = require("path");
-const dependencies = require("./package.json").dependencies;
 
 /**
  * @type {import('webpack').Configuration}
@@ -16,7 +15,7 @@ const webpackConfig = {
       directory: path.join(__dirname, "dist"),
     },
     hot: true,
-    port: 7002,
+    port: 7003,
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -24,10 +23,6 @@ const webpackConfig = {
         "X-Requested-With, content-type, Authorization",
     },
   },
-  // externals: {
-  //   react: "React",
-  //   "react-dom": "ReactDOM",
-  // },
   output: {
     publicPath: "auto",
   },
@@ -63,24 +58,13 @@ const webpackConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "mf2",
-      library: { type: "umd", name: "mf2" },
+      name: "mf3",
+      library: { type: "umd", name: "mf3" },
       filename: "remoteEntry.js",
       remoteType: "script",
       exposes: {
-        "./Mf2": "./src/components/ModernReactComponent",
+        "./utils": "./src/index.js",
       },
-      remotes: {
-        mf3: "mf3@http://localhost:7003/remoteEntry.js",
-      },
-      shared: {
-        react: { requiredVersion: false },
-        "react-dom": {
-          requiredVersion: false,
-        },
-      },
-      dts: false,
-      runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.ts")],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

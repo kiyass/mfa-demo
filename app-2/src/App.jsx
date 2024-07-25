@@ -85,7 +85,7 @@ const InnerApp = () => {
         <Divider />
         <div className={classes.testItem}>
           {/* <TestCustomTheme /> */}
-          <TestMf2 />
+          <TestMf1 />
         </div>
         <Divider />
         <div className={classes.testItem}>

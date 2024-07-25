@@ -36,6 +36,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         mf2: "mf2@http://localhost:7002/remoteEntry.js",
+        mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       exposes: {
         "./Mf1": "./src/Page",

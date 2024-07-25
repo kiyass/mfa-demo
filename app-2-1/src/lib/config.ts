@@ -6,7 +6,8 @@ import {
 import type { Rspack } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
-
+const { tags } = require("./cdn");
+const { externals } = require("./externals");
 interface Config extends RsbuildConfig {
   packageName: string;
 }
@@ -25,47 +26,10 @@ export default function defineConfig({ packageName, ...config }: Config) {
     define({
       moduleFederation: mfConfig,
       html: {
-        tags: [
-          {
-            tag: "script",
-            attrs: {
-              defer: true,
-              crossorigin: "anonymous",
-              src: "https://unpkg.com/react@17/umd/react.development.js",
-              ignore: true,
-            },
-            head: true,
-            append: false,
-          },
-          {
-            tag: "script",
-            attrs: {
-              defer: true,
-              crossorigin: "anonymous",
-              src: "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
-              ignore: true,
-            },
-            head: true,
-            append: false,
-          },
-          {
-            tag: "script",
-            attrs: {
-              defer: true,
-              crossorigin: "anonymous",
-              src: "https://unpkg.com/babel-standalone@6/babel.min.js",
-              ignore: true,
-            },
-            head: true,
-            append: false,
-          },
-        ],
+        tags,
       },
       output: {
-        externals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
+        externals,
       },
       tools: {
         rspack: {
