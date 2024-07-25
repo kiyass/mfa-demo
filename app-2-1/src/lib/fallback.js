@@ -1,28 +1,4 @@
-/*
- *  Author:
- *  Description:
- */
-/*
- *  Author:
- *  Description:
- */
 import React from "react";
-
-class Component extends React.Component {
-  render() {
-    const { hostV, remoteV, containerRef } = this.props;
-    return (
-      <div>
-        <p style={{ color: "red" }}>
-          In RUNTIME PLUGIN WRAPPER <br />
-          Host React: {hostV} Remote React: {remoteV}
-        </p>
-        <div ref={containerRef} />
-      </div>
-    );
-  }
-}
-
 const withVersions = (
   Original,
   remoteVersion,
@@ -31,6 +7,7 @@ const withVersions = (
   remoteReactVersion
 ) => {
   const ReactDOM = remoteReactDOMVersion();
+  console.log("xxxx");
   const React = remoteReactVersion();
 
   class WrappedComponent extends React.Component {
@@ -57,13 +34,7 @@ const withVersions = (
     }
 
     render() {
-      return (
-        <Component
-          hostV={hostVersion}
-          remoteV={remoteVersion}
-          containerRef={this.containerRef}
-        />
-      );
+      return <div ref={this.containerRef} />;
     }
   }
 

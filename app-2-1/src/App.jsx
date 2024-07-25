@@ -6,7 +6,6 @@ import BasicLayout from "./components/BasicLayout";
 import ModalProvider from "mui-modal-provider";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import { getBaseUrl } from "./getBaseUrl";
 import TestDialog from "./examples/TestDialog";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";

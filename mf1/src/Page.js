@@ -6,9 +6,10 @@ const arr = new Array(100).fill(0);
 console.log("react", window.React === React, React, window.React);
 
 const List = React.memo(() => {
-  // useEffect(() => {
-  //   console.log("xxxxx");
-  // }, []);
+  useEffect(() => {
+    console.log("xxxxx");
+  }, []);
+
   return (
     <div style={{ color: "#000" }}>
       <Mf2 />

@@ -318,6 +318,13 @@
   dependencies:
     "tslib" "^2.4.0"
 
+"@types/node@^20.14.12":
+  "integrity" "sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ=="
+  "resolved" "https://registry.npmmirror.com/@types/node/-/node-20.14.12.tgz"
+  "version" "20.14.12"
+  dependencies:
+    "undici-types" "~5.26.4"
+
 "@types/prop-types@*":
   "integrity" "sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q=="
   "resolved" "https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.12.tgz"
@@ -1447,6 +1454,11 @@
   "integrity" "sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ=="
   "resolved" "https://registry.npmmirror.com/typescript/-/typescript-5.5.3.tgz"
   "version" "5.5.3"
+
+"undici-types@~5.26.4":
+  "integrity" "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA=="
+  "resolved" "https://registry.npmmirror.com/undici-types/-/undici-types-5.26.5.tgz"
+  "version" "5.26.5"
 
 "universalify@^0.1.0":
   "integrity" "sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg=="

@@ -24,44 +24,22 @@
 
 const runtimePlugin = () => ({
   name: "my-runtime-plugin",
-  resolveShare(args) {
-    console.log("[build time inject] resolveShare: ", args);
-
-    // const { shareScopeMap, scope, pkgName, version } = args;
-
-    // if (!["react", "react-dom"].includes(pkgName)) {
-    //   return args;
-    // }
-    // console.log(args, "args");
-    // args.resolver = function () {
-    //   shareScopeMap[scope][pkgName][version] =
-    //     pkgName === "react" ? window.React : window.ReactDOM; // replace local share scope manually with desired module
-    //   return shareScopeMap[scope][pkgName][version];
-    // };
-    return args;
-  },
   beforeInit(args) {
-    console.log("[build time inject] beforeInit: ", args);
     return args;
   },
   init(args) {
-    console.log("[build time inject] init: ", args);
     return args;
   },
   loadRemote(args) {
-    console.log("[build time inject] loadRemote: ", args);
     return args;
   },
   afterResolve(args) {
-    console.log("[build time inject] afterResolve: ", args);
-
     return args;
   },
   async onLoad(args) {
     console.log("[build time inject] onLoad: ", args);
 
     const hostVersion = args.origin.options.shared?.["react-dom"]?.[0]?.version;
-    console.log(__FEDERATION__.__INSTANCES__, "hostVersion");
     if (!hostVersion) {
       return;
     }
@@ -78,7 +56,6 @@ const runtimePlugin = () => ({
         "react-dom",
         {
           resolver: (sharedOptions) => {
-            console.log(sharedOptions, "sharedOptions");
             return (
               sharedOptions.find((i) => i.version === remoteVersion) ??
               sharedOptions[0]
@@ -92,7 +69,6 @@ const runtimePlugin = () => ({
           sharedOptions.find((i) => i.version === remoteVersion) ??
           sharedOptions[0],
       });
-      console.log(remoteReactVersion(), "remoteReactVersion");
       const res = (await import("./fallback.js")).default;
 
       return () =>
@@ -107,8 +83,6 @@ const runtimePlugin = () => ({
     return args;
   },
   async beforeLoadShare(args) {
-    console.log("[build time inject] beforeLoadShare: ", args);
-
     return args;
   },
 });
