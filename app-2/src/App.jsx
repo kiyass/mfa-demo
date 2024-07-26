@@ -84,7 +84,14 @@ const InnerApp = () => {
             </ListItemIcon>
             <ListItemText primary={"app-2-1"} />
           </ListItem>
+          <ListItem button onClick={() => handleClick("/app-2-2")}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary={"app-2-2"} />
+          </ListItem>
         </List>
+
         <Divider />
         <div className={classes.testItem}>
           {/* <TestCustomTheme /> */}
