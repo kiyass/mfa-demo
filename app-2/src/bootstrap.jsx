@@ -12,6 +12,12 @@ function mock() {
           container: "#subapp-container",
           activeRule: "/app-2-1",
         },
+        {
+          name: "app-2-2",
+          entry: "//localhost:8022",
+          container: "#subapp-container",
+          activeRule: "/app-2-2",
+        },
       ]);
     }, 200);
   });
