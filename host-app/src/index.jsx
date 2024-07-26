@@ -1,3 +1,1 @@
-import "./qiankun";
-
-// import "./wujie";
+import("./qiankun/bootstrap");

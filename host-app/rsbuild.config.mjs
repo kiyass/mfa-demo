@@ -1,18 +1,10 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
-const { tags } = require("./public/libs/cdn");
-const { externals } = require("./public/libs/externals");
 
 export default defineConfig({
   server: {
     port: 3000,
-  },
-  output: {
-    externals,
-  },
-  html: {
-    tags,
   },
   tools: {
     rspack: {
@@ -24,6 +16,17 @@ export default defineConfig({
         hot: false,
         watchContentBase: false,
         liveReload: false,
+      },
+    },
+  },
+  moduleFederation: {
+    options: {
+      name: "host",
+      shared: {
+        react: { requiredVersion: false },
+        "react-dom": {
+          requiredVersion: false,
+        },
       },
     },
   },
