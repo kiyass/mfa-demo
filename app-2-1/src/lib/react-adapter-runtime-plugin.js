@@ -38,7 +38,7 @@ const runtimePlugin = () => ({
     return args;
   },
   async onLoad(args, a) {
-    console.log(args, a, "args");
+    console.log(__FEDERATION__.__INSTANCES__, "args");
     const hostVersion = "17.0.2";
     const remoteInstance =
       __FEDERATION__.__INSTANCES__.find(

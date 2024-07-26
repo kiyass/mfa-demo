@@ -24,10 +24,6 @@ const webpackConfig = {
         "X-Requested-With, content-type, Authorization",
     },
   },
-  // externals: {
-  //   react: "React",
-  //   "react-dom": "ReactDOM",
-  // },
   output: {
     publicPath: "auto",
   },

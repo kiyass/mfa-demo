@@ -2,10 +2,10 @@ import defineConfig from "./src/lib/config";
 import { mfConfig } from "./moduleFederation.config";
 import { pluginStyledComponents } from "@rsbuild/plugin-styled-components";
 
-const packageName = require("./package.json").name;
+const packageJson = require("./package.json");
 
 export default defineConfig({
-  packageName,
+  packageJson,
   server: {
     port: 8021,
     host: "localhost",

@@ -6,12 +6,25 @@ import {
 import type { Rspack } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
+
 const { tags } = require("./cdn");
 const { externals } = require("./externals");
 interface Config extends RsbuildConfig {
-  packageName: string;
+  packageJson: {
+    name: "string";
+    dependencies: {
+      [key: string]: string;
+    };
+  };
 }
-export default function defineConfig({ packageName, ...config }: Config) {
+
+export default function defineConfig({ packageJson, ...config }: Config) {
+  const { name, dependencies } = packageJson;
+  console.log(dependencies, "dependencies");
+  // let tags = [];
+  // for (const key in dependencies) {
+  // }
+
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
     mfConfig = {
@@ -34,10 +47,10 @@ export default function defineConfig({ packageName, ...config }: Config) {
       tools: {
         rspack: {
           output: {
-            library: `${packageName}-[name]`,
+            library: `${name}-[name]`,
             libraryTarget: "umd",
             globalObject: "window",
-            chunkLoadingGlobal: `webpackJsonp_${packageName}`,
+            chunkLoadingGlobal: `webpackJsonp_${name}`,
           },
           devServer: {
             headers: {

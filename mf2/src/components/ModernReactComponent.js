@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { a } from "mf3/utils";
-console.log(a);
+// import { a } from "mf3/utils";
+// console.log(a);
 const ModernReactComponent = (props) => {
   const { children, input } = props;
 
