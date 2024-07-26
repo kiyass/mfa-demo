@@ -46,6 +46,10 @@ module.exports = {
         "react-dom": {
           requiredVersion: false,
         },
+        "react-router-dom": {
+          requiredVersion: false,
+          shareScope: "17.0.2",
+        },
       },
     }),
     new HtmlWebpackPlugin({

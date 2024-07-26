@@ -19,14 +19,14 @@ exports.tags = [
     head: true,
     append: false,
   },
-  {
-    tag: "script",
-    attrs: {
-      defer: true,
-      crossorigin: "anonymous",
-      src: "https://unpkg.com/babel-standalone@6/babel.min.js",
-    },
-    head: true,
-    append: false,
-  },
+  // {
+  //   tag: "script",
+  //   attrs: {
+  //     defer: true,
+  //     crossorigin: "anonymous",
+  //     src: "https://unpkg.com/babel-standalone@6/babel.min.js",
+  //   },
+  //   head: true,
+  //   append: false,
+  // },
 ];
