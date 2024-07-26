@@ -1,21 +1,24 @@
-import React, { Suspense } from "react";
-import "./App.scss";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BasicLayout from "./components/BasicLayout";
 import ModalProvider from "mui-modal-provider";
-import "react-toastify/dist/ReactToastify.css";
+import React, { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import TestDialog from "./examples/TestDialog";
-import TestToast from "./examples/TestToast";
-import TestTooltip from "./examples/TestTooltip";
-import TestSelect from "./examples/TestSelect";
-import TestEditor from "./examples/TestEditor";
-import TestVideo from "./examples/TestVideo";
-import TestEcharts from "./examples/TestEcharts";
-import TestCssinJs from "./examples/TestCssinJs";
-import TestMf1 from "./examples/TestMf1";
-import TestMf2 from "./examples/TestMf2";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.scss";
+import BasicLayout from "./components/BasicLayout";
+import TestMf4 from "./examples/TestMf4";
+
+import { init } from "@module-federation/runtime";
+
+init({
+  name: "app22",
+  remotes: [
+    {
+      name: "mf4",
+      entry: "http://localhost:7004/remoteEntry.js",
+    },
+  ],
+});
 
 const theme = createTheme({
   components: {
@@ -52,16 +55,8 @@ const App = () => {
         <Suspense fallback="loading">
           <BasicLayout>
             <Routes>
-              <Route path="/" element={<TestDialog />} />
-              <Route path="/cssinjs" element={<TestCssinJs />} />
-              <Route path="/toastMessage" element={<TestToast />} />
-              <Route path="/tooltip" element={<TestTooltip />} />
-              <Route path="/select" element={<TestSelect />} />
-              <Route path="/editor" element={<TestEditor />} />
-              <Route path="/video" element={<TestVideo />} />
-              <Route path="/echart" element={<TestEcharts />} />
-              <Route path="/mf1" element={<TestMf1 />} />
-              <Route path="/mf2" element={<TestMf2 />} />
+              <Route path="/" element={<div>home</div>} />
+              <Route path="/mf4" element={<TestMf4 />} />
             </Routes>
           </BasicLayout>
         </Suspense>

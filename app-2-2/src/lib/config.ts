@@ -1,9 +1,9 @@
+import type { Rspack } from "@rsbuild/core";
 import {
-  defineConfig as define,
   RsbuildConfig,
+  defineConfig as define,
   mergeRsbuildConfig,
 } from "@rsbuild/core";
-import type { Rspack } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
 
@@ -25,19 +25,19 @@ export default function defineConfig({ packageJson, ...config }: Config) {
   // for (const key in dependencies) {
   // }
 
-  let mfConfig = undefined;
-  if (config.moduleFederation?.options?.name) {
-    mfConfig = {
-      options: {
-        name: config.moduleFederation.options.name,
-        runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
-      },
-    };
-  }
+  // let mfConfig = undefined;
+  // if (config.moduleFederation?.options?.name) {
+  //   mfConfig = {
+  //     options: {
+  //       name: config.moduleFederation.options.name,
+  //       runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
+  //     },
+  //   };
+  // }
   return mergeRsbuildConfig(
     define(config),
     define({
-      moduleFederation: mfConfig,
+      // moduleFederation: mfConfig,
       html: {
         tags,
       },

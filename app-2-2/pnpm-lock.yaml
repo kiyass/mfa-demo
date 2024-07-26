@@ -14,6 +14,9 @@ dependencies:
   '@module-federation/enhanced':
     specifier: ^0.2.6
     version: 0.2.6(typescript@5.5.3)
+  '@module-federation/runtime':
+    specifier: ^0.3.1
+    version: 0.3.1
   '@mui/material':
     specifier: ^5.16.1
     version: 5.16.4(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@17.0.80)(react-dom@17.0.2)(react@17.0.2)
@@ -579,12 +582,22 @@ packages:
       '@module-federation/sdk': 0.2.6
     dev: false
 
+  /@module-federation/runtime@0.3.1:
+    resolution: {integrity: sha512-iAw6+I1908B2eZ+PblKd8xfaFIKqHwfBJk83LQvF7TZZyHq8Bt176TgqxfNgc0p8oyeTiJx3htw5eFaE9izVJA==}
+    dependencies:
+      '@module-federation/sdk': 0.3.1
+    dev: false
+
   /@module-federation/sdk@0.2.3:
     resolution: {integrity: sha512-W9zrPchLocyCBc/B8CW21akcfJXLl++9xBe1L1EtgxZGfj/xwHt0GcBWE/y+QGvYTL2a1iZjwscbftbUhxgxXg==}
     dev: true
 
   /@module-federation/sdk@0.2.6:
     resolution: {integrity: sha512-PvMWzEILKRKrmB3olRWNTfCJVoNHbDMa1l3/mE4eZUlerTjeP+H5QIxHXstFz7679WZ1Cq/cMrku/L+jP6NXxw==}
+    dev: false
+
+  /@module-federation/sdk@0.3.1:
+    resolution: {integrity: sha512-O2y4oayGqoxzIKBunvSdE17czUkWLha+1UyO0XYq1+y/YFMSMp1pIOx9AbSNWYUOGqP9Xo80kL9kZGa32QxMow==}
     dev: false
 
   /@module-federation/third-party-dts-extractor@0.2.6:

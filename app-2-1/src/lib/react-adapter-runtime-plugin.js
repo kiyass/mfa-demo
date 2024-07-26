@@ -48,6 +48,14 @@ const runtimePlugin = () => ({
         (instance) => instance.options.shared?.["react-dom"]
       );
 
+    console.log(
+      "remote",
+      args.pkgNameOrAlias,
+      __FEDERATION__.__INSTANCES__.find(
+        (instance) => instance.name === args.pkgNameOrAlias // !mf1
+      )
+    );
+
     const remoteVersion = remoteInstance
       ? remoteInstance?.options?.shared?.["react-dom"]?.[0]?.version
       : false;
