@@ -33,6 +33,7 @@ export default defineConfig({
   dev: {
     hmr: false,
     liveReload: false,
+    assetPrefix: "http://localhost:3000/",
   },
   plugins: [pluginReact(), pluginSass()],
 });

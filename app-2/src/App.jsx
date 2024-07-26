@@ -45,6 +45,7 @@ const useStyles = makeStyles({
   menu: {
     width: "240px",
     background: "#afbcc5",
+    height: "calc(100vh - 64px)",
   },
   testItem: {
     padding: "10px",
