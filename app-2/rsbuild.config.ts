@@ -1,9 +1,9 @@
 import defineConfig from "./src/lib/config";
 import { mfConfig } from "./moduleFederation.config";
-const packageName = require("./package.json").name;
+const packageJson = require("./package.json");
 
 export default defineConfig({
-  packageName,
+  packageJson,
   server: {
     port: 3001,
   },

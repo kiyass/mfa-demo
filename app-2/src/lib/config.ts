@@ -6,11 +6,56 @@ import {
 import type { Rspack } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
+const semver = require("semver");
 
-interface Config extends RsbuildConfig {
-  packageName: string;
+function getMajorVersion(versionRange: string) {
+  // 获取主要版本号
+  const majorVersion = semver.parse(versionRange.replace(/^[^0-9]+/, "")).major;
+  return majorVersion;
 }
-export default function defineConfig({ packageName, ...config }: Config) {
+
+const { externals } = require("./externals");
+interface Config extends RsbuildConfig {
+  packageJson: {
+    name: "string";
+    dependencies: {
+      [key: string]: string;
+    };
+  };
+}
+
+export default function defineConfig({ packageJson, ...config }: Config) {
+  const { name, dependencies } = packageJson;
+  let tags = [];
+  let newExternals: {
+    [key: string]: string;
+  } = {};
+  for (const key in externals) {
+    if (dependencies[key]) {
+      const majorVersion = getMajorVersion(dependencies[key]);
+      let src = undefined;
+      if (["react", "react-dom"].includes(key)) {
+        src = `https://unpkg.com/${key}@${majorVersion}/umd/${key}.development.js`;
+      } else if (["axios"].includes(key)) {
+        src = `https://unpkg.com/${key}@${majorVersion}/dist/${key}.js`;
+      } else {
+        src = `https://unpkg.com/${key}@${majorVersion}/${key}.js`;
+      }
+
+      tags.push({
+        tag: "script",
+        attrs: {
+          defer: true,
+          crossorigin: "anonymous",
+          src,
+        },
+        head: true,
+        append: false,
+      });
+      newExternals[key] = externals[key];
+    }
+  }
+
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
     mfConfig = {
@@ -25,52 +70,18 @@ export default function defineConfig({ packageName, ...config }: Config) {
     define({
       moduleFederation: mfConfig,
       html: {
-        tags: [
-          {
-            tag: "script",
-            attrs: {
-              defer: true,
-              crossorigin: "anonymous",
-              src: "https://unpkg.com/react@17/umd/react.development.js",
-            },
-            head: true,
-            append: false,
-          },
-          {
-            tag: "script",
-            attrs: {
-              defer: true,
-              crossorigin: "anonymous",
-              src: "https://unpkg.com/react-dom@17/umd/react-dom.development.js",
-            },
-            head: true,
-            append: false,
-          },
-          {
-            tag: "script",
-            attrs: {
-              defer: true,
-              crossorigin: "anonymous",
-              src: "https://unpkg.com/babel-standalone@6/babel.min.js",
-            },
-            head: true,
-            append: false,
-          },
-        ],
+        tags,
       },
       output: {
-        externals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
+        externals,
       },
       tools: {
         rspack: {
           output: {
-            library: `${packageName}-[name]`,
+            library: `${name}-[name]`,
             libraryTarget: "umd",
             globalObject: "window",
-            chunkLoadingGlobal: `webpackJsonp_${packageName}`,
+            chunkLoadingGlobal: `webpackJsonp_${name}`,
           },
           devServer: {
             headers: {
@@ -92,6 +103,6 @@ export default function defineConfig({ packageName, ...config }: Config) {
 
 interface ModuleFederationPluginOptions
   extends Rspack.ModuleFederationPluginOptions {
-  dts?: boolean;
+  dts: boolean;
 }
 export type { ModuleFederationPluginOptions };
