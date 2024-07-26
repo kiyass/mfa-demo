@@ -17,11 +17,14 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
-import TestMf1 from "./examples/TestMf1";
+// import TestMf1 from "./examples/TestMf1";
 // import TestMf2 from "./examples/TestMf2";
+import { Suspense } from "react/cjs/react.production.min";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
+
+const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "app2",
@@ -85,7 +88,7 @@ const InnerApp = () => {
         <Divider />
         <div className={classes.testItem}>
           {/* <TestCustomTheme /> */}
-          <TestMf1 />
+          {/* <TestMf2 /> */}
         </div>
         <Divider />
         <div className={classes.testItem}>
@@ -103,7 +106,7 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
-          {/* <Route exact path="/page1" element={<TestMf1 />} /> */}
+          <Route exact path="/page1" element={<TestMf2 />} />
         </Routes>
         <div id="subapp-container"></div>
       </div>
@@ -115,7 +118,9 @@ const App = () => {
   return (
     <StylesProvider generateClassName={generateClassName}>
       <ThemeProvider theme={theme}>
-        <InnerApp />
+        <Suspense fallback="">
+          <InnerApp />
+        </Suspense>
       </ThemeProvider>
     </StylesProvider>
   );
