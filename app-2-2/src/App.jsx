@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
+import TestMf1 from "./examples/TestMf1";
 import TestMf4 from "./examples/TestMf4";
 
 import { init } from "@module-federation/runtime";
@@ -56,6 +57,7 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<div>home</div>} />
+              <Route path="/mf3" element={<TestMf1 />} />
               <Route path="/mf4" element={<TestMf4 />} />
             </Routes>
           </BasicLayout>

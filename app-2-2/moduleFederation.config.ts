@@ -9,9 +9,9 @@ export const mfConfig: ModuleFederationPluginOptions = {
   library: { type: "umd", name: "app22" },
   remoteType: "script",
   filename: "remoteEntry.js",
-  // remotes: {
-  //   mf4: "mf4@http://localhost:7004/remoteEntry.js",
-  // },
+  remotes: {
+    mf3: "mf3@http://localhost:7003/remoteEntry.js",
+  },
   dts: false,
   shared: {
     react: { requiredVersion: false },

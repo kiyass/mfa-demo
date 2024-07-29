@@ -4,6 +4,10 @@ export const routes = [
     name: "home",
   },
   {
+    path: "/mf3",
+    name: "mf3 测试",
+  },
+  {
     path: "/mf4",
     name: "mf4 测试",
   },
