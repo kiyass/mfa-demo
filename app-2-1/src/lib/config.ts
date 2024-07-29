@@ -57,14 +57,14 @@ export default function defineConfig({ packageJson, ...config }: Config) {
   }
 
   let mfConfig = undefined;
-  if (config.moduleFederation?.options?.name) {
-    mfConfig = {
-      options: {
-        name: config.moduleFederation.options.name,
-        runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
-      },
-    };
-  }
+  // if (config.moduleFederation?.options?.name) {
+  //   mfConfig = {
+  //     options: {
+  //       name: config.moduleFederation.options.name,
+  //       runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
+  //     },
+  //   };
+  // }
   return mergeRsbuildConfig(
     define(config),
     define({

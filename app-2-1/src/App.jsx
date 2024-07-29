@@ -81,11 +81,11 @@ const App = () => {
               <Route path="/video" element={<TestVideo />} />
               <Route path="/echart" element={<TestEcharts />} />
               <Route path="/mf1" element={<TestMf1 />} />
-              <Route path="/mf3" element={<TestMf1 />} />
               <Route
                 path="/mf2"
                 element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
               />
+              <Route path="/mf3" element={<TestMf1 />} />
               <Route
                 path="/mf4"
                 element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
