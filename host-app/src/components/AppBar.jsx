@@ -168,6 +168,12 @@ export default function Header() {
             </ListItemIcon>
             <ListItemText primary={"app2 - qiankun"} />
           </ListItem>
+          <ListItem button onClick={() => handleClick("/app3")}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText primary={"app3 - qiankun"} />
+          </ListItem>
         </List>
       </Drawer>
       <div className={classes.drawerHeader} />

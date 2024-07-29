@@ -1,12 +1,4 @@
-import {
-  registerMicroApps,
-  runAfterFirstMounted,
-  start,
-  initGlobalState,
-  MicroAppStateActions,
-} from "qiankun";
-import React from "react";
-import ReactDOM from "react-dom";
+import { registerMicroApps, runAfterFirstMounted, start } from "qiankun";
 import { renderApp } from "./App";
 import "./store";
 
@@ -44,6 +36,19 @@ registerMicroApps(
       activeRule: "/app2",
       props: {
         currentMicroAppRoute: "/app2",
+      },
+    },
+    {
+      name: "app3",
+      entry: "//localhost:3003",
+      entries: {
+        dev: "//localhost:3003",
+        // product:"xx"
+      },
+      container: "#subapp",
+      activeRule: "/app3",
+      props: {
+        currentMicroAppRoute: "/app3",
       },
     },
   ],
