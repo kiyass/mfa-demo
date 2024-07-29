@@ -6,7 +6,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
-import TestMf4 from "./examples/TestMf4";
+import RemoteComponent from "./examples/RemoteComponent";
+import RemoteComponent2 from "./examples/RemoteComponent2";
 
 import { init } from "@module-federation/runtime";
 
@@ -16,6 +17,14 @@ init({
     {
       name: "mf4",
       entry: "http://localhost:7004/remoteEntry.js",
+    },
+    {
+      name: "mf2",
+      entry: "http://localhost:7002/remoteEntry.js",
+    },
+    {
+      name: "mf1",
+      entry: "http://localhost:7001/remoteEntry.js",
     },
   ],
 });
@@ -56,7 +65,20 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<div>home</div>} />
-              <Route path="/mf4" element={<TestMf4 />} />
+              <Route
+                path="/mf1"
+                element={<RemoteComponent module="Mf1" scope="mf1" key="mf1" />}
+              />
+              <Route
+                path="/mf2"
+                element={
+                  <RemoteComponent2 module="Mf2" scope="mf2" key="mf2" />
+                }
+              />
+              <Route
+                path="/mf4"
+                element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
+              />
             </Routes>
           </BasicLayout>
         </Suspense>

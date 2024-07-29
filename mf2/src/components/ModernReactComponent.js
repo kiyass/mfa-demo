@@ -1,5 +1,6 @@
 import { a } from "mf3/utils";
 import React from "react";
+import { createLifecycle } from "./createLifecycle";
 
 // console.log(a);
 const ModernReactComponent = (props) => {
@@ -26,5 +27,7 @@ const ModernReactComponent = (props) => {
     </div>
   );
 };
+
+export const lifecycle = createLifecycle(ModernReactComponent);
 
 export default ModernReactComponent;

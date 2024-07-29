@@ -1,4 +1,3 @@
-// import { lifecycle } from "mf4/Mf4";
 import { loadRemote } from "@module-federation/runtime";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -24,9 +23,9 @@ function useDynamicImport({ module, scope }) {
   return component;
 }
 
-export default () => {
+export default ({ module, scope }) => {
   const containerRef = useRef(null);
-  const { lifecycle } = useDynamicImport({ module: "Mf4", scope: "mf4" }) || {};
+  const { lifecycle } = useDynamicImport({ module, scope }) ?? {};
 
   useEffect(() => {
     if (!lifecycle) {
@@ -35,12 +34,13 @@ export default () => {
     lifecycle.mount({ test: "123" }, containerRef.current);
     return () => {
       lifecycle.unmount();
+      containerRef.current = null;
     };
   }, [lifecycle]);
 
   return (
     <div style={{ margin: 100, color: "#000" }}>
-      <div ref={containerRef}></div>
+      <div key={`${scope}/${module}`} ref={containerRef}></div>
     </div>
   );
 };
