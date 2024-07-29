@@ -2725,6 +2725,10 @@ launch-editor@^2.6.0, launch-editor@^2.6.1:
     picocolors "^1.0.0"
     shell-quote "^1.8.1"
 
+"lib-demo@file:../lib-demo/lib-demo-1.0.0.tgz":
+  version "1.0.0"
+  resolved "file:../lib-demo/lib-demo-1.0.0.tgz#f920a15edcb02a409c2f1faaa87e904d283f57c1"
+
 loader-runner@^4.2.0:
   version "4.3.0"
   resolved "https://registry.npmmirror.com/loader-runner/-/loader-runner-4.3.0.tgz#c1b4a163b99f614830353b16755e7149ac2314e1"
