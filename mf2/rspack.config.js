@@ -70,9 +70,9 @@ const webpackConfig = {
         mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       shared: {
-        react: { requiredVersion: false },
+        react: { requiredVersion: "17.0.2" },
         "react-dom": {
-          requiredVersion: false,
+          requiredVersion: "17.0.2",
         },
         "react-router-dom": {
           requiredVersion: false,
