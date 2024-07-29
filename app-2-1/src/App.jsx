@@ -1,11 +1,10 @@
-import React, { Suspense } from "react";
-import "./App.scss";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import BasicLayout from "./components/BasicLayout";
 import ModalProvider from "mui-modal-provider";
-import "react-toastify/dist/ReactToastify.css";
+import React, { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.scss";
 import TestDialog from "./examples/TestDialog";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
@@ -14,8 +13,29 @@ import TestEditor from "./examples/TestEditor";
 import TestVideo from "./examples/TestVideo";
 import TestEcharts from "./examples/TestEcharts";
 import TestCssinJs from "./examples/TestCssinJs";
+import BasicLayout from "./components/BasicLayout";
+import RemoteComponent from "./examples/RemoteComponent";
 import TestMf1 from "./examples/TestMf1";
-import TestMf2 from "./examples/TestMf2";
+
+import { init } from "@module-federation/runtime";
+
+init({
+  name: "appx",
+  remotes: [
+    {
+      name: "mf4",
+      entry: "http://localhost:7004/remoteEntry.js",
+    },
+    {
+      name: "mf2",
+      entry: "http://localhost:7002/remoteEntry.js",
+    },
+    {
+      name: "mf1",
+      entry: "http://localhost:7001/remoteEntry.js",
+    },
+  ],
+});
 
 const theme = createTheme({
   components: {
@@ -61,7 +81,15 @@ const App = () => {
               <Route path="/video" element={<TestVideo />} />
               <Route path="/echart" element={<TestEcharts />} />
               <Route path="/mf1" element={<TestMf1 />} />
-              <Route path="/mf2" element={<TestMf2 />} />
+              <Route path="/mf3" element={<TestMf1 />} />
+              <Route
+                path="/mf2"
+                element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
+              />
+              <Route
+                path="/mf4"
+                element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
+              />
             </Routes>
           </BasicLayout>
         </Suspense>

@@ -10,8 +10,6 @@ export const mfConfig: ModuleFederationPluginOptions = {
   remoteType: "script",
   filename: "remoteEntry.js",
   remotes: {
-    mf1: "mf1@http://localhost:7001/remoteEntry.js",
-    mf2: "mf2@http://localhost:7002/remoteEntry.js",
     mf3: "mf3@http://localhost:7003/remoteEntry.js",
   },
   exposes: {
@@ -22,10 +20,6 @@ export const mfConfig: ModuleFederationPluginOptions = {
     react: { requiredVersion: false },
     "react-dom": {
       requiredVersion: false,
-    },
-    "react-router-dom": {
-      requiredVersion: false,
-      shareScope: "17.0.2",
     },
   },
 };
