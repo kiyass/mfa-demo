@@ -4591,7 +4591,7 @@ packages:
     dev: true
 
   file:../lib-demo/lib-demo-1.0.0.tgz:
-    resolution: {integrity: sha512-wBpin79R9CNz6PN7A3Zcg4iwN+Rry4fNu5pYxj6uiPLskmOFBiIiSpMeX3MnqbTealsW6033upiCfCRsyYaBAA==, tarball: file:../lib-demo/lib-demo-1.0.0.tgz}
+    resolution: {integrity: sha512-VyxB5VT7EO26zc9QIwNgaE7mBioDooroMFhJrY2lTk7hav3umGdwBm2DTunxSqlkmfYsfZinAgbMCSo+sVyZ7g==, tarball: file:../lib-demo/lib-demo-1.0.0.tgz}
     name: lib-demo
     version: 1.0.0
     dev: false

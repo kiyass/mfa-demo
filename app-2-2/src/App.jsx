@@ -30,6 +30,8 @@ init({
   ],
 });
 
+window.appName = "app-2-2";
+
 const theme = createTheme({
   components: {
     MuiTooltip: {

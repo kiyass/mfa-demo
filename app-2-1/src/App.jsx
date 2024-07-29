@@ -5,17 +5,17 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
-import TestDialog from "./examples/TestDialog";
-import TestToast from "./examples/TestToast";
-import TestTooltip from "./examples/TestTooltip";
-import TestSelect from "./examples/TestSelect";
-import TestEditor from "./examples/TestEditor";
-import TestVideo from "./examples/TestVideo";
-import TestEcharts from "./examples/TestEcharts";
-import TestCssinJs from "./examples/TestCssinJs";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
+import TestCssinJs from "./examples/TestCssinJs";
+import TestDialog from "./examples/TestDialog";
+import TestEcharts from "./examples/TestEcharts";
+import TestEditor from "./examples/TestEditor";
 import TestMf1 from "./examples/TestMf1";
+import TestSelect from "./examples/TestSelect";
+import TestToast from "./examples/TestToast";
+import TestTooltip from "./examples/TestTooltip";
+import TestVideo from "./examples/TestVideo";
 
 import { init } from "@module-federation/runtime";
 
@@ -36,6 +36,8 @@ init({
     },
   ],
 });
+
+window.appName = "app-2-1";
 
 const theme = createTheme({
   components: {
