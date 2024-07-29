@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useId } from "react";
+import React from "react";
 // import Mf1 from "mf1/Mf1";
-// import { a } from "mf3/utils";
+import { getLib1InstanceId } from "mf3/utils";
 // webopack mf1 16   , shareScorpe 18
 export default () => {
   return (
@@ -8,7 +8,7 @@ export default () => {
       <button
         onClick={() => {
           // a.value = 4;
-          // console.log(a.value, "app2-1");
+          console.log("getLib1InstanceId", getLib1InstanceId());
         }}
       >
         MF1

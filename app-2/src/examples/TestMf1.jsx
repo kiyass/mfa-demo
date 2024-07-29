@@ -2,17 +2,17 @@
  *  Author:
  *  Description:
  */
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import Mf2 from "mf2/Mf2";
 import TestEcharts from "appx/TestEcharts";
-// import { a } from "mf3/utils";
+import { getLib1InstanceId } from "mf3/utils";
 
 export default () => {
   return (
     <div style={{ margin: 100 }}>
       <button
         onClick={() => {
-          // console.log(a.value, "app2");
+          console.log("getLib1InstanceId", getLib1InstanceId());
         }}
       >
         xxx
