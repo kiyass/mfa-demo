@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
-import getBaseUrl from "./getBaseUrl";
-// import registerMicroApps from "./registerMicroApp";
+import microApp from "@micro-zoe/micro-app";
+
 if (window.__MICRO_APP_ENVIRONMENT__) {
   __webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__;
 }
@@ -9,7 +9,7 @@ if (window.__MICRO_APP_ENVIRONMENT__) {
  * @param {*} appContainer App实例 <App />
  * @param {*} ReactDOM react-dom
  * @param {*} mountId "#root"
- * @param {*} registerMicroAppsData 微前端注册数据
+ * @param {*} packageJsonName
  * @param {*} handleMount handleMount
  * @param {*} handleUnMount handleUnMount
  * @param {*} handleUpdate handleUpdate
@@ -19,21 +19,15 @@ export default function startMicroApp({
   appContainer,
   ReactDOM,
   mountId = "#root",
-  registerMicroAppsData,
   handleMount,
+  packageJsonName,
   handleUnMount,
 }) {
   let rootDom = null;
   let app = null;
   function render() {
-    // !!registerMicroAppsData &&
-    //   registerMicroApps({
-    //     registerMicroAppsData: registerMicroAppsData,
-    //     currentMicroAppRoute: currentMicroAppRoute,
-    //   });
     const App = (
-      // <BrowserRouter basename={getBaseUrl(currentMicroAppRoute)}>
-      <BrowserRouter basename={getBaseUrl(window.__MICRO_APP_BASE_ROUTE__)}>
+      <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || "/"}>
         {appContainer}
       </BrowserRouter>
     );
@@ -62,5 +56,15 @@ export default function startMicroApp({
     handleMount?.();
   }
 
-  return { unmount, mount };
+  window.mount = mount;
+  window.unmount = unmount;
+
+  if (!window.__MICRO_APP_ENVIRONMENT__) {
+    window.mount();
+  }
+
+  microApp.start({
+    tagName: `micro-app-${packageJsonName}`,
+    "router-mode": "native",
+  });
 }
