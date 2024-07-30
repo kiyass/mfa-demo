@@ -1,4 +1,4 @@
-import { loadRemote } from "@module-federation/runtime";
+import { loadRemote, loadScript } from "@module-federation/runtime";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function useDynamicImport({ module, scope }) {

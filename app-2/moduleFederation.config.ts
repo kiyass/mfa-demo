@@ -5,8 +5,6 @@ export const mfConfig: ModuleFederationPluginOptions = {
   remotes: {
     mf1: "mf1@http://localhost:7001/remoteEntry.js",
     mf2: "mf2@http://localhost:7002/remoteEntry.js",
-    // appx: "appx@http://localhost:8021/remoteEntry.js",
-    // mf3: "mf3@http://localhost:7003/remoteEntry.js",
   },
   shared: {
     react: { requiredVersion: false },
