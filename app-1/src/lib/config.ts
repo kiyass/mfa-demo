@@ -1,9 +1,9 @@
+import type { Rspack } from "@rsbuild/core";
 import {
-  defineConfig as define,
   RsbuildConfig,
+  defineConfig as define,
   mergeRsbuildConfig,
 } from "@rsbuild/core";
-import type { Rspack } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSass } from "@rsbuild/plugin-sass";
 const semver = require("semver");
@@ -79,10 +79,10 @@ export default function defineConfig({ packageJson, ...config }: Config) {
           },
         },
       },
-      // dev: {
-      //   hmr: false,
-      //   liveReload: false,
-      // },
+      dev: {
+        hmr: false,
+        liveReload: false,
+      },
       plugins: [pluginReact(), pluginSass()],
     })
   );
