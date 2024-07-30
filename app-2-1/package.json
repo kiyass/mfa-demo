@@ -18,6 +18,7 @@
     "antd": "^5.19.2",
     "echarts": "^5.5.1",
     "echarts-for-react": "^3.0.2",
+    "lib-demo": "file:../lib-demo/lib-demo-1.0.1.tgz",
     "mui-modal-provider": "^2.4.2",
     "qiankun": "^2.10.16",
     "react": "^17.0.2",

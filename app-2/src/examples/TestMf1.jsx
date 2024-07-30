@@ -4,7 +4,7 @@
  */
 import React from "react";
 // import Mf2 from "mf2/Mf2";
-import TestEcharts from "appx/TestEcharts";
+// import TestEcharts from "appx/TestEcharts";
 // import { getLib1InstanceId } from "mf3/utils";
 
 export default () => {
@@ -20,7 +20,7 @@ export default () => {
       {/* <Mf2 /> */}
       {/* <Mf1 /> */}
 
-      <TestEcharts />
+      {/* <TestEcharts /> */}
     </div>
   );
 };

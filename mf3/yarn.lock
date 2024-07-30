@@ -2725,9 +2725,9 @@ launch-editor@^2.6.0, launch-editor@^2.6.1:
     picocolors "^1.0.0"
     shell-quote "^1.8.1"
 
-"lib-demo@file:../lib-demo/lib-demo-1.0.0.tgz":
-  version "1.0.0"
-  resolved "file:../lib-demo/lib-demo-1.0.0.tgz#f920a15edcb02a409c2f1faaa87e904d283f57c1"
+"lib-demo@file:../lib-demo/lib-demo-1.0.3.tgz":
+  version "1.0.3"
+  resolved "file:../lib-demo/lib-demo-1.0.3.tgz#8e1f0f35e021a756fc85bca0325526fe8b314ea6"
 
 loader-runner@^4.2.0:
   version "4.3.0"

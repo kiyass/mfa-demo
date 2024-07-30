@@ -10,14 +10,17 @@ import RemoteComponent from "./examples/RemoteComponent";
 import RemoteComponent2 from "./examples/RemoteComponent2";
 import TestMf1 from "./examples/TestMf1";
 
-import { init } from "@module-federation/runtime";
+import { init, registerRemotes } from "@module-federation/runtime";
 
-init({
-  name: "app22",
-  remotes: [
+registerRemotes(
+  [
     {
       name: "mf4",
       entry: "http://localhost:7004/remoteEntry.js",
+    },
+    {
+      name: "mf3",
+      entry: "http://localhost:7003/remoteEntry.js",
     },
     {
       name: "mf2",
@@ -28,8 +31,8 @@ init({
       entry: "http://localhost:7001/remoteEntry.js",
     },
   ],
-});
-
+  { force: true }
+);
 window.appName = "app-2-2";
 
 const theme = createTheme({
