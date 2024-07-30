@@ -5,7 +5,6 @@
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
   "scripts": {
-    "prepare": "modern build && husky install",
     "dev": "modern dev",
     "build": "modern build",
     "build:watch": "modern build -w",
@@ -20,26 +19,25 @@
     "new": "modern new",
     "upgrade": "modern upgrade"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,mjs,cjs}": [
-      "node --max_old_space_size=8192 ./node_modules/eslint/bin/eslint.js --fix --color --cache --quiet"
-    ]
-  },
   "eslintIgnore": [
     "node_modules/",
     "dist/"
   ],
-  "dependencies": {},
-  "peerDependencies": {},
+  "dependencies": {
+    "@micro-zoe/micro-app": "^1.0.0-rc.6",
+    "react": "^18.3.1",
+    "semver": "^7.6.3"
+  },
   "devDependencies": {
-    "@modern-js/module-tools": "2.56.2",
     "@modern-js/eslint-config": "2.56.2",
-    "typescript": "~5.0.4",
+    "@modern-js/module-tools": "2.56.2",
+    "@rsbuild/core": "^1.0.1-beta.6",
+    "@rsbuild/plugin-react": "^1.0.1-beta.6",
+    "@rsbuild/plugin-sass": "^1.0.1-beta.6",
     "@types/node": "~16.11.7",
-    "rimraf": "~3.0.2",
-    "lint-staged": "~13.1.0",
     "prettier": "~2.8.1",
-    "husky": "~8.0.1"
+    "rimraf": "~3.0.2",
+    "typescript": "~5.0.4"
   },
   "sideEffects": [],
   "publishConfig": {
