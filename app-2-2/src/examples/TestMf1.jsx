@@ -4,7 +4,8 @@
  */
 
 import React from "react";
-const { getLib1InstanceId, a } = await import("mf3/utils");
+import { getLib1InstanceId, a } from "mf3/utils";
+// const { getLib1InstanceId, a } = await import("mf3/utils");
 
 export default () => {
   return (
