@@ -22,7 +22,20 @@ function mock() {
     }, 200);
   });
 }
-const registerMicroAppsData = await mock();
+const registerMicroAppsData = [
+  {
+    name: "app-2-1",
+    entry: "//localhost:8021",
+    container: "#subapp-container",
+    activeRule: "/app-2-1",
+  },
+  {
+    name: "app-2-2",
+    entry: "//localhost:8022",
+    container: "#subapp-container",
+    activeRule: "/app-2-2",
+  },
+];
 
 const { bootstrap, mount, unmount } = startMicroApp({
   appContainer: <App />,

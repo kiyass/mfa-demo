@@ -9,5 +9,6 @@ dist/
 
 # IDE
 .vscode/*
-!.vscode/extensions.json
+extensions.json
 .idea
+yarn.lock

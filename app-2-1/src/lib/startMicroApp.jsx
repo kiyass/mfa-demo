@@ -52,7 +52,7 @@ export default function startMicroApp({
           ? container.querySelector(mountId)
           : document.querySelector(mountId)
       );
-      app.render(App, rootDom);
+      app.render(App);
     }
   }
   async function unmount(props) {

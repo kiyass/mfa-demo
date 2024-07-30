@@ -12,6 +12,7 @@ const App = () => {
         <Route exact path="/home" element={<div>home</div>} />
       </Routes>
       <div id="subapp"></div>
+      <div id="subapp1"></div>
     </div>
   );
 };

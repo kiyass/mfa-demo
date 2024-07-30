@@ -45,7 +45,7 @@ registerMicroApps(
         dev: "//localhost:3003",
         // product:"xx"
       },
-      container: "#subapp",
+      container: "#subapp1",
       activeRule: "/app3",
       props: {
         currentMicroAppRoute: "/app3",

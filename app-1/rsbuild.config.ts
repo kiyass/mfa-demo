@@ -1,10 +1,16 @@
-import { defineConfig } from "@rsbuild/core";
-import { pluginReact } from "@rsbuild/plugin-react";
+import defineConfig from "./src/lib/config";
+import { mfConfig } from "./moduleFederation.config";
+const packageJson = require("./package.json");
 
 export default defineConfig({
+  packageJson,
   server: {
     port: 2001,
-    host: "localhost",
   },
-  plugins: [pluginReact()],
+  dev: {
+    assetPrefix: "http://localhost:2001/",
+  },
+  moduleFederation: {
+    options: mfConfig,
+  },
 });
