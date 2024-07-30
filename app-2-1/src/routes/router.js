@@ -39,4 +39,8 @@ export const routes = [
     path: "/mf2",
     name: "mf 2.0测试",
   },
+  {
+    path: "/mf4",
+    name: "mf4 测试",
+  },
 ];

@@ -2,7 +2,7 @@
  *  Author:
  *  Description:
  */
-import { getLib1InstanceId } from "mf3/utils";
+import { getLib1InstanceId, a } from "mf3/utils";
 import React from "react";
 
 export default () => {
@@ -10,11 +10,7 @@ export default () => {
     <div style={{ margin: 100 }}>
       <button
         onClick={() => {
-          console.log(
-            "getLib1InstanceId",
-            getLib1InstanceId(),
-            window.instanceId
-          );
+          console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
         }}
       >
         xxx
