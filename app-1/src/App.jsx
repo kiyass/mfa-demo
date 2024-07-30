@@ -85,11 +85,11 @@ const InnerApp = () => {
             </ListItemIcon>
             <ListItemText primary={"app-1-1"} />
           </ListItem>
-          <ListItem button onClick={() => handleClick("/app-2-2")}>
+          <ListItem button onClick={() => handleClick("/app-1-2")}>
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary={"app-2-2"} />
+            <ListItemText primary={"app-1-2"} />
           </ListItem>
         </List>
 
@@ -123,6 +123,17 @@ const InnerApp = () => {
                 name="app-1-1"
                 url="http://localhost:2011/"
                 baseroute="/app1/app-1-1"
+              ></micro-app-app1>
+            }
+          />
+          <Route
+            exact
+            path="/app-1-2/*"
+            element={
+              <micro-app-app1
+                name="app-1-1"
+                url="http://localhost:2012/"
+                baseroute="/app1/app-1-2"
               ></micro-app-app1>
             }
           />

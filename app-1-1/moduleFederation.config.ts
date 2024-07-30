@@ -1,12 +1,8 @@
-/*
- *  Author:
- *  Description:
- */
 import type { ModuleFederationPluginOptions } from "./src/lib/config";
 
 export const mfConfig: ModuleFederationPluginOptions = {
-  name: "appx",
-  library: { type: "umd", name: "appx" },
+  name: "app11",
+  library: { type: "umd", name: "app11" },
   remoteType: "script",
   filename: "remoteEntry.js",
   remotes: {
