@@ -2,19 +2,27 @@
  *  Author:
  *  Description:
  */
-import { getLib1InstanceId, a } from "mf3/utils";
+import useDynamicImport from "../hooks/useDynamicImport";
 import React from "react";
 
 export default () => {
-  return (
-    <div style={{ margin: 100 }}>
-      <button
-        onClick={() => {
-          console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
-        }}
-      >
-        xxx
-      </button>
-    </div>
-  );
+  const { getLib1InstanceId, a } =
+    useDynamicImport({
+      module: "utils",
+      scope: "mf3",
+    }) ?? {};
+  if (getLib1InstanceId && a) {
+    return (
+      <div style={{ margin: 100 }}>
+        <button
+          onClick={() => {
+            console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
+          }}
+        >
+          xxx
+        </button>
+      </div>
+    );
+  }
+  return <></>;
 };

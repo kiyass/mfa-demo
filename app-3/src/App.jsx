@@ -62,7 +62,7 @@ const InnerApp = () => {
   const handleClick = (url) => {
     navigate(url);
   };
-
+  console.log("hhhh");
   return (
     <div className={classes.root}>
       <div className={classes.menu}>

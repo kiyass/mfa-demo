@@ -10,7 +10,7 @@ import RemoteComponent from "./examples/RemoteComponent";
 import RemoteComponent2 from "./examples/RemoteComponent2";
 import TestMf1 from "./examples/TestMf1";
 
-import { init, registerRemotes } from "@module-federation/runtime";
+import { registerRemotes } from "@module-federation/runtime";
 
 registerRemotes(
   [
