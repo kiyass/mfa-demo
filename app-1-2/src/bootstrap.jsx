@@ -1,14 +1,16 @@
-import { startMicroApp } from "./lib";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { startMicroApp } from "./lib";
+import { name } from "../package.json";
 
-const { mount, unmount } = startMicroApp({
+startMicroApp({
   appContainer: <App />,
   ReactDOM,
+  packageJsonName: name,
+  handleMount: () => {
+    console.log("handleMount");
+  },
+  handleUnMount: () => {
+    console.log("handleUnMount");
+  },
 });
-window.mount = mount;
-window.unmount = unmount;
-
-if (!window.__MICRO_APP_ENVIRONMENT__) {
-  window.mount();
-}

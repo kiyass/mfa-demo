@@ -14,7 +14,7 @@ import {
 import "./App.scss";
 
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import React from "react";
+import React, { createElement } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
 // import TestMf1 from "./examples/TestMf1";
@@ -118,24 +118,20 @@ const InnerApp = () => {
           <Route
             exact
             path="/app-1-1/*"
-            element={
-              <micro-app-app1
-                name="app-1-1"
-                url="http://localhost:2011/"
-                baseroute="/app1/app-1-1"
-              ></micro-app-app1>
-            }
+            element={createElement("micro-app-app-1", {
+              name: "app-1-1",
+              url: "http://localhost:2011/",
+              baseroute: "/app1/app-1-1",
+            })}
           />
           <Route
             exact
             path="/app-1-2/*"
-            element={
-              <micro-app-app1
-                name="app-1-1"
-                url="http://localhost:2012/"
-                baseroute="/app1/app-1-2"
-              ></micro-app-app1>
-            }
+            element={createElement("micro-app-app-1", {
+              name: "app-1-2",
+              url: "http://localhost:2012/",
+              baseroute: "/app1/app-1-2",
+            })}
           />
         </Routes>
       </div>
