@@ -117,24 +117,24 @@ const InnerApp = () => {
           <Route exact path="/page1" element={<TestMf2 />} />
           <Route
             exact
-            path="/app-1-1/*"
+            path="/app-1-1"
             element={
-              <micro-app-app1
+              <micro-app-app4
                 name="app-1-1"
                 url="http://localhost:2011/"
                 baseroute="/app4/app-1-1"
-              ></micro-app-app1>
+              ></micro-app-app4>
             }
           />
           <Route
             exact
-            path="/app-1-2/*"
+            path="/app-1-2"
             element={
-              <micro-app-app1
+              <micro-app-app4
                 name="app-1-1"
                 url="http://localhost:2012/"
                 baseroute="/app4/app-1-2"
-              ></micro-app-app1>
+              ></micro-app-app4>
             }
           />
         </Routes>

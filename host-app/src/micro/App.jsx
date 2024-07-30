@@ -19,7 +19,7 @@ const App = () => {
                 name="app-1"
                 url="http://localhost:2001/"
                 baseroute="/app1"
-              ></micro-app>
+              />
             }
           />
           <Route
@@ -30,7 +30,7 @@ const App = () => {
                 name="app-4"
                 url="http://localhost:2004/"
                 baseroute="/app4"
-              ></micro-app>
+              />
             }
           />
         </Routes>

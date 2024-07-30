@@ -6,33 +6,7 @@ export default defineConfig({
   server: {
     port: 3000,
   },
-  tools: {
-    rspack: {
-      devServer: {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-        historyApiFallback: true,
-        hot: false,
-        watchContentBase: false,
-        liveReload: false,
-      },
-    },
-  },
-  moduleFederation: {
-    options: {
-      name: "host",
-      shared: {
-        react: { requiredVersion: false },
-        "react-dom": {
-          requiredVersion: false,
-        },
-      },
-    },
-  },
   dev: {
-    hmr: false,
-    liveReload: false,
     assetPrefix: "http://localhost:3000/",
   },
   plugins: [pluginReact(), pluginSass()],

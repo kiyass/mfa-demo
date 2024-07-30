@@ -51,6 +51,7 @@ export default function defineConfig({ packageJson, ...config }: Config) {
         },
         head: true,
         append: false,
+        global: true,
       });
       newExternals[key] = externals[key];
     }

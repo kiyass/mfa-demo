@@ -3,27 +3,6 @@ import App from "./App";
 import { startMicroApp } from "./lib";
 import microApp from "@micro-zoe/micro-app";
 
-function mock() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([
-        {
-          name: "app-2-1",
-          entry: "//localhost:8021",
-          container: "#subapp-container",
-          activeRule: "/app-2-1",
-        },
-        {
-          name: "app-2-2",
-          entry: "//localhost:8022",
-          container: "#subapp-container",
-          activeRule: "/app-2-2",
-        },
-      ]);
-    }, 20);
-  });
-}
-
 const { mount, unmount } = startMicroApp({
   appContainer: <App />,
   ReactDOM,
@@ -44,6 +23,6 @@ if (!window.__MICRO_APP_ENVIRONMENT__) {
 
 microApp.start({
   // 必须是以`micro-app-`开头的小写字母，例如：micro-app-b、micro-app-b-c
-  tagName: "micro-app-app1",
+  tagName: "micro-app-app4",
   "router-mode": "native",
 });

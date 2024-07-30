@@ -51,6 +51,7 @@ export default function defineConfig({ packageJson, ...config }: Config) {
         },
         head: true,
         append: false,
+        global: true,
       });
       newExternals[key] = externals[key];
     }
@@ -78,10 +79,10 @@ export default function defineConfig({ packageJson, ...config }: Config) {
           },
         },
       },
-      dev: {
-        hmr: false,
-        liveReload: false,
-      },
+      // dev: {
+      //   hmr: false,
+      //   liveReload: false,
+      // },
       plugins: [pluginReact(), pluginSass()],
     })
   );
