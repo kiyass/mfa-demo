@@ -22,6 +22,17 @@ const App = () => {
               ></micro-app>
             }
           />
+          <Route
+            exact
+            path="/app4/*"
+            element={
+              <micro-app
+                name="app-4"
+                url="http://localhost:2004/"
+                baseroute="/app4"
+              ></micro-app>
+            }
+          />
         </Routes>
       </div>
     </div>

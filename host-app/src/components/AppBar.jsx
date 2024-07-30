@@ -160,7 +160,7 @@ export default function Header() {
             <ListItemIcon>
               <InboxIcon />
             </ListItemIcon>
-            <ListItemText primary={"app1 - wujie"} />
+            <ListItemText primary={"app1 - micro"} />
           </ListItem>
           <ListItem button onClick={() => handleClick("/app2")}>
             <ListItemIcon>
@@ -173,6 +173,12 @@ export default function Header() {
               <MailIcon />
             </ListItemIcon>
             <ListItemText primary={"app3 - qiankun"} />
+          </ListItem>
+          <ListItem button onClick={() => handleClick("/app4")}>
+            <ListItemIcon>
+              <MailIcon />
+            </ListItemIcon>
+            <ListItemText primary={"app4 - micro"} />
           </ListItem>
         </List>
       </Drawer>

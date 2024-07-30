@@ -25,7 +25,7 @@ export default function startMicroApp({
 }) {
   let rootDom = null;
   let app = null;
-  function render(props) {
+  function render() {
     // !!registerMicroAppsData &&
     //   registerMicroApps({
     //     registerMicroAppsData: registerMicroAppsData,
@@ -54,12 +54,12 @@ export default function startMicroApp({
       app.unmount();
       app = null;
     }
-    handleUnMount?.(props);
+    handleUnMount?.();
   }
 
-  async function mount(props) {
-    render(props);
-    handleMount?.(props);
+  async function mount() {
+    render();
+    handleMount?.();
   }
 
   return { unmount, mount };
