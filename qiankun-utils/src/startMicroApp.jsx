@@ -1,6 +1,5 @@
-import { BrowserRouter } from "react-router-dom";
-import getBaseUrl from "./getBaseUrl";
-import registerMicroApps from "./registerMicroApp";
+import getBaseUrl from './getBaseUrl';
+import registerMicroApps from './registerMicroApp';
 
 if (window.__POWERED_BY_QIANKUN__) {
   __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
@@ -10,6 +9,7 @@ if (window.__POWERED_BY_QIANKUN__) {
  * @description:
  * @param {*} appContainer App实例 <App />
  * @param {*} ReactDOM react-dom
+ * @param {*} BrowserRouter BrowserRouter
  * @param {*} mountId "#root"
  * @param {*} registerMicroAppsData 微前端注册数据
  * @param {*} handleMount handleMount
@@ -20,7 +20,8 @@ if (window.__POWERED_BY_QIANKUN__) {
 export default function startMicroApp({
   appContainer,
   ReactDOM,
-  mountId = "#root",
+  BrowserRouter,
+  mountId = '#root',
   registerMicroAppsData,
   handleMount,
   handleUnMount,
@@ -50,9 +51,9 @@ export default function startMicroApp({
       app = ReactDOM.createRoot(
         container
           ? container.querySelector(mountId)
-          : document.querySelector(mountId)
+          : document.querySelector(mountId),
       );
-      app.render(App, rootDom);
+      app.render(App);
     }
   }
   async function unmount(props) {
