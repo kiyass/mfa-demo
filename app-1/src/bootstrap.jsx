@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import { startMicroApp } from "lib";
+import startMicroApp from "lib/dist/es/startMicroApp";
 import { name } from "../package.json";
 // function mock() {
 //   return new Promise((resolve, reject) => {

@@ -22,7 +22,7 @@ import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
 
-import { renderMicroApp } from "lib";
+import renderMicroApp from "lib/dist/es/renderMicroApp";
 import { name } from "../package.json";
 
 const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
