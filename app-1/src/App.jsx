@@ -21,8 +21,7 @@ import { Suspense } from "react/cjs/react.production.min";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
-
-import renderMicroApp from "lib/dist/es/renderMicroApp";
+import MicroApp from "lib/dist/es/micro-lib/renderMicroApp";
 import { name } from "../package.json";
 
 const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
@@ -119,24 +118,28 @@ const InnerApp = () => {
           <Route
             exact
             path="/app-1-1/*"
-            element={renderMicroApp({
-              createElement,
-              packageJsonName: name,
-              name: "app-1-1",
-              url: "http://localhost:2011/",
-              path: "/app-1-1",
-            })}
+            element={
+              <MicroApp
+                createElement={createElement}
+                packageJsonName={name}
+                name="app-1-1"
+                url="http://localhost:2011/"
+                path="/app-1-1"
+              />
+            }
           />
           <Route
             exact
             path="/app-1-2/*"
-            element={renderMicroApp({
-              packageJsonName: name,
-              createElement,
-              name: "app-1-2",
-              url: "http://localhost:2012/",
-              path: "/app-1-2",
-            })}
+            element={
+              <MicroApp
+                createElement={createElement}
+                packageJsonName={name}
+                name="app-1-2"
+                url="http://localhost:2012/"
+                path="/app-1-2"
+              />
+            }
           />
         </Routes>
       </div>

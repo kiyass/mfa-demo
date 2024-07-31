@@ -7,12 +7,14 @@
  * @param {*} path
  * @return {*}
  */
-function renderMicroApp({ packageJsonName, createElement, name, url, path }) {
+function MicroApp({ packageJsonName, createElement, name, url, path }) {
   return createElement(`micro-app-${packageJsonName}`, {
     name,
     url,
-    baseroute: `/${window.__MICRO_APP_BASE_ROUTE__}/${path}`,
+    baseroute: window.__MICRO_APP_BASE_ROUTE__
+      ? `${window.__MICRO_APP_BASE_ROUTE__}${path}`
+      : path,
   });
 }
 
-export default renderMicroApp;
+export default MicroApp;
