@@ -1,0 +1,69 @@
+{
+  "name": "micro-utils",
+  "version": "0.1.0",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "types": "./dist/types/index.d.ts",
+      "default": "./dist/lib/index.js"
+    },
+    "./startMicroApp": {
+      "import": "./dist/es/startMicroApp.js",
+      "types": "./dist/types/startMicroApp.d.ts",
+      "default": "./dist/lib/startMicroApp.js"
+    },
+    "./config": {
+      "import": "./dist/es/config.js",
+      "types": "./dist/types/config.d.ts",
+      "default": "./dist/lib/config.js"
+    },
+    "./MicroApp": {
+      "import": "./dist/es/renderMicroApp.js",
+      "types": "./dist/types/renderMicroApp.d.ts",
+      "default": "./dist/lib/renderMicroApp.js"
+    }
+  },
+  "scripts": {
+    "dev": "modern dev",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "reset": "rimraf ./**/node_modules",
+    "lint": "modern lint",
+    "change": "modern change",
+    "bump": "modern bump",
+    "pre": "modern pre",
+    "change-status": "modern change-status",
+    "gen-release-note": "modern gen-release-note",
+    "release": "modern release",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/"
+  ],
+  "dependencies": {
+    "@micro-zoe/micro-app": "^1.0.0-rc.6",
+    "react": "^18.3.1",
+    "@rsbuild/core": "^1.0.1-beta.6",
+    "@rsbuild/plugin-react": "^1.0.1-beta.6",
+    "@rsbuild/plugin-sass": "^1.0.1-beta.6",
+    "semver": "^7.6.3"
+  },
+  "devDependencies": {
+    "@modern-js/eslint-config": "2.56.2",
+    "@modern-js/module-tools": "2.56.2",
+    "@types/node": "~16.11.7",
+    "prettier": "~2.8.1",
+    "rimraf": "~3.0.2",
+    "typescript": "~5.0.4"
+  },
+  "sideEffects": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

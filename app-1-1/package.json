@@ -20,7 +20,6 @@
     "echarts": "^5.5.1",
     "echarts-for-react": "^3.0.2",
     "mui-modal-provider": "^2.4.2",
-    "qiankun": "^2.10.16",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-echarts": "^0.1.1",
@@ -31,9 +30,7 @@
     "video.js": "^8.16.1"
   },
   "devDependencies": {
-    "@rsbuild/core": "1.0.1-beta.1",
-    "@rsbuild/plugin-react": "1.0.1-beta.1",
-    "@rsbuild/plugin-sass": "^1.0.1-beta.3",
+    "@rsbuild/core": "^1.0.1-beta.1",
     "@rsbuild/plugin-styled-components": "^1.0.1-beta.3",
     "@types/node": "^20.14.12",
     "@types/react": "^17.0.2",

@@ -31,9 +31,7 @@
     "video.js": "^8.16.1"
   },
   "devDependencies": {
-    "@rsbuild/core": "1.0.1-beta.1",
-    "@rsbuild/plugin-react": "1.0.1-beta.1",
-    "@rsbuild/plugin-sass": "^1.0.1-beta.3",
+    "@rsbuild/core": "^1.0.1-beta.1",
     "@rsbuild/plugin-styled-components": "^1.0.1-beta.3",
     "@types/node": "^20.14.12",
     "@types/react": "^17.0.2",

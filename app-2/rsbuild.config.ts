@@ -1,4 +1,4 @@
-import defineConfig from "./src/lib/config";
+import defineConfig from "qiankun-utils/config";
 import { mfConfig } from "./moduleFederation.config";
 const packageJson = require("./package.json");
 

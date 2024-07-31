@@ -21,7 +21,7 @@ import { Suspense } from "react/cjs/react.production.min";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
-import MicroApp from "lib/dist/es/micro-lib/renderMicroApp";
+import MicroApp from "micro-utils/MicroApp";
 import { name } from "../package.json";
 
 const TestMf2 = React.lazy(() => import("./examples/TestMf2"));

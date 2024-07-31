@@ -1,4 +1,4 @@
-import type { ModuleFederationPluginOptions } from "./src/lib/config";
+import type { ModuleFederationPluginOptions } from "micro-utils/config";
 
 export const mfConfig: ModuleFederationPluginOptions = {
   name: "app11",
