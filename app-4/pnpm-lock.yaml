@@ -14,6 +14,9 @@ dependencies:
   '@material-ui/styles':
     specifier: ^4.11.5
     version: 4.11.5(react-dom@17.0.2)(react@17.0.2)
+  '@micro-zoe/micro-app':
+    specifier: ^1.0.0-rc.6
+    version: 1.0.0-rc.6
   '@module-federation/enhanced':
     specifier: 0.2.6
     version: 0.2.6(typescript@5.5.3)
@@ -194,6 +197,10 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-is: 17.0.2
+    dev: false
+
+  /@micro-zoe/micro-app@1.0.0-rc.6:
+    resolution: {integrity: sha512-5HrbNXBciPbSifZthFdIjOpeZZ0SD8zvvY7+0VRxbA9RDL9JJo81PsoYxoDKh895fsGd8ZFHiaSc0X5cuQHPhg==}
     dev: false
 
   /@module-federation/bridge-react-webpack-plugin@0.2.6:

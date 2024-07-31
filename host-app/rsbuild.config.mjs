@@ -8,6 +8,8 @@ export default defineConfig({
   },
   dev: {
     assetPrefix: "http://localhost:3000/",
+    hmr: false,
+    liveReload: false,
   },
   plugins: [pluginReact(), pluginSass()],
 });
