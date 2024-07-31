@@ -7,7 +7,7 @@
  * @param {*} path
  * @return {*}
  */
-export function MicroApp({ packageJsonName, createElement, name, url, path }) {
+function MicroApp({ packageJsonName, createElement, name, url, path }) {
   return createElement(`micro-app-${packageJsonName}`, {
     name,
     url,
@@ -16,3 +16,5 @@ export function MicroApp({ packageJsonName, createElement, name, url, path }) {
       : path,
   });
 }
+
+export default MicroApp;

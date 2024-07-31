@@ -19,6 +19,11 @@
       "import": "./dist/es/config.js",
       "types": "./dist/types/config.d.ts",
       "default": "./dist/lib/config.js"
+    },
+    "./MicroApp": {
+      "import": "./dist/es/renderMicroApp.js",
+      "types": "./dist/types/renderMicroApp.d.ts",
+      "default": "./dist/lib/renderMicroApp.js"
     }
   },
   "scripts": {
