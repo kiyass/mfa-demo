@@ -1,5 +1,5 @@
 import startMicroApp from './micro-lib/startMicroApp';
-import { renderMicroApp } from './micro-lib/renderMicroApp';
+import renderMicroApp from './micro-lib/renderMicroApp';
 import {
   defineConfig,
   ModuleFederationPluginOptions,

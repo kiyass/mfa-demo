@@ -22,6 +22,9 @@ import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
 
+import { renderMicroApp } from "lib";
+import { name } from "../package.json";
+
 const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
 
 const generateClassName = createGenerateClassName({
@@ -116,19 +119,23 @@ const InnerApp = () => {
           <Route
             exact
             path="/app-1-1/*"
-            element={createElement("micro-app-app-1", {
+            element={renderMicroApp({
+              createElement,
+              packageJsonName: name,
               name: "app-1-1",
               url: "http://localhost:2011/",
-              baseroute: "/app1/app-1-1",
+              path: "/app-1-1",
             })}
           />
           <Route
             exact
             path="/app-1-2/*"
-            element={createElement("micro-app-app-1", {
+            element={renderMicroApp({
+              packageJsonName: name,
+              createElement,
               name: "app-1-2",
               url: "http://localhost:2012/",
-              baseroute: "/app1/app-1-2",
+              path: "/app-1-2",
             })}
           />
         </Routes>
