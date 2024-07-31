@@ -1,5 +1,5 @@
 import { Button as MuiButton } from "@mui/material";
-import { toast } from "react-toastify";
+import toast from "react-hot-toast";
 
 function TestToast() {
   const handleClick = () => {
