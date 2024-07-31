@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
 import startMicroApp from "qiankun-utils/startMicroApp";
+import App from "./App";
 
 function mock() {
   return new Promise((resolve, reject) => {

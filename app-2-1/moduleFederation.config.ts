@@ -2,7 +2,7 @@
  *  Author:
  *  Description:
  */
-import type { ModuleFederationPluginOptions } from "./src/lib/config";
+import type { ModuleFederationPluginOptions } from "qiankun-utils/config";
 
 export const mfConfig: ModuleFederationPluginOptions = {
   name: "appx",
