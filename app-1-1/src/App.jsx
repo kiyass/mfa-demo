@@ -17,29 +17,30 @@ import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
-import { registerRemotes } from "@module-federation/runtime";
+// import { init } from "@module-federation/runtime";
 
-registerRemotes(
-  [
-    {
-      name: "mf4",
-      entry: "http://localhost:7004/remoteEntry.js",
-    },
-    {
-      name: "mf2",
-      entry: "http://localhost:7002/remoteEntry.js",
-    },
-    {
-      name: "mf3",
-      entry: "http://localhost:7003/remoteEntry.js",
-    },
-    {
-      name: "mf1",
-      entry: "http://localhost:7001/remoteEntry.js",
-    },
-  ],
-  { force: true }
-);
+// init({
+//   name: "app11",
+//   remotes: [
+//     {
+//       name: "mf4",
+//       entry: "http://localhost:7004/remoteEntry.js",
+//     },
+//     {
+//       name: "mf2",
+//       entry: "http://localhost:7002/remoteEntry.js",
+//     },
+//     {
+//       name: "mf3",
+//       entry: "http://localhost:7003/remoteEntry.js",
+//     },
+//     {
+//       name: "mf1",
+//       entry: "http://localhost:7001/remoteEntry.js",
+//     },
+//   ],
+// });
+
 const theme = createTheme({
   components: {
     MuiTooltip: {

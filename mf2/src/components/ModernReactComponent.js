@@ -1,4 +1,4 @@
-import { a } from "mf3/utils";
+import { a, getLib1InstanceId } from "mf3/utils";
 import React from "react";
 import { createLifecycle } from "./createLifecycle";
 
@@ -15,7 +15,7 @@ const ModernReactComponent = (props) => {
       <button
         onClick={() => {
           a.value = Date.now();
-          console.log("set a.value", a.value);
+          console.log("set a.value", a.value, getLib1InstanceId());
         }}
       >
         set
