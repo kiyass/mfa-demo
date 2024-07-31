@@ -1,4 +1,4 @@
-import { defineConfig } from "lib/dist/es/micro-lib/config";
+import { defineConfig } from "micro-utils/config";
 import { mfConfig } from "./moduleFederation.config";
 
 const packageJson = require("./package.json");
