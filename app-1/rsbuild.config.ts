@@ -1,5 +1,6 @@
-import defineConfig from "./src/lib/config";
+import { defineConfig } from "lib/dist/es/config";
 import { mfConfig } from "./moduleFederation.config";
+
 const packageJson = require("./package.json");
 
 export default defineConfig({

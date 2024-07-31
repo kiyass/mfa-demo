@@ -1,4 +1,4 @@
-import type { ModuleFederationPluginOptions } from "./src/lib/config";
+import type { ModuleFederationPluginOptions } from "lib";
 
 export const mfConfig: ModuleFederationPluginOptions = {
   name: "main",
