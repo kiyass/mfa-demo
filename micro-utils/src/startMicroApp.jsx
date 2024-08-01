@@ -62,6 +62,7 @@ export default function startMicroApp({
 
   microApp.start({
     tagName: `micro-app-${packageJsonName}`,
+    disableScopecss: true,
     'router-mode': 'native',
   });
 }
