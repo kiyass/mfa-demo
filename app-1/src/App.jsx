@@ -123,7 +123,7 @@ const InnerApp = () => {
                 createElement={createElement}
                 packageJsonName={name}
                 name="app-1-1"
-                url="http://localhost:2011/"
+                url={process.env.PUBLIC_MICRO_APP1_1_URL}
                 path="/app-1-1"
               />
             }
@@ -136,7 +136,7 @@ const InnerApp = () => {
                 createElement={createElement}
                 packageJsonName={name}
                 name="app-1-2"
-                url="http://localhost:2012/"
+                url={process.env.PUBLIC_MICRO_APP1_2_URL}
                 path="/app-1-2"
               />
             }

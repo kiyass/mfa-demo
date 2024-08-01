@@ -10,9 +10,6 @@ export default defineConfig({
     port: 2011,
     host: "localhost",
   },
-  dev: {
-    assetPrefix: "http://localhost:2011/",
-  },
   moduleFederation: {
     options: mfConfig,
   },

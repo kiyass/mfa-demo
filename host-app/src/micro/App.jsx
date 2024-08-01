@@ -17,7 +17,7 @@ const App = () => {
             element={
               <micro-app
                 name="app-1"
-                url="http://localhost:2001/"
+                url={process.env.PUBLIC_MICRO_APP1_URL}
                 baseroute="/app1"
               />
             }
@@ -28,7 +28,7 @@ const App = () => {
             element={
               <micro-app
                 name="app-4"
-                url="http://localhost:2004/"
+                url={process.env.PUBLIC_MICRO_APP4_URL}
                 baseroute="/app4"
               />
             }
