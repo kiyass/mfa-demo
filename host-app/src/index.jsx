@@ -1,2 +1,2 @@
-import("./qiankun/bootstrap");
-// import("./micro/bootstrap");
+// import("./qiankun/bootstrap");
+import("./micro/bootstrap");

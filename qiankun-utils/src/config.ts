@@ -65,6 +65,12 @@ export default function defineConfig({ packageJson, ...config }: Config) {
       output: {
         externals,
       },
+      server: {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        historyApiFallback: true,
+      },
       tools: {
         rspack: {
           output: {
@@ -72,13 +78,6 @@ export default function defineConfig({ packageJson, ...config }: Config) {
             libraryTarget: 'umd',
             globalObject: 'window',
             chunkLoadingGlobal: `webpackJsonp_${name}`,
-          },
-          devServer: {
-            headers: {
-              'Access-Control-Allow-Origin': '*',
-            },
-            historyApiFallback: true,
-            watchContentBase: false,
           },
         },
       },

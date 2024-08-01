@@ -32,8 +32,6 @@ import TestMf1 from "./examples/TestMf1";
 //   ],
 // });
 
-window.appName = "app-2-2";
-
 const theme = createTheme({
   components: {
     MuiTooltip: {
