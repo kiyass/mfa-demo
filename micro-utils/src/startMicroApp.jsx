@@ -1,8 +1,5 @@
 import microApp from '@micro-zoe/micro-app';
 
-if (window.__MICRO_APP_ENVIRONMENT__) {
-  __webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__;
-}
 /**
  * @description:
  * @param {*} appContainer App实例 <App />

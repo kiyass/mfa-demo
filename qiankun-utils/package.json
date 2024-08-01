@@ -10,6 +10,11 @@
       "types": "./dist/types/index.d.ts",
       "default": "./dist/lib/index.js"
     },
+    "./publicPath": {
+      "import": "./dist/es/public-path.js",
+      "types": "./dist/types/public-path.d.ts",
+      "default": "./dist/lib/public-path.js"
+    },
     "./startMicroApp": {
       "import": "./dist/es/startMicroApp.js",
       "types": "./dist/types/startMicroApp.d.ts",
