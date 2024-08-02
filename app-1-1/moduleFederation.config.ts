@@ -15,7 +15,6 @@ export const mfConfig: ModuleFederationPluginOptions = {
     "./TestEcharts": "./src/examples/TestEcharts.jsx",
   },
   dts: false,
-  runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
   shared: {
     react: { requiredVersion: false },
     "react-dom": {

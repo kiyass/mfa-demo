@@ -4,6 +4,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { orange } from "@material-ui/core/colors";
+import React, { createElement } from "react";
+
 import {
   StylesProvider,
   ThemeProvider,
@@ -14,7 +16,6 @@ import {
 import "./App.scss";
 
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
 // import TestMf1 from "./examples/TestMf1";
@@ -23,6 +24,8 @@ import { Suspense } from "react/cjs/react.production.min";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
+import MicroApp from "micro-utils/MicroApp";
+import { name } from "../package.json";
 
 const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
 
@@ -117,24 +120,28 @@ const InnerApp = () => {
           <Route exact path="/page1" element={<TestMf2 />} />
           <Route
             exact
-            path="/app-1-1"
+            path="/app-1-1/*"
             element={
-              <micro-app-app-4
+              <MicroApp
+                createElement={createElement}
+                packageJsonName={name}
                 name="app-1-1"
-                url="http://localhost:2011/"
-                baseroute="/app4/app-1-1"
-              ></micro-app-app-4>
+                url={process.env.PUBLIC_MICRO_APP1_1_URL}
+                path="/app-1-1"
+              />
             }
           />
           <Route
             exact
-            path="/app-1-2"
+            path="/app-1-2/*"
             element={
-              <micro-app-app-4
+              <MicroApp
+                createElement={createElement}
+                packageJsonName={name}
                 name="app-1-2"
-                url="http://localhost:2012/"
-                baseroute="/app4/app-1-2"
-              ></micro-app-app-4>
+                url={process.env.PUBLIC_MICRO_APP1_2_URL}
+                path="/app-1-2"
+              />
             }
           />
         </Routes>

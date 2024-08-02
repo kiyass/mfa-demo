@@ -7,9 +7,6 @@ export default defineConfig({
   server: {
     port: 2004,
   },
-  dev: {
-    assetPrefix: "http://localhost:2004/",
-  },
   moduleFederation: {
     options: mfConfig,
   },

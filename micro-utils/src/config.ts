@@ -56,10 +56,19 @@ export function defineConfig({ packageJson, ...config }: Config) {
       newExternals[key] = externals[key];
     }
   }
-
+  let mfConfig = undefined;
+  if (config.moduleFederation?.options?.name) {
+    mfConfig = {
+      options: {
+        name: config.moduleFederation.options.name,
+        runtimePlugins: [require.resolve('./runtime-plugin.js')],
+      },
+    };
+  }
   return mergeRsbuildConfig(
     define(config),
     define({
+      moduleFederation: mfConfig,
       html: {
         tags,
       },

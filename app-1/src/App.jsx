@@ -24,7 +24,7 @@ import Home from "./pages/Home";
 import MicroApp from "micro-utils/MicroApp";
 import { name } from "../package.json";
 
-const TestMf1 = React.lazy(() => import("./examples/TestMf1"));
+const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "app2",
@@ -109,7 +109,7 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
-          <Route exact path="/page1" element={<TestMf1 />} />
+          <Route exact path="/page1" element={<TestMf2 />} />
           <Route
             exact
             path="/app-1-1/*"
