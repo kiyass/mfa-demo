@@ -21,5 +21,10 @@ export const mfConfig: ModuleFederationPluginOptions = {
     "react-dom": {
       requiredVersion: false,
     },
+    // "react-router-dom": {
+    //   requiredVersion: "^6.24.1",
+    //   shareKey: "17.0.2",
+    //   // shareScope: "17.0.2",
+    // },
   },
 };

@@ -1,6 +1,7 @@
 import { a, getLib1InstanceId } from "mf3/utils";
 import React from "react";
 import { createLifecycle } from "./createLifecycle";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 // console.log(a);
 const ModernReactComponent = (props) => {

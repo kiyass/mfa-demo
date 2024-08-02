@@ -4,12 +4,10 @@
  */
 
 import { a, getLib1InstanceId } from "mf3/utils";
+import Mf1 from "mf1/Mf1";
 import React from "react";
-// import useDynamicImport from "../hooks/useDynamicImport";
-// const { getLib1InstanceId, a } = await import("mf3/utils");
 
 export default () => {
-  // const utils = useDynamicImport({ module: "utils", scope: "mf3" });
   return (
     <div style={{ margin: 100 }}>
       <button
@@ -19,6 +17,7 @@ export default () => {
       >
         xxx
       </button>
+      <Mf1 />
     </div>
   );
 };

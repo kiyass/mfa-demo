@@ -20,5 +20,8 @@ export const mfConfig: ModuleFederationPluginOptions = {
     "react-dom": {
       requiredVersion: false,
     },
+    "react-router-dom": {
+      requiredVersion: "6.25.1",
+    },
   },
 };

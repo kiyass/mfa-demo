@@ -35,7 +35,7 @@ module.exports = {
       remoteType: "script",
       filename: "remoteEntry.js",
       remotes: {
-        mf2: "mf2@http://localhost:7002/remoteEntry.js",
+        // mf2: "mf2@http://localhost:7002/remoteEntry.js",
         mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       exposes: {
@@ -48,7 +48,7 @@ module.exports = {
         },
         "react-router-dom": {
           requiredVersion: false,
-          shareScope: "17.0.2",
+          shareKey: "17.0.2",
         },
       },
     }),

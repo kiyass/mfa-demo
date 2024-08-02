@@ -74,6 +74,10 @@ const webpackConfig = {
         "react-dom": {
           requiredVersion: "18.3.1",
         },
+        "react-router-dom": {
+          shareKey: "17.0.2",
+          requiredVersion: false,
+        },
       },
       dts: false,
     }),
