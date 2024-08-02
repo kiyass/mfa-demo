@@ -75,12 +75,12 @@ const webpackConfig = {
           requiredVersion: "17.0.2",
         },
         "react-router-dom": {
-          shareKey: "17.0.2",
           requiredVersion: false,
+          shareScope: "react-17.0.2",
         },
       },
       dts: false,
-      runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.ts")],
+      runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

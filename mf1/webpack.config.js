@@ -48,7 +48,6 @@ module.exports = {
         },
         "react-router-dom": {
           requiredVersion: false,
-          shareKey: "17.0.2",
         },
       },
     }),

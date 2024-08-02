@@ -15,6 +15,7 @@ export const mfConfig: ModuleFederationPluginOptions = {
     "./TestEcharts": "./src/examples/TestEcharts.jsx",
   },
   dts: false,
+  runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
   shared: {
     react: { requiredVersion: false },
     "react-dom": {
@@ -22,6 +23,7 @@ export const mfConfig: ModuleFederationPluginOptions = {
     },
     "react-router-dom": {
       requiredVersion: "6.25.1",
+      shareScope: "react-17.0.2",
     },
   },
 };
