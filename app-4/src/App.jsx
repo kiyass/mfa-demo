@@ -18,16 +18,12 @@ import "./App.scss";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
-// import TestMf1 from "./examples/TestMf1";
-// import TestMf2 from "./examples/TestMf2";
 import { Suspense } from "react/cjs/react.production.min";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
 import MicroApp from "micro-utils/MicroApp";
 import { name } from "../package.json";
-
-const TestMf2 = React.lazy(() => import("./examples/TestMf2"));
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "app2",
@@ -97,10 +93,7 @@ const InnerApp = () => {
         </List>
 
         <Divider />
-        <div className={classes.testItem}>
-          {/* <TestCustomTheme /> */}
-          {/* <TestMf2 /> */}
-        </div>
+        <div className={classes.testItem}></div>
         <Divider />
         <div className={classes.testItem}>
           <TestDialog />
@@ -117,7 +110,6 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
-          <Route exact path="/page1" element={<TestMf2 />} />
           <Route
             exact
             path="/app-1-1/*"

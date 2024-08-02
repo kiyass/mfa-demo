@@ -10,7 +10,6 @@ import TestCssinJs from "./examples/TestCssinJs";
 import TestDialog from "./examples/TestDialog";
 import TestEcharts from "./examples/TestEcharts";
 import TestEditor from "./examples/TestEditor";
-// import TestMf1 from "./examples/TestMf1";
 import TestSelect from "./examples/TestSelect";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
@@ -48,12 +47,10 @@ const App = () => {
               <Route path="/editor" element={<TestEditor />} />
               <Route path="/video" element={<TestVideo />} />
               <Route path="/echart" element={<TestEcharts />} />
-              {/* <Route path="/mf1" element={<TestMf1 />} /> */}
               <Route
                 path="/mf2"
                 element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
               />
-              {/* <Route path="/mf3" element={<TestMf1 />} /> */}
               <Route
                 path="/mf4"
                 element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
