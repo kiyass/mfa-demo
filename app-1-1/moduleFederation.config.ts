@@ -16,10 +16,6 @@ export const mfConfig: ModuleFederationPluginOptions = {
   },
   dts: false,
   shared: {
-    react: { requiredVersion: false },
-    "react-dom": {
-      requiredVersion: false,
-    },
     "react-router-dom": {
       requiredVersion: "6.25.1",
       shareScope: "react-17.0.2",

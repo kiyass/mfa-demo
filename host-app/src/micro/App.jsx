@@ -1,8 +1,9 @@
-import React from "react";
-import { render } from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { createElement } from "react";
+import { Route, Routes } from "react-router-dom";
 import "../App.scss";
+import MicroApp from "micro-utils/MicroApp";
 import Header from "../components/AppBar";
+import { name } from "../../package.json";
 
 const App = () => {
   return (
@@ -15,10 +16,12 @@ const App = () => {
             exact
             path="/app1/*"
             element={
-              <micro-app
+              <MicroApp
+                createElement={createElement}
+                packageJsonName={name}
                 name="app-1"
                 url={process.env.PUBLIC_MICRO_APP1_URL}
-                baseroute="/app1"
+                path="/app1"
               />
             }
           />
@@ -26,10 +29,12 @@ const App = () => {
             exact
             path="/app4/*"
             element={
-              <micro-app
+              <MicroApp
+                createElement={createElement}
+                packageJsonName={name}
                 name="app-4"
                 url={process.env.PUBLIC_MICRO_APP4_URL}
-                baseroute="/app4"
+                path="/app4"
               />
             }
           />
@@ -39,11 +44,4 @@ const App = () => {
   );
 };
 
-export const renderApp = () => {
-  render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-  );
-};
+export default App;

@@ -17,7 +17,7 @@ function getMajorVersion(versionRange: string) {
 
 interface Config extends RsbuildConfig {
   packageJson: {
-    name: 'string';
+    name: string;
     dependencies: {
       [key: string]: string;
     };
@@ -26,7 +26,7 @@ interface Config extends RsbuildConfig {
 
 export function defineConfig({ packageJson, ...config }: Config) {
   const { name, dependencies } = packageJson;
-  let tags = [];
+  let tags: any[] | undefined = [];
   let newExternals: {
     [key: string]: string;
   } = {};
@@ -65,6 +65,9 @@ export function defineConfig({ packageJson, ...config }: Config) {
       },
     };
   }
+  if (packageJson.name !== 'host-app') {
+    tags = undefined;
+  }
   return mergeRsbuildConfig(
     define(config),
     define({
@@ -73,7 +76,7 @@ export function defineConfig({ packageJson, ...config }: Config) {
         tags,
       },
       output: {
-        externals,
+        externals: newExternals,
       },
       server: {
         headers: {

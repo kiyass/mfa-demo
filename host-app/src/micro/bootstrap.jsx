@@ -1,9 +1,17 @@
-import { renderApp } from "./App";
-import microApp from "@micro-zoe/micro-app";
+import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import startMicroApp from "micro-utils/startMicroApp";
+import { name } from "../../package.json";
 import "./store";
 
-microApp.start({
-  "router-mode": "native", // 所有子应用都设置为native模式
+window.React = React;
+window.ReactDOM = ReactDOM;
+startMicroApp({
+  appContainer: <App />,
+  ReactDOM,
+  host: true,
+  BrowserRouter,
+  packageJsonName: name,
 });
-
-renderApp();

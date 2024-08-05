@@ -5,6 +5,7 @@ import microApp from '@micro-zoe/micro-app';
  * @param {*} appContainer App实例 <App />
  * @param {*} ReactDOM react-dom
  * @param {*} mountId "#root"
+ * @param {*} host "是否为主应用"
  * @param {*} packageJsonName
  * @param {*} handleMount handleMount
  * @param {*} handleUnMount handleUnMount
@@ -14,6 +15,7 @@ import microApp from '@micro-zoe/micro-app';
 export default function startMicroApp({
   appContainer,
   ReactDOM,
+  host = false,
   BrowserRouter,
   mountId = '#root',
   handleMount,
@@ -22,11 +24,12 @@ export default function startMicroApp({
 }) {
   let rootDom = null;
   let app = null;
+  let CunstomRouter = BrowserRouter;
   function render() {
     const App = (
-      <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
+      <CunstomRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
         {appContainer}
-      </BrowserRouter>
+      </CunstomRouter>
     );
     if (ReactDOM?.render) {
       rootDom = document.querySelector(mountId);
@@ -42,6 +45,7 @@ export default function startMicroApp({
       const rootDom = document.querySelector(mountId);
       ReactDOM.unmountComponentAtNode(rootDom);
     } else {
+      CunstomRouter = null;
       app.unmount();
       app = null;
     }
@@ -59,10 +63,11 @@ export default function startMicroApp({
   if (!window.__MICRO_APP_ENVIRONMENT__) {
     window.mount();
   }
-
-  microApp.start({
-    tagName: `micro-app-${packageJsonName}`,
-    disableScopecss: true,
-    'router-mode': 'native',
-  });
+  if (host) {
+    microApp.start({
+      tagName: `micro-app-${packageJsonName}`,
+      disableScopecss: true,
+      'router-mode': 'native',
+    });
+  }
 }

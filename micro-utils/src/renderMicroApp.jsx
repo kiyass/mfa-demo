@@ -7,8 +7,16 @@
  * @param {*} path
  * @return {*}
  */
-function MicroApp({ packageJsonName, createElement, name, url, path }) {
+function MicroApp({
+  packageJsonName,
+  createElement,
+  name,
+  url,
+  path,
+  ...props
+}) {
   return createElement(`micro-app-${packageJsonName}`, {
+    ...props,
     name,
     url,
     baseroute: window.__MICRO_APP_BASE_ROUTE__

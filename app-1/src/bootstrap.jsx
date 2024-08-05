@@ -8,6 +8,7 @@ startMicroApp({
   appContainer: <App />,
   ReactDOM,
   BrowserRouter,
+  host: true,
   packageJsonName: name,
   handleMount: () => {
     console.log("handleMount");
