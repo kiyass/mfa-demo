@@ -24,12 +24,11 @@ export default function startMicroApp({
 }) {
   let rootDom = null;
   let app = null;
-  let CunstomRouter = BrowserRouter;
   function render() {
     const App = (
-      <CunstomRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
+      <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
         {appContainer}
-      </CunstomRouter>
+      </BrowserRouter>
     );
     if (ReactDOM?.render) {
       rootDom = document.querySelector(mountId);
@@ -45,7 +44,6 @@ export default function startMicroApp({
       const rootDom = document.querySelector(mountId);
       ReactDOM.unmountComponentAtNode(rootDom);
     } else {
-      CunstomRouter = null;
       app.unmount();
       app = null;
     }

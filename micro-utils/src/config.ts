@@ -65,9 +65,7 @@ export function defineConfig({ packageJson, ...config }: Config) {
       },
     };
   }
-  if (packageJson.name !== 'host-app') {
-    tags = undefined;
-  }
+
   return mergeRsbuildConfig(
     define(config),
     define({
