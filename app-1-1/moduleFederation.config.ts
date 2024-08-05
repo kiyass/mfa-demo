@@ -15,10 +15,4 @@ export const mfConfig: ModuleFederationPluginOptions = {
     "./TestEcharts": "./src/examples/TestEcharts.jsx",
   },
   dts: false,
-  shared: {
-    "react-router-dom": {
-      requiredVersion: "6.25.1",
-      shareScope: "react-17.0.2",
-    },
-  },
 };
