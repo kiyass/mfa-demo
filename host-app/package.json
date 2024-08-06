@@ -11,7 +11,7 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
     "@material-ui/styles": "4.11.5",
-    "@micro-zoe/micro-app": "^1.0.0-rc.6",
+    "@types/node": "^22.1.0",
     "axios": "0.24.0",
     "clsx": "^2.1.1",
     "qiankun": "^2.10.16",
@@ -23,8 +23,6 @@
     "wujie-react": "^1.0.22"
   },
   "devDependencies": {
-    "@rsbuild/core": "1.0.1-beta.1",
-    "@rsbuild/plugin-react": "1.0.1-beta.1",
-    "@rsbuild/plugin-sass": "^1.0.1-beta.3"
+    "@rsbuild/core": "1.0.1-beta.8"
   }
 }

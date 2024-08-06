@@ -5,8 +5,11 @@ import startMicroApp from "micro-utils/startMicroApp";
 import { name } from "../package.json";
 
 startMicroApp({
-  appContainer: <App />,
-  BrowserRouter,
+  renderApp: (basename) => (
+    <BrowserRouter basename={basename}>
+      <App />
+    </BrowserRouter>
+  ),
   ReactDOM,
   packageJsonName: name,
   handleMount: () => {

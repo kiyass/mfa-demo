@@ -14,10 +14,9 @@ import {
 import "./App.scss";
 
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import React, { createElement } from "react";
+import React, { createElement, Suspense } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
-import { Suspense } from "react/cjs/react.production.min";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";

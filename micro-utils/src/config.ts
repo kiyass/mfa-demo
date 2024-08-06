@@ -70,12 +70,12 @@ export function defineConfig({ packageJson, ...config }: Config) {
     define(config),
     define({
       moduleFederation: mfConfig,
-      html: {
-        tags,
-      },
-      output: {
-        externals: newExternals,
-      },
+      // html: {
+      //   tags,
+      // },
+      // output: {
+      //   externals: newExternals,
+      // },
       server: {
         headers: {
           'Access-Control-Allow-Origin': '*',

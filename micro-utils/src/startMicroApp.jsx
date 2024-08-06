@@ -2,7 +2,7 @@ import microApp from '@micro-zoe/micro-app';
 
 /**
  * @description:
- * @param {*} appContainer App实例 <App />
+ * @param {*} renderApp App实例 <App />
  * @param {*} ReactDOM react-dom
  * @param {*} mountId "#root"
  * @param {*} host "是否为主应用"
@@ -13,10 +13,9 @@ import microApp from '@micro-zoe/micro-app';
  * @return {*}
  */
 export default function startMicroApp({
-  appContainer,
+  renderApp,
   ReactDOM,
   host = false,
-  BrowserRouter,
   mountId = '#root',
   handleMount,
   packageJsonName,
@@ -25,11 +24,7 @@ export default function startMicroApp({
   let rootDom = null;
   let app = null;
   function render() {
-    const App = (
-      <BrowserRouter basename={window.__MICRO_APP_BASE_ROUTE__ || '/'}>
-        {appContainer}
-      </BrowserRouter>
-    );
+    const App = renderApp(window.__MICRO_APP_BASE_ROUTE__ || '/');
     if (ReactDOM?.render) {
       rootDom = document.querySelector(mountId);
 

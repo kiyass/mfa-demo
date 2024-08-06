@@ -17,11 +17,11 @@ const App = () => {
   );
 };
 
-export const renderApp = () => {
-  ReactDOM.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-  );
-};
+// export const renderApp = () => {
+//   ReactDOM.render(
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>,
+//     document.getElementById("root")
+//   );
+// };
