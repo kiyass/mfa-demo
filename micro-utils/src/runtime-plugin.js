@@ -81,13 +81,13 @@ const NpmRuntimeGlobalPlugin = () => {
       }
       return args;
     },
-    beforeLoadShare: async args => {
-      // old workaround, may not be required anymore
-      while (__FEDERATION__.__INSTANCES__.length <= 1) {
-        await new Promise(r => setTimeout(r, 50));
-      }
-      return args;
-    },
+    // beforeLoadShare: async args => {
+    //   // old workaround, may not be required anymore
+    //   while (__FEDERATION__.__INSTANCES__.length <= 1) {
+    //     await new Promise(r => setTimeout(r, 50));
+    //   }
+    //   return args;
+    // },
   };
 };
 
