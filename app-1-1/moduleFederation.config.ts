@@ -7,17 +7,17 @@ export const mfConfig: ModuleFederationPluginOptions = {
   filename: "remoteEntry.js",
   remotes: {
     // mf1: "mf1@http://localhost:7001/remoteEntry.js",
-    mf2: "mf2@http://localhost:7002/remoteEntry.js",
+    // mf2: "mf2@http://localhost:7002/remoteEntry.js",
     mf3: "mf3@http://localhost:7003/remoteEntry.js",
-    mf4: "mf4@http://localhost:7004/remoteEntry.js",
+    // mf4: "mf4@http://localhost:7004/remoteEntry.js",
   },
   shared: {
     react: {
-      requiredVersion: false,
+      requiredVersion: "17.0.2",
       // shareScope: "react@17.0.2"
     },
     "react-dom": {
-      requiredVersion: false,
+      requiredVersion: "17.0.2",
       // shareScope: "react@17.0.2",
     },
   },
