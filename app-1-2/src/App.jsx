@@ -6,6 +6,7 @@ import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
 import RemoteComponent2 from "./examples/RemoteComponent2";
+import Home from "./components/Home";
 import TestMf1 from "./examples/TestMf1";
 
 // import { init } from "@module-federation/runtime";
@@ -55,7 +56,7 @@ const App = () => {
         <Suspense fallback="loading">
           <BasicLayout>
             <Routes>
-              <Route path="/" element={<div>home</div>} />
+              <Route path="/" element={<Home />} />
               <Route path="/mf3" element={<TestMf1 />} />
               <Route
                 path="/mf2"
