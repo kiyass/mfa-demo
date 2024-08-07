@@ -35,7 +35,7 @@ module.exports = {
       remoteType: "script",
       filename: "remoteEntry.js",
       remotes: {
-        // mf2: "mf2@http://localhost:7002/remoteEntry.js",
+        mf2: "mf2@http://localhost:7002/remoteEntry.js",
         mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       exposes: {
@@ -44,15 +44,12 @@ module.exports = {
       shared: {
         react: {
           requiredVersion: false,
-          // shareScope: "react@17.0.2"
+          shareScope: "react@17.0.2",
         },
         "react-dom": {
           requiredVersion: false,
-          // shareScope: "react@17.0.2",
+          shareScope: "react@17.0.2",
         },
-        // "react-router-dom": {
-        //   requiredVersion: false,
-        // },
       },
     }),
     new HtmlWebpackPlugin({

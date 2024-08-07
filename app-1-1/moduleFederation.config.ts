@@ -6,7 +6,7 @@ export const mfConfig: ModuleFederationPluginOptions = {
   remoteType: "script",
   filename: "remoteEntry.js",
   remotes: {
-    // mf1: "mf1@http://localhost:7001/remoteEntry.js",
+    mf1: "mf1@http://localhost:7001/remoteEntry.js",
     mf2: "mf2@http://localhost:7002/remoteEntry.js",
     mf3: "mf3@http://localhost:7003/remoteEntry.js",
     mf4: "mf4@http://localhost:7004/remoteEntry.js",

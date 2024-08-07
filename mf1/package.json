@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
+    "@module-federation/runtime": "^0.3.5",
     "@babel/core": "7.12.3",
     "@babel/preset-react": "7.12.1",
     "babel-loader": "8.1.0",
