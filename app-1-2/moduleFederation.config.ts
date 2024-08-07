@@ -18,13 +18,11 @@ export const mfConfig: ModuleFederationPluginOptions = {
   shared: {
     react: {
       requiredVersion: false,
-
-      // shareScope: "react@17.0.1"
+      shareScope: "react@17.0.1",
     },
     "react-dom": {
       requiredVersion: false,
-      // shareScope: "react@17.0.1",
+      shareScope: "react@17.0.1",
     },
   },
-  // dts: false,
 };

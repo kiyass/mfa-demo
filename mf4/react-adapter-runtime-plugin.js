@@ -27,7 +27,7 @@ const useLocalShares = new Set(["lodash"]);
 //workaround for rspack who cannot process webpackIgnore comments yet
 
 const getShareFromUnpkg = (packageName, version) => {
-  console.log("app4", packageName, version);
+  console.log("mf4", packageName, version);
 
   return () => {
     const mod = new Function(
@@ -45,7 +45,6 @@ const NpmRuntimeGlobalPlugin = () => {
   return {
     name: "share-from-npm-plugin",
     beforeInit: (args) => {
-      console.log(args.options.name, "app4  share-from-npm-plugin");
       return args;
     },
 
