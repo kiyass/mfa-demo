@@ -3,21 +3,23 @@
  *  Description:
  */
 
-import { a, getLib1InstanceId } from "mf3/utils";
+// import { a, getLib1InstanceId } from "mf3/utils";
 // import Mf1 from "mf1/Mf1";
+import Home from "../components/Home";
 import React from "react";
 
 export default () => {
   return (
     <div style={{ margin: 100 }}>
-      <button
+      {/* <button
         onClick={() => {
           console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
         }}
       >
         xxx
-      </button>
+      </button> */}
       {/* <Mf1 /> */}
+      <Home />
     </div>
   );
 };

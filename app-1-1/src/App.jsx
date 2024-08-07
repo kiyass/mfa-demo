@@ -12,6 +12,7 @@ import TestEcharts from "./examples/TestEcharts";
 import TestEditor from "./examples/TestEditor";
 import TestSelect from "./examples/TestSelect";
 import TestToast from "./examples/TestToast";
+import TestMf1 from "./examples/TestMf1";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
@@ -64,6 +65,7 @@ const App = () => {
               <Route path="/editor" element={<TestEditor />} />
               <Route path="/video" element={<TestVideo />} />
               <Route path="/echart" element={<TestEcharts />} />
+              <Route path="/mf1" element={<TestMf1 />} />
               <Route
                 path="/mf2"
                 element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
