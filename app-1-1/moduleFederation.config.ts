@@ -12,14 +12,16 @@ export const mfConfig: ModuleFederationPluginOptions = {
     mf4: "mf4@http://localhost:7004/remoteEntry.js",
   },
   shared: {
-    react: { requiredVersion: false, shareScope: "react@17.0.2" },
+    react: {
+      requiredVersion: false,
+      // shareScope: "react@17.0.2"
+    },
     "react-dom": {
       requiredVersion: false,
-      shareScope: "react@17.0.2",
+      // shareScope: "react@17.0.2",
     },
   },
   exposes: {
     "./TestEcharts": "./src/examples/TestEcharts.jsx",
   },
-  dts: false,
 };

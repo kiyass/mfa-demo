@@ -499,13 +499,6 @@
   dependencies:
     "@module-federation/sdk" "0.2.5"
 
-"@module-federation/runtime@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.npmmirror.com/@module-federation/runtime/-/runtime-0.3.5.tgz#d9c5c03a4650640ae5264185827e9c1a4bf8cb86"
-  integrity sha512-/3trW4KzuAAJ1FqBwWf+O8ORckd8ogxh7a1jzJnxNS9CbJuTWK8pgPKs5ZNDY/P3Hj/JvJ8koCoQ7otS0p3Ppw==
-  dependencies:
-    "@module-federation/sdk" "0.3.5"
-
 "@module-federation/sdk@0.1.6":
   version "0.1.6"
   resolved "https://registry.npmmirror.com/@module-federation/sdk/-/sdk-0.1.6.tgz#4d64b206ef6bddd99ca74680f278a2134a493dd5"
@@ -515,11 +508,6 @@
   version "0.2.5"
   resolved "https://registry.npmmirror.com/@module-federation/sdk/-/sdk-0.2.5.tgz#cebecfbc4cc336b75944695632e8cc9b8f5df3e7"
   integrity sha512-2EtsNi+RUFaN/ipDaIxnOG/fo+XHCGqsAC7oT4vgnw0VzvupQRdIIwJWNwdQVvRWvyVdoknxs0gpfHMwwPKxTw==
-
-"@module-federation/sdk@0.3.5":
-  version "0.3.5"
-  resolved "https://registry.npmmirror.com/@module-federation/sdk/-/sdk-0.3.5.tgz#d526c05b2499180b9df7f35cb3971bda9cbfe6db"
-  integrity sha512-rszYAZOMTqkN8HEls7Z6quE8p0WHMKgY8tXEojNb8XKWbIf95znQgipGbAZivG84k+Lzmvvizm450bMWVOwb8Q==
 
 "@module-federation/third-party-dts-extractor@0.2.5":
   version "0.2.5"

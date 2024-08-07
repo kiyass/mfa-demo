@@ -22,8 +22,6 @@
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
 
-import { registerGlobalPlugins } from "@module-federation/runtime";
-
 const useLocalShares = new Set(["lodash"]);
 
 //workaround for rspack who cannot process webpackIgnore comments yet
@@ -91,8 +89,4 @@ const NpmRuntimeGlobalPlugin = () => {
   };
 };
 
-registerGlobalPlugins([NpmRuntimeGlobalPlugin()]);
-
-export default () => ({
-  name: "empty-plugin",
-});
+export default NpmRuntimeGlobalPlugin;

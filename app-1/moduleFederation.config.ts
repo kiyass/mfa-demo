@@ -8,10 +8,13 @@ export const mfConfig: ModuleFederationPluginOptions = {
     mf3: "mf3@http://localhost:7003/remoteEntry.js",
   },
   shared: {
-    react: { requiredVersion: false, shareScope: "react@17.0.2" },
+    react: {
+      requiredVersion: false,
+      // shareScope: "react@17.0.2"
+    },
     "react-dom": {
       requiredVersion: false,
-      shareScope: "react@17.0.2",
+      // shareScope: "react@17.0.2",
     },
   },
 };

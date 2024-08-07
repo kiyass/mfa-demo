@@ -70,10 +70,13 @@ const webpackConfig = {
         mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       shared: {
-        react: { requiredVersion: "18.3.1", shareScope: "react@18.3.1" },
+        react: {
+          requiredVersion: "18.3.1",
+          // shareScope: "react@18.3.1"
+        },
         "react-dom": {
           requiredVersion: "18.3.1",
-          shareScope: "react@18.3.1",
+          // shareScope: "react@18.3.1",
         },
         // "react-router-dom": {
         //   requiredVersion: false,

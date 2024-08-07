@@ -42,13 +42,17 @@ module.exports = {
         "./Mf1": "./src/Page",
       },
       shared: {
-        react: { requiredVersion: "17.0.2" },
+        react: {
+          requiredVersion: false,
+          // shareScope: "react@17.0.2"
+        },
         "react-dom": {
           requiredVersion: false,
+          // shareScope: "react@17.0.2",
         },
-        "react-router-dom": {
-          requiredVersion: false,
-        },
+        // "react-router-dom": {
+        //   requiredVersion: false,
+        // },
       },
     }),
     new HtmlWebpackPlugin({

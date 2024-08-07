@@ -13,7 +13,6 @@ export const mfConfig: ModuleFederationPluginOptions = {
     },
     "react-router-dom": {
       requiredVersion: false,
-      shareScope: "17.0.2",
     },
   },
 };

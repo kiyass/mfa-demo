@@ -70,11 +70,19 @@ const webpackConfig = {
         mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       shared: {
-        react: { requiredVersion: false, shareScope: "react@17.0.2" },
+        react: {
+          requiredVersion: false,
+
+          // shareScope: "react@17.0.2"
+        },
         "react-dom": {
           requiredVersion: false,
-          shareScope: "react@17.0.2",
+          // shareScope: "react@17.0.2",
         },
+        // "react-router-dom": {
+        //   requiredVersion: false,
+        //   shareScope: "react@17.0.2",
+        // },
       },
       dts: false,
       runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],

@@ -7,7 +7,11 @@ import App from "./App";
 
 import "./store";
 startMicroApp({
-  renderApp: () => <App />,
+  renderApp: (basename) => (
+    <BrowserRouter basename={basename}>
+      <App />
+    </BrowserRouter>
+  ),
   ReactDOM,
   host: true,
   packageJsonName: name,
