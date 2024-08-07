@@ -16,7 +16,6 @@ import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
 import { init } from "@module-federation/runtime";
-import TestStore from "./examples/TestStore";
 
 init({
   name: "app11",
@@ -57,7 +56,7 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<TestDialog />} />
-              <Route path="/store" element={<TestStore />} />
+              {/* <Route path="/store" element={<TestStore />} /> */}
               <Route path="/cssinjs" element={<TestCssinJs />} />
               <Route path="/toastMessage" element={<TestToast />} />
               <Route path="/tooltip" element={<TestTooltip />} />
