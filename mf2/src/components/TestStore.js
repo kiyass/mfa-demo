@@ -21,12 +21,23 @@ const TestStore = () => {
     store.DispatchGlobalAction("Mf2", { type: "MF2_DECREMENT" });
   };
 
+  const handleGlobalInc = () => {
+    store.DispatchGlobalAction("CounterApp", { type: "INCREMENT_GLOBAL" });
+  };
+
+  const handleGlobalDec = () => {
+    store.DispatchGlobalAction("CounterApp", { type: "DECREMENT_GLOBAL" });
+  };
+
   return (
     <div style={{ padding: 20 }}>
       <div>
         <p>count: {count}</p>
         <button onClick={handleInc}>MF2_INCREMENT</button>{" "}
         <button onClick={handleDec}>MF2_DECREMENT</button>
+        <br />
+        <button onClick={handleGlobalInc}>INCREMENT_GLOBAL</button>{" "}
+        <button onClick={handleGlobalDec}>DECREMENT_GLOBAL</button>
       </div>
     </div>
   );
