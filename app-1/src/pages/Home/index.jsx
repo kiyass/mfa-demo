@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import TestMf1 from "../../examples/TestMf1";
 import store from "./store";
 
 const Home = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    store.SubscribeToGlobalState("CounterApp", (state) => {
+    const unsub = store.SubscribeToGlobalState("CounterApp", (state) => {
       setCount(state.CounterApp.global);
     });
+    return () => {
+      unsub();
+    };
   }, []);
 
   const handleInc = () => {

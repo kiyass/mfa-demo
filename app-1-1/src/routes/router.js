@@ -4,6 +4,10 @@ export const routes = [
     name: "弹窗",
   },
   {
+    path: "/store",
+    name: "store",
+  },
+  {
     path: "/cssinjs",
     name: "css in js",
   },

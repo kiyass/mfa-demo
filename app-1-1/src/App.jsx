@@ -1,8 +1,8 @@
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ModalProvider from "mui-modal-provider";
 import React, { Suspense } from "react";
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast";
 import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
@@ -16,6 +16,7 @@ import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
 import { init } from "@module-federation/runtime";
+import TestStore from "./examples/TestStore";
 
 init({
   name: "app11",
@@ -56,6 +57,7 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<TestDialog />} />
+              <Route path="/store" element={<TestStore />} />
               <Route path="/cssinjs" element={<TestCssinJs />} />
               <Route path="/toastMessage" element={<TestToast />} />
               <Route path="/tooltip" element={<TestTooltip />} />

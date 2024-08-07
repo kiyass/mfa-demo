@@ -2,7 +2,7 @@
  *  Author:
  *  Description:
  */
-import { GlobalStore } from "redux-micro-frontend";
+import { GlobalStore } from "mf3/utils";
 
 let initialState = {
   global: 0,

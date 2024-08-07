@@ -1,7 +1,7 @@
 import { a, getLib1InstanceId } from "mf3/utils";
 import React from "react";
+import TestStore from "./TestStore";
 import { createLifecycle } from "./createLifecycle";
-import { Route, Routes, useNavigate } from "react-router-dom";
 
 // console.log(a);
 const ModernReactComponent = (props) => {
@@ -23,6 +23,7 @@ const ModernReactComponent = (props) => {
       </button>
       <button onClick={() => console.log("get a.value", a.value)}>get</button>
       <br />
+      <TestStore />
       <h2>Text form legacy React app: {input}</h2>
       {children}
     </div>
