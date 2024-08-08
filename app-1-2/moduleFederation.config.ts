@@ -16,9 +16,9 @@ export const mfConfig: ModuleFederationPluginOptions = {
     mf4: "mf4@http://localhost:7004/remoteEntry.js",
   },
   shared: {
-    react: { requiredVersion: "17.0.2" },
+    react: { requiredVersion: false },
     "react-dom": {
-      requiredVersion: "17.0.2",
+      requiredVersion: false,
     },
   },
   dts: false,

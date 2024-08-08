@@ -52,6 +52,7 @@ const NpmRuntimeGlobalPlugin = () => {
     },
 
     resolveShare: args => {
+      return args;
       const { shareScopeMap, scope, pkgName, version, resolver } = args;
       const currentPackageRef = shareScopeMap[scope][pkgName][version];
 
@@ -91,8 +92,4 @@ const NpmRuntimeGlobalPlugin = () => {
   };
 };
 
-registerGlobalPlugins([NpmRuntimeGlobalPlugin()]);
-
-export default () => ({
-  name: 'empty-plugin',
-});
+export default NpmRuntimeGlobalPlugin;
