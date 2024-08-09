@@ -55,7 +55,7 @@ const NpmRuntimeGlobalPlugin = () => {
         }
         return resolver();
       };
-      console.log(args.resolver, "args.resolver");
+
       return args;
     },
   };
