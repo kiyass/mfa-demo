@@ -19,6 +19,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import TestDialog from "./examples/TestDialog";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
+import TestEcharts from "./examples/TestEcharts";
 import Home from "./pages/Home";
 import MicroApp from "micro-utils/MicroApp";
 import { name } from "../package.json";
@@ -105,7 +106,7 @@ const InnerApp = () => {
       </div>
       <div className={classes.container}>
         <Routes>
-          <Route exact path="/home" element={<Home />} />
+          <Route exact path="/home" element={<TestEcharts />} />
           <Route
             exact
             path="/app-1-1/*"

@@ -1,3 +1,7 @@
+/*
+ *  Author:
+ *  Description:
+ */
 /**
  * NpmRuntimePlugin for Module Federation
  * --------------------------------------
@@ -22,54 +26,14 @@
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
 
-import { registerGlobalPlugins } from '@module-federation/runtime';
-
-const useLocalShares = new Set(['lodash']);
-
-//workaround for rspack who cannot process webpackIgnore comments yet
-
-const getShareFromUnpkg = (packageName, version) => {
-  return () => {
-    const mod = new Function(
-      'packageName',
-      'version',
-      'return import(/* webpackIgnore: true */ `https://esm.sh/${packageName}@${version}`)',
-    )(packageName, version);
-    return mod.then(m => {
-      return () => m;
-    });
-  };
-};
-
-const store = {};
-
-const NpmRuntimeGlobalPlugin = () => {
+export default () => {
   return {
-    name: 'share-from-npm-plugin',
-    beforeInit: args => {
-      store.name = args.options.name;
-      return args;
-    },
-
-    resolveShare: args => {
-      return args;
-      const { shareScopeMap, scope, pkgName, version, resolver } = args;
-      const currentPackageRef = shareScopeMap[scope][pkgName][version];
-
-      args.resolver = () => {
-        if (!useLocalShares.has(pkgName)) {
-          currentPackageRef.get = getShareFromUnpkg(pkgName, version);
-        }
-        return resolver();
-      };
-
-      return args;
-    },
+    name: "share-scope-plugin",
     initContainerShareScopeMap(args) {
       try {
         const { hostShareScopeMap, origin, scopeName } = args;
         if (hostShareScopeMap) {
-          Object.keys(hostShareScopeMap).forEach(hostShareScopeName => {
+          Object.keys(hostShareScopeMap).forEach((hostShareScopeName) => {
             if (hostShareScopeName === scopeName) {
               return;
             }
@@ -82,14 +46,5 @@ const NpmRuntimeGlobalPlugin = () => {
       }
       return args;
     },
-    beforeLoadShare: async args => {
-      // old workaround, may not be required anymore
-      while (__FEDERATION__.__INSTANCES__.length <= 1) {
-        await new Promise(r => setTimeout(r, 50));
-      }
-      return args;
-    },
   };
 };
-
-export default NpmRuntimeGlobalPlugin;

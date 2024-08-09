@@ -22,42 +22,40 @@
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
 
-import { registerGlobalPlugins } from "@module-federation/runtime";
+// import { registerGlobalPlugins } from '@module-federation/runtime';
 
-const useLocalShares = new Set(["lodash"]);
+const esmShares = new Set(["react", "react-dom"]);
+import getUrl from "./getUrl";
 
 //workaround for rspack who cannot process webpackIgnore comments yet
 
 const getShareFromUnpkg = (packageName, version) => {
   return () => {
+    const src = getUrl(packageName, version);
+    console.log(src, "src");
     const mod = new Function(
-      "packageName",
-      "version",
-      "return import(/* webpackIgnore: true */ `https://esm.sh/${packageName}@${version}`)"
-    )(packageName, version);
+      "src",
+      "return import(/* webpackIgnore: true */ `${src}`)"
+    )(src);
     return mod.then((m) => {
       return () => m;
     });
   };
 };
 
-const store = {};
-
 const NpmRuntimeGlobalPlugin = () => {
   return {
     name: "share-from-npm-plugin",
     beforeInit: (args) => {
-      store.name = args.options.name;
       return args;
     },
 
     resolveShare: (args) => {
-      return args;
       const { shareScopeMap, scope, pkgName, version, resolver } = args;
       const currentPackageRef = shareScopeMap[scope][pkgName][version];
 
       args.resolver = () => {
-        if (!useLocalShares.has(pkgName)) {
+        if (esmShares.has(pkgName)) {
           currentPackageRef.get = getShareFromUnpkg(pkgName, version);
         }
         return resolver();
@@ -79,13 +77,6 @@ const NpmRuntimeGlobalPlugin = () => {
         }
       } catch (err) {
         console.error(new Error(err));
-      }
-      return args;
-    },
-    beforeLoadShare: async (args) => {
-      // old workaround, may not be required anymore
-      while (__FEDERATION__.__INSTANCES__.length <= 1) {
-        await new Promise((r) => setTimeout(r, 50));
       }
       return args;
     },

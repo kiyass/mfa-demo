@@ -76,7 +76,10 @@ const webpackConfig = {
         },
       },
       dts: false,
-      runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
+      runtimePlugins: [
+        require.resolve("./runtime-cdn.js"),
+        require.resolve("./runtime-scope.js"),
+      ],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
