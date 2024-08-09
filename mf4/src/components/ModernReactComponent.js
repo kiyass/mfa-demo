@@ -14,14 +14,14 @@ const ModernReactComponent = (props) => {
       <button
         onClick={() => {
           a.value = Date.now();
-          console.log("set a.value", a.value, getLib1InstanceId());
+          console.log("app4 set a.value", a.value, getLib1InstanceId());
         }}
       >
         set
       </button>
       <button
         onClick={() => {
-          console.log("get a.value", a.value, getLib1InstanceId());
+          console.log("app4 get a.value", a.value, getLib1InstanceId());
         }}
       >
         get
