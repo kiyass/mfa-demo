@@ -56,31 +56,30 @@ export function defineConfig({ packageJson, ...config }: Config) {
     append: false,
     global: true,
   });
-  // if (packageJson?.name === 'host-app') {
-  tags.push({
-    tag: 'script',
-    attrs: {
-      defer: true,
-      type: 'module',
-    },
-    children:
-      'import React from "react";\n globalThis.React=React;import ReactDOM from "react-dom";\n globalThis.ReactDOM=ReactDOM',
-    head: true,
-    append: false,
-    global: true,
-  });
-  // }
+  if (packageJson?.name === 'host-app') {
+    tags.push({
+      tag: 'script',
+      attrs: {
+        defer: true,
+        type: 'module',
+      },
+      children:
+        'import React from "react";\n window.React=React;import ReactDOM from "react-dom";\n window.ReactDOM=ReactDOM',
+      head: true,
+      append: false,
+      global: true,
+    });
+  }
 
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
-    const runtimePlugins = [require.resolve('./runtime-scope.js')];
-
-    if (config.moduleFederation?.options?.exposes) {
-      // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
-      tags = undefined;
-      newExternals = undefined;
-      runtimePlugins.push(require.resolve('./runtime-cdn.js'));
-    }
+    // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
+    tags = undefined;
+    newExternals = undefined;
+    const runtimePlugins = [
+      require.resolve('./runtime-scope.js'),
+      require.resolve('./runtime-cdn.js'),
+    ];
 
     mfConfig = {
       options: {

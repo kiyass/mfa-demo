@@ -22,12 +22,8 @@
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
 
-// import { registerGlobalPlugins } from '@module-federation/runtime';
-
 const esmShares = new Set(["react", "react-dom"]);
 import getUrl from "./getUrl";
-
-//workaround for rspack who cannot process webpackIgnore comments yet
 
 const getShareFromUnpkg = (packageName, version) => {
   return () => {
@@ -59,24 +55,7 @@ const NpmRuntimeGlobalPlugin = () => {
         }
         return resolver();
       };
-
-      return args;
-    },
-    initContainerShareScopeMap(args) {
-      try {
-        const { hostShareScopeMap, origin, scopeName } = args;
-        if (hostShareScopeMap) {
-          Object.keys(hostShareScopeMap).forEach((hostShareScopeName) => {
-            if (hostShareScopeName === scopeName) {
-              return;
-            }
-            const hostShareScope = hostShareScopeMap[hostShareScopeName];
-            origin.shareScopeMap[hostShareScopeName] = hostShareScope;
-          });
-        }
-      } catch (err) {
-        console.error(new Error(err));
-      }
+      console.log(args.resolver, "args.resolver");
       return args;
     },
   };
