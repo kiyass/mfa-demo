@@ -1,4 +1,6 @@
+import TestMf2 from "mf2/Mf2";
 import React, { useEffect, useState } from "react";
+import TestMf1 from "../../examples/TestMf1";
 import store from "./store";
 
 const Home = () => {
@@ -40,7 +42,8 @@ const Home = () => {
         <button onClick={handleApp2Inc}>APP2_INCREMENT</button>{" "}
         <button onClick={handleApp2Dec}>APP2_DECREMENT</button>
       </div>
-      {/* <TestMf1 /> */}
+      <TestMf1 />
+      <TestMf2 />
     </div>
   );
 };

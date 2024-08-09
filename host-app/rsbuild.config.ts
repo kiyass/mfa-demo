@@ -1,7 +1,7 @@
 import { defineConfig } from "micro-utils/config";
 const packageJson = require("./package.json");
 
-import { mfConfig } from "./src/micro/moduleFederation.config";
+// import { mfConfig } from "./src/micro/moduleFederation.config";
 
 export default defineConfig({
   packageJson,
@@ -11,7 +11,7 @@ export default defineConfig({
   dev: {
     assetPrefix: "http://localhost:3000/",
   },
-  moduleFederation: {
-    options: mfConfig,
-  },
+  // moduleFederation: {
+  //   options: mfConfig,
+  // },
 });

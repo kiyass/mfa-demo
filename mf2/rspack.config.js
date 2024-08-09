@@ -71,20 +71,20 @@ const webpackConfig = {
       },
       shared: {
         react: {
-          requiredVersion: false,
-          shareScope: "react@17.0.2",
+          requiredVersion: "17.0.2",
+          // shareScope: "react@17.0.2",
         },
         "react-dom": {
-          requiredVersion: false,
-          shareScope: "react@17.0.2",
+          requiredVersion: "17.0.2",
+          // shareScope: "react@17.0.2",
         },
-        "react-router-dom": {
-          requiredVersion: false,
-          shareScope: "react@17.0.2",
-        },
+        // "react-router-dom": {
+        //   requiredVersion: "17.0.2",
+        //   // shareScope: "react@17.0.2",
+        // },
       },
       dts: false,
-      runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
+      // runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

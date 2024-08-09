@@ -21,7 +21,11 @@ const ModernReactComponent = (props) => {
       >
         set
       </button>
-      <button onClick={() => console.log("get a.value", a.value)}>get</button>
+      <button
+        onClick={() => console.log("get a.value", a.value, getLib1InstanceId())}
+      >
+        get
+      </button>
       <br />
       <TestStore />
       <h2>Text form legacy React app: {input}</h2>
