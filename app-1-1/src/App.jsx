@@ -10,27 +10,27 @@ import TestCssinJs from "./examples/TestCssinJs";
 import TestDialog from "./examples/TestDialog";
 import TestEcharts from "./examples/TestEcharts";
 import TestEditor from "./examples/TestEditor";
+import TestMf1 from "./examples/TestMf1";
 import TestSelect from "./examples/TestSelect";
 import TestToast from "./examples/TestToast";
-import TestMf1 from "./examples/TestMf1";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
-import { init } from "@module-federation/runtime";
+// import { init } from "@module-federation/runtime";
 
-init({
-  name: "app11",
-  remotes: [
-    {
-      name: "mf2",
-      entry: "http://localhost:7002/remoteEntry.js",
-    },
-    {
-      name: "mf4",
-      entry: "http://localhost:7004/remoteEntry.js",
-    },
-  ],
-});
+// init({
+//   name: "app11",
+//   remotes: [
+//     {
+//       name: "mf2",
+//       entry: "http://localhost:7002/remoteEntry.js",
+//     },
+//     {
+//       name: "mf4",
+//       entry: "http://localhost:7004/remoteEntry.js",
+//     },
+//   ],
+// });
 
 const theme = createTheme({
   components: {

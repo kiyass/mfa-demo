@@ -1,58 +1,29 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const {
-  ModuleFederationPlugin,
-} = require("@module-federation/enhanced/rspack");
-const path = require("path");
-const dependencies = require("./package.json").dependencies;
+const { ModuleFederationPlugin } = require("webpack").container;
 
-/**
- * @type {import('webpack').Configuration}
- **/
-const webpackConfig = {
-  entry: "./src/index",
+module.exports = {
+  entry: {
+    app: "./src/index",
+  },
   mode: "development",
   devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-    hot: true,
     port: 7002,
     headers: {
       "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers":
-        "X-Requested-With, content-type, Authorization",
     },
   },
   output: {
-    publicPath: "auto",
+    filename: "[name].[contenthash].js",
+    publicPath: "http://localhost:7002/",
   },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        type: "javascript/auto",
-        resolve: {
-          fullySpecified: false,
-        },
-      },
-      {
-        test: /\.js$/,
-        use: {
-          loader: "builtin:swc-loader",
-          options: {
-            jsc: {
-              parser: {
-                syntax: "ecmascript",
-                jsx: true,
-              },
-              transform: {
-                react: {
-                  runtime: "automatic",
-                },
-              },
-            },
-          },
+        test: /\.jsx?$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        options: {
+          presets: ["@babel/preset-react"],
         },
       },
     ],
@@ -83,7 +54,7 @@ const webpackConfig = {
         //   // shareScope: "react@17.0.2",
         // },
       },
-      dts: false,
+      // dts: false,
       // runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
     }),
     new HtmlWebpackPlugin({
@@ -91,5 +62,3 @@ const webpackConfig = {
     }),
   ],
 };
-
-module.exports = webpackConfig;

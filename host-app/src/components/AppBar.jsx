@@ -14,9 +14,22 @@ import MailIcon from "@material-ui/icons/Mail";
 import MenuIcon from "@material-ui/icons/Menu";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import clsx from "clsx";
+// import { a, getLib1InstanceId } from "mf3/utils";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalStore } from "redux-micro-frontend";
+
+// const TestMf1 = () => {
+//   return (
+//     <button
+//       onClick={() => {
+//         console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
+//       }}
+//     >
+//       xxx
+//     </button>
+//   );
+// };
 
 const drawerWidth = 240;
 
@@ -128,6 +141,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <p>count: {count}</p>
+          {/* <TestMf1 /> */}
         </Toolbar>
       </AppBar>
       <Drawer
