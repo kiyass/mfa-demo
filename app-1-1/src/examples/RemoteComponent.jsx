@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 function useDynamicImport({ module, scope }) {
   const [component, setComponent] = useState(null);
-  console.log(window.__MICRO_APP_NAME__);
 
   useEffect(() => {
     if (!module || !scope) return;

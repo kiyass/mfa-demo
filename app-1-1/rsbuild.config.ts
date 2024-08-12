@@ -26,8 +26,8 @@ export default defineConfig({
       }
     },
   },
-  moduleFederation: {
-    options: mfConfig,
-  },
+  // moduleFederation: {
+  //   options: mfConfig,
+  // },
   plugins: [pluginStyledComponents()],
 });

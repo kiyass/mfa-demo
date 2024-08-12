@@ -10,8 +10,8 @@ export default defineConfig({
     port: 2012,
     host: "localhost",
   },
-  moduleFederation: {
-    options: mfConfig,
-  },
+  // moduleFederation: {
+  //   options: mfConfig,
+  // },
   plugins: [pluginStyledComponents()],
 });

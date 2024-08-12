@@ -36,7 +36,6 @@ init({
 //   ],
 //   { force: true }
 // );
-console.log(__MICRO_APP_BASE_ROUTE__, "__MICRO_APP_BASE_ROUTE__");
 
 const theme = createTheme({
   components: {

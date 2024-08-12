@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 2004,
   },
-  moduleFederation: {
-    options: mfConfig,
-  },
+  // moduleFederation: {
+  //   options: mfConfig,
+  // },
 });
