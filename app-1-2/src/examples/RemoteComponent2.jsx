@@ -30,6 +30,7 @@ function useDynamicImport({ module, scope }) {
 export default ({ module, scope }) => {
   const containerRef = useRef(null);
   const { lifecycle } = useDynamicImport({ module, scope }) ?? {};
+  console.log(window.__MICRO_APP_NAME__);
 
   useEffect(() => {
     if (!lifecycle) {

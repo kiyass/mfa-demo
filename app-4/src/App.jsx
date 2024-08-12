@@ -53,13 +53,23 @@ const useStyles = makeStyles({
     flex: 1,
   },
 });
-
+console.log(window.__MICRO_APP_NAME__);
 const InnerApp = () => {
   const navigate = useNavigate();
   const classes = useStyles();
 
   const handleClick = (url) => {
-    navigate(url);
+    if (window.__MICRO_APP_BASE_APPLICATION__) {
+      if (window?.__MICRO_APP_BASE_ROUTE__) {
+        window.location.replace(
+          `${window.location.origin}${window.__MICRO_APP_BASE_ROUTE__}${url}`
+        );
+      } else {
+        window.location.replace(`${window.location.origin}${url}`);
+      }
+    } else {
+      navigate(url);
+    }
   };
 
   return (

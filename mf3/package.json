@@ -25,7 +25,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "lib-demo": "file:../lib-demo/lib-demo-1.0.3.tgz",
+    "lib-demo": "file:../lib-demo/lib-demo-1.0.8.tgz",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "typescript": "^5.5.3"

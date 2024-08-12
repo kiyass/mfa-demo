@@ -1,6 +1,16 @@
-import { a, getLib1InstanceId } from "mf3/utils";
 import React from "react";
 import { createLifecycle } from "./createLifecycle";
+import { init, registerRemotes, loadRemote } from "@module-federation/runtime";
+
+init({
+  name: "mf2",
+  remotes: [
+    {
+      name: "mf3",
+      entry: "http://localhost:7003/remoteEntry.js",
+    },
+  ],
+});
 
 const ModernReactComponent = (props) => {
   const { children, input } = props;
@@ -13,15 +23,24 @@ const ModernReactComponent = (props) => {
       </strong>
       <button
         onClick={() => {
-          a.value = Date.now();
-          console.log("set a.value", a.value, getLib1InstanceId());
+          // a.value = Date.now();
+          // console.log("set a.value", window.__MICRO_APP_NAME__, a.value);
+
+          loadRemote("mf3/utils").then((m) => {
+            m.a.value = Date.now();
+            console.log("set a.value", m.a.value, m.getLib1InstanceId());
+          });
         }}
       >
         set
       </button>
       <button
         onClick={() => {
-          console.log("get a.value", a.value, getLib1InstanceId());
+          // console.log("get a.value", window.__MICRO_APP_NAME__, a.value);
+
+          loadRemote("mf3/utils").then((m) =>
+            console.log("get a.value", m.a.value, m.getLib1InstanceId())
+          );
         }}
       >
         get

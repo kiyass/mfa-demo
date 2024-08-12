@@ -66,9 +66,9 @@ const webpackConfig = {
       exposes: {
         "./Mf2": "./src/components/ModernReactComponent",
       },
-      remotes: {
-        mf3: "mf3@http://localhost:7003/remoteEntry.js",
-      },
+      // remotes: {
+      //   mf3: "mf3@http://localhost:7003/remoteEntry.js",
+      // },
       shared: {
         react: { requiredVersion: "17.0.2" },
         "react-dom": {

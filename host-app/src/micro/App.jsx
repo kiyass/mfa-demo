@@ -20,7 +20,7 @@ export default function App() {
               <MicroApp
                 createElement={createElement}
                 packageJsonName={name}
-                name="app-1"
+                name="app1"
                 url={process.env.PUBLIC_MICRO_APP1_URL}
                 path="/app1"
               />
@@ -33,7 +33,7 @@ export default function App() {
               <MicroApp
                 createElement={createElement}
                 packageJsonName={name}
-                name="app-4"
+                name="app4"
                 url={process.env.PUBLIC_MICRO_APP4_URL}
                 path="/app4"
               />

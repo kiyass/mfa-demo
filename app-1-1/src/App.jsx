@@ -15,6 +15,29 @@ import TestSelect from "./examples/TestSelect";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
+import { init, registerRemotes } from "@module-federation/runtime";
+
+init({
+  name: "app11",
+  remotes: [
+    {
+      name: "mf2",
+      entry: "http://localhost:7002/remoteEntry.js",
+    },
+  ],
+});
+
+// registerRemotes(
+//   [
+//     {
+//       name: "mf2",
+//       entry: "http://localhost:7002/remoteEntry.js",
+//     },
+//   ],
+//   { force: true }
+// );
+console.log(__MICRO_APP_BASE_ROUTE__, "__MICRO_APP_BASE_ROUTE__");
+
 const theme = createTheme({
   components: {
     MuiTooltip: {
@@ -31,6 +54,7 @@ const theme = createTheme({
     fontSize: 12,
   },
 });
+
 const App = () => {
   return (
     <ModalProvider>
@@ -52,10 +76,10 @@ const App = () => {
                 path="/mf2"
                 element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
               />
-              <Route
+              {/* <Route
                 path="/mf4"
                 element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
-              />
+              /> */}
             </Routes>
           </BasicLayout>
         </Suspense>
