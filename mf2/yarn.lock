@@ -626,7 +626,7 @@
     webpack-bundle-analyzer "4.6.1"
     yargs "17.6.2"
 
-"@rspack/core@0.7.5":
+"@rspack/core@^0.7.5":
   version "0.7.5"
   resolved "https://registry.npmmirror.com/@rspack/core/-/core-0.7.5.tgz#e6936949d8666655874c536cb719ff76daee44ab"
   integrity sha512-zVTe4WCyc3qsLPattosiDYZFeOzaJ32/BYukPP2I1VJtCVFa+PxGVRPVZhSoN6fXw5oy48yHg9W9v1T8CaEFhw==
