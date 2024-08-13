@@ -23,6 +23,7 @@ import RemoteComponent from "./RemoteComponent";
 import Home from "./pages/Home";
 import MicroApp from "micro-utils/MicroApp";
 import { name } from "../package.json";
+import TestEcharts from "app11/TestEcharts";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "app2",
@@ -118,11 +119,7 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
-          <Route
-            exact
-            path="/page1"
-            element={<RemoteComponent module="TestEcharts" scope="app11" />}
-          />
+          <Route exact path="/page1" element={<TestEcharts />} />
           <Route
             exact
             path="/app-1-1/*"

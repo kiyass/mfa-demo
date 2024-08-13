@@ -8,6 +8,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
 import getUrl from './getUrl';
+const rspack = require('@rspack/core');
 
 interface Config extends RsbuildConfig {
   packageJson: {
@@ -16,9 +17,10 @@ interface Config extends RsbuildConfig {
       [key: string]: string;
     };
   };
+  mfConfig: ModuleFederationPluginOptions;
 }
 
-export function defineConfig({ packageJson, ...config }: Config) {
+export function defineConfig({ packageJson, mfConfig, ...config }: Config) {
   const { name, dependencies } = packageJson;
   let tags: any[] | undefined = [];
   let newExternals:
@@ -72,6 +74,9 @@ export function defineConfig({ packageJson, ...config }: Config) {
             globalObject: 'window',
             chunkLoadingGlobal: `webpackJsonp_${name}`,
           },
+          plugins: mfConfig
+            ? [new rspack.container.ModuleFederationPluginV1(mfConfig)]
+            : undefined,
         },
       },
       dev: {

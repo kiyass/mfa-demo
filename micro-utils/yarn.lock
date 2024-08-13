@@ -1938,6 +1938,14 @@
     lodash "^4.17.21"
     rslog "^1.1.0"
 
+"@module-federation/runtime-tools@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmmirror.com/@module-federation/runtime-tools/-/runtime-tools-0.1.6.tgz#ee9bbe8c6e823b4c641695c91ab0b0bfdc5b3102"
+  integrity sha512-7ILVnzMIa0Dlc0Blck5tVZG1tnk1MmLnuZpLOMpbdW+zl+N6wdMjjHMjEZFCUAJh2E5XJ3BREwfX8Ets0nIkLg==
+  dependencies:
+    "@module-federation/runtime" "0.1.6"
+    "@module-federation/webpack-bundler-runtime" "0.1.6"
+
 "@module-federation/runtime-tools@0.2.3":
   version "0.2.3"
   resolved "https://registry.npmmirror.com/@module-federation/runtime-tools/-/runtime-tools-0.2.3.tgz#2701b6fbcea322b4c5523fca1456f0cae8df73cd"
@@ -1945,6 +1953,13 @@
   dependencies:
     "@module-federation/runtime" "0.2.3"
     "@module-federation/webpack-bundler-runtime" "0.2.3"
+
+"@module-federation/runtime@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmmirror.com/@module-federation/runtime/-/runtime-0.1.6.tgz#e56adb6bdb0c5264ba5740d0aa64568f19a0c3be"
+  integrity sha512-nj6a+yJ+QxmcE89qmrTl4lphBIoAds0PFPVGnqLRWflwAP88jrCcrrTqRhARegkFDL+wE9AE04+h6jzlbIfMKg==
+  dependencies:
+    "@module-federation/sdk" "0.1.6"
 
 "@module-federation/runtime@0.2.3":
   version "0.2.3"
@@ -1960,6 +1975,11 @@
   dependencies:
     "@module-federation/sdk" "0.3.5"
 
+"@module-federation/sdk@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmmirror.com/@module-federation/sdk/-/sdk-0.1.6.tgz#4d64b206ef6bddd99ca74680f278a2134a493dd5"
+  integrity sha512-qifXpyYLM7abUeEOIfv0oTkguZgRZuwh89YOAYIZJlkP6QbRG7DJMQvtM8X2yHXm9PTk0IYNnOJH0vNQCo6auQ==
+
 "@module-federation/sdk@0.2.3":
   version "0.2.3"
   resolved "https://registry.npmmirror.com/@module-federation/sdk/-/sdk-0.2.3.tgz#b640830b299d2b9d27b48bced10d7126c15c1719"
@@ -1969,6 +1989,14 @@
   version "0.3.5"
   resolved "https://registry.npmmirror.com/@module-federation/sdk/-/sdk-0.3.5.tgz#d526c05b2499180b9df7f35cb3971bda9cbfe6db"
   integrity sha512-rszYAZOMTqkN8HEls7Z6quE8p0WHMKgY8tXEojNb8XKWbIf95znQgipGbAZivG84k+Lzmvvizm450bMWVOwb8Q==
+
+"@module-federation/webpack-bundler-runtime@0.1.6":
+  version "0.1.6"
+  resolved "https://registry.npmmirror.com/@module-federation/webpack-bundler-runtime/-/webpack-bundler-runtime-0.1.6.tgz#8520435913ca10e4f259e825d9521002595ba769"
+  integrity sha512-K5WhKZ4RVNaMEtfHsd/9CNCgGKB0ipbm/tgweNNeC11mEuBTNxJ09Y630vg3WPkKv9vfMCuXg2p2Dk+Q/KWTSA==
+  dependencies:
+    "@module-federation/runtime" "0.1.6"
+    "@module-federation/sdk" "0.1.6"
 
 "@module-federation/webpack-bundler-runtime@0.2.3":
   version "0.2.3"
@@ -2074,6 +2102,11 @@
     reduce-configs "^1.0.0"
     sass-embedded "^1.77.8"
 
+"@rspack/binding-darwin-arm64@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-darwin-arm64/-/binding-darwin-arm64-0.7.5.tgz#a6e960ecb357c1f15481b689e12e4a7bcabf443c"
+  integrity sha512-mNBIm36s1BA7v4SL/r4f3IXIsjyH5CZX4eXMRPE52lBc3ClVuUB7d/8zk8dkyjJCMAj8PsZSnAJ3cfXnn7TN4g==
+
 "@rspack/binding-darwin-arm64@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
   resolved "https://registry.npmmirror.com/@rspack/binding-darwin-arm64/-/binding-darwin-arm64-1.0.0-alpha.5.tgz#c71f3b38da465f3e8346775f5b36bd1136d296b8"
@@ -2083,6 +2116,11 @@
   version "1.0.0-beta.3"
   resolved "https://registry.npmmirror.com/@rspack/binding-darwin-arm64/-/binding-darwin-arm64-1.0.0-beta.3.tgz#ab704081a1bf705ffdb1d69e9be90939cbe3f54f"
   integrity sha512-v+2TFNWttB0ZqEkYP2pf3qpm7O8bJiVcl9Ym90lL+uMfYNRzzrGd57tu7NBp/6nhE3T3emxiFvaeVDpqIqykZQ==
+
+"@rspack/binding-darwin-x64@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-darwin-x64/-/binding-darwin-x64-0.7.5.tgz#7524f71506154af7229b508fabf9e7f14434fea1"
+  integrity sha512-teLK0TB1x0CsvaaiCopsFx4EvJe+/Hljwii6R7C9qOZs5zSOfbT/LQ202eA0sAGodCncARCGaXVrsekbrRYqeA==
 
 "@rspack/binding-darwin-x64@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
@@ -2094,6 +2132,11 @@
   resolved "https://registry.npmmirror.com/@rspack/binding-darwin-x64/-/binding-darwin-x64-1.0.0-beta.3.tgz#f634f4072dd5b43acdf1a527ea7d01d35bc61c6f"
   integrity sha512-OM4jqlt23j2W9gxAqwrjf86TLnJ6u6lNeli/haJmfjaj8maHYY7LkEo7imK3MqfGXCFExQbsY367O+epZQ2pcQ==
 
+"@rspack/binding-linux-arm64-gnu@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-0.7.5.tgz#a4c245f85d2270258953dbdb54f6aa6520123720"
+  integrity sha512-/24UytJXrK+7CsucDb30GCKYIJ8nG6ceqbJyOtsJv9zeArNLHkxrYGSyjHJIpQfwVN17BPP4RNOi+yIZ3ZgDyA==
+
 "@rspack/binding-linux-arm64-gnu@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
   resolved "https://registry.npmmirror.com/@rspack/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-1.0.0-alpha.5.tgz#288a0c031441c3aa9e7afebc78959a40dabc7850"
@@ -2103,6 +2146,11 @@
   version "1.0.0-beta.3"
   resolved "https://registry.npmmirror.com/@rspack/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-1.0.0-beta.3.tgz#a468eb9d7ea37978e87062f464b169c799aeec91"
   integrity sha512-NV3i1mIBSEN5nmf83TvX0M3jb6CzAPdaydFytQ6p8WP6UWZnJIJ19HEqZiab+R4kYhs7I27wbWJuJGpADTEKvQ==
+
+"@rspack/binding-linux-arm64-musl@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-linux-arm64-musl/-/binding-linux-arm64-musl-0.7.5.tgz#c7048a936fb482a20cd209d1b1a0987f9b4b7934"
+  integrity sha512-6RcxG42mLM01Pa6UYycACu/Nu9qusghAPUJumb8b8x5TRIDEtklYC5Ck6Rmagm+8E0ucMude2E/D4rMdIFcS3A==
 
 "@rspack/binding-linux-arm64-musl@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
@@ -2114,6 +2162,11 @@
   resolved "https://registry.npmmirror.com/@rspack/binding-linux-arm64-musl/-/binding-linux-arm64-musl-1.0.0-beta.3.tgz#face56d669b3c75830fb80da079655dc1d47bf31"
   integrity sha512-rusWEqc+niYk6LD9y+2lFtT4x/3T5PKUk2dYuRTRUGIl01BhOFoqnavLq40mQMgrXZCD4htUjSM5C1pjD0FkFw==
 
+"@rspack/binding-linux-x64-gnu@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-linux-x64-gnu/-/binding-linux-x64-gnu-0.7.5.tgz#f8ab23317bef82b0dca2235d6af430624ce37713"
+  integrity sha512-R0Lu4CJN2nWMW7WzPBuCIju80cQPpcaqwKJDj/quwQySpJJZ6c5qGwB8mntqjxIzZDrNH6u0OkpiUTbvWZj8ww==
+
 "@rspack/binding-linux-x64-gnu@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
   resolved "https://registry.npmmirror.com/@rspack/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.0.0-alpha.5.tgz#6166fa19d754be996b32b703cfe4258911e0aae7"
@@ -2123,6 +2176,11 @@
   version "1.0.0-beta.3"
   resolved "https://registry.npmmirror.com/@rspack/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.0.0-beta.3.tgz#a792534e605e26a2b288ed1283d9581809b8ce24"
   integrity sha512-vVP3bgOictg5glmByVSML5sIxiJAMZ46h2kSWdIHv1eb/zg9Jw48mNiymtOXjNgkBenvYiERgAaOlBqAX+ySMw==
+
+"@rspack/binding-linux-x64-musl@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-linux-x64-musl/-/binding-linux-x64-musl-0.7.5.tgz#bfb08b6e905c055ea4e643e24b32b315d07e359b"
+  integrity sha512-dDgi/ThikMy1m4llxPeEXDCA2I8F8ezFS/eCPLZGU2/J1b4ALwDjuRsMmo+VXSlFCKgIt98V6h1woeg7nu96yg==
 
 "@rspack/binding-linux-x64-musl@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
@@ -2134,6 +2192,11 @@
   resolved "https://registry.npmmirror.com/@rspack/binding-linux-x64-musl/-/binding-linux-x64-musl-1.0.0-beta.3.tgz#8c1e4fea22a3ec968e3045278d85846a5a65ca18"
   integrity sha512-al7Rwikv0wQLNrWoyymUqZdWwRUjyyovUFzlSh8A1pR84UTPyeRdXmmO6+F8b5KBvK7QkFBnb3eeALMGvQw9Qw==
 
+"@rspack/binding-win32-arm64-msvc@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-0.7.5.tgz#894d1cb8c68bd9ab5093100d84d9ac7142aac992"
+  integrity sha512-nEF4cUdLfgEK6FrgJSJhUlr2/7LY1tmqBNQCFsCjtDtUkQbJIEo1b8edT94G9tJcQoFE4cD+Re30yBYbQO2Thg==
+
 "@rspack/binding-win32-arm64-msvc@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
   resolved "https://registry.npmmirror.com/@rspack/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-1.0.0-alpha.5.tgz#38b0a526929898036ce5c46925c4e71e171f0e2a"
@@ -2143,6 +2206,11 @@
   version "1.0.0-beta.3"
   resolved "https://registry.npmmirror.com/@rspack/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-1.0.0-beta.3.tgz#fd34facfd974bfb5756a37e732ba1f79c675f152"
   integrity sha512-GtxVR+HgSRyD2ybQ+Pk0rXcv9t1ndU/FWrYV7A2jY47dndwa/BNXLclRdyWBfmA1cBZVM8MfLUAVmSKz8hg8Aw==
+
+"@rspack/binding-win32-ia32-msvc@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-win32-ia32-msvc/-/binding-win32-ia32-msvc-0.7.5.tgz#b5917eedb8eb9e591cf1e62dde6928dbbeebaf35"
+  integrity sha512-hEcHRwJIzpZsePr+5x6V/7TGhrPXhSZYG4sIhsrem1za9W+qqCYYLZ7KzzbRODU07QaAH2RxjcA1bf8F2QDYAQ==
 
 "@rspack/binding-win32-ia32-msvc@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
@@ -2154,6 +2222,11 @@
   resolved "https://registry.npmmirror.com/@rspack/binding-win32-ia32-msvc/-/binding-win32-ia32-msvc-1.0.0-beta.3.tgz#e033ecb989682de7559ca1de4de1793c387479d2"
   integrity sha512-4ccqbsPfNFXQ1BkN40Z2SuNfun1XvfdsbjG87NwjAWPEKH1I9lTZg7IeLIHdm+WvGwNSdg9xk8tu/ZA9aeLANA==
 
+"@rspack/binding-win32-x64-msvc@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding-win32-x64-msvc/-/binding-win32-x64-msvc-0.7.5.tgz#fbcd66f1e4d60e6a7a618c5f4abe4cbc2958f334"
+  integrity sha512-PpVpP6J5/2b4T10hzSUwjLvmdpAOj3ozARl1Nrf/lsbYwhiXivoB8Gvoy/xe/Xpgr732Dk9VCeeW8rreWOOUVQ==
+
 "@rspack/binding-win32-x64-msvc@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
   resolved "https://registry.npmmirror.com/@rspack/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.0.0-alpha.5.tgz#3e2174ae66cb7bb6878e1de5ffa0011e8ffdc1df"
@@ -2163,6 +2236,21 @@
   version "1.0.0-beta.3"
   resolved "https://registry.npmmirror.com/@rspack/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.0.0-beta.3.tgz#3564a143c1d2ef66bd2e4691793ff2f1dafe6956"
   integrity sha512-QL0c+lP7gz6gR5lo8bhrx1VsvlgE3wkOReu96k5cscf9I349L+xeRMr7L5EsfcFyiK2mG8RjvlhLWIz9CFZ3IQ==
+
+"@rspack/binding@0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/binding/-/binding-0.7.5.tgz#20279813ea1f4f365063774263aa2cf4bd5a6e69"
+  integrity sha512-XcdOvaCz1mWWwr5vmEY9zncdInrjINEh60EWkYdqtCA67v7X7rB1fe6n4BeAI1+YLS2Eacj+lytlr+n7I+DYVg==
+  optionalDependencies:
+    "@rspack/binding-darwin-arm64" "0.7.5"
+    "@rspack/binding-darwin-x64" "0.7.5"
+    "@rspack/binding-linux-arm64-gnu" "0.7.5"
+    "@rspack/binding-linux-arm64-musl" "0.7.5"
+    "@rspack/binding-linux-x64-gnu" "0.7.5"
+    "@rspack/binding-linux-x64-musl" "0.7.5"
+    "@rspack/binding-win32-arm64-msvc" "0.7.5"
+    "@rspack/binding-win32-ia32-msvc" "0.7.5"
+    "@rspack/binding-win32-x64-msvc" "0.7.5"
 
 "@rspack/binding@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
@@ -2213,6 +2301,17 @@
     "@rspack/binding" "1.0.0-beta.3"
     "@rspack/lite-tapable" "1.0.0-beta.3"
     caniuse-lite "^1.0.30001616"
+
+"@rspack/core@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.npmmirror.com/@rspack/core/-/core-0.7.5.tgz#e6936949d8666655874c536cb719ff76daee44ab"
+  integrity sha512-zVTe4WCyc3qsLPattosiDYZFeOzaJ32/BYukPP2I1VJtCVFa+PxGVRPVZhSoN6fXw5oy48yHg9W9v1T8CaEFhw==
+  dependencies:
+    "@module-federation/runtime-tools" "0.1.6"
+    "@rspack/binding" "0.7.5"
+    caniuse-lite "^1.0.30001616"
+    tapable "2.2.1"
+    webpack-sources "3.2.3"
 
 "@rspack/lite-tapable@1.0.0-alpha.5":
   version "1.0.0-alpha.5"
@@ -5382,6 +5481,11 @@ varint@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npmmirror.com/varint/-/varint-6.0.0.tgz#9881eb0ce8feaea6512439d19ddf84bf551661d0"
   integrity sha512-cXEIW6cfr15lFv563k4GuVuW/fiwjknytD37jIOLSdSWuOI6WnO/oKwmP2FQTU2l01LP8/M5TSAJpzUaGe3uWg==
+
+webpack-sources@3.2.3:
+  version "3.2.3"
+  resolved "https://registry.npmmirror.com/webpack-sources/-/webpack-sources-3.2.3.tgz#2d4daab8451fd4b240cc27055ff6a0c2ccea0cde"
+  integrity sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"

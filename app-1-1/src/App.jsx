@@ -15,6 +15,8 @@ import TestSelect from "./examples/TestSelect";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
+import Mf2 from "mf2/Mf2";
+import Mf4 from "mf4/Mf4";
 
 const theme = createTheme({
   components: {
@@ -50,14 +52,8 @@ const App = () => {
               <Route path="/video" element={<TestVideo />} />
               <Route path="/echart" element={<TestEcharts />} />
               <Route path="/mf1" element={<TestMf1 />} />
-              <Route
-                path="/mf2"
-                element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
-              />
-              <Route
-                path="/mf4"
-                element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
-              />
+              <Route path="/mf2" element={<Mf2 />} />
+              <Route path="/mf4" element={<Mf4 />} />
             </Routes>
           </BasicLayout>
         </Suspense>

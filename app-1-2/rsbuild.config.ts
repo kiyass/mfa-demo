@@ -6,12 +6,10 @@ const packageJson = require("./package.json");
 
 export default defineConfig({
   packageJson,
+  mfConfig,
   server: {
     port: 2012,
     host: "localhost",
-  },
-  moduleFederation: {
-    options: mfConfig,
   },
   dev: {
     assetPrefix: "http://localhost:2012/",

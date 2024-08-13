@@ -5,7 +5,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
-import TestMf1 from "./examples/TestMf1";
+import TestEcharts from "app11/TestEcharts";
+import Mf2 from "mf2/Mf2";
+import Mf4 from "mf4/Mf4";
 
 const theme = createTheme({
   components: {
@@ -32,18 +34,9 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<div>home</div>} />
-              <Route
-                path="/mf3"
-                element={<RemoteComponent module="TestEcharts" scope="app11" />}
-              />
-              <Route
-                path="/mf2"
-                element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
-              />
-              <Route
-                path="/mf4"
-                element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
-              />
+              <Route path="/mf3" element={<TestEcharts />} />
+              <Route path="/mf2" element={<Mf2 />} />
+              <Route path="/mf4" element={<Mf4 />} />
             </Routes>
           </BasicLayout>
         </Suspense>
