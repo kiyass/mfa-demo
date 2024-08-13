@@ -1,11 +1,3 @@
-/*
- *  Author:
- *  Description:
- */
-/*
- *  Author:
- *  Description:
- */
 import ReactDOM from "react-dom";
 
 export const createLifecycle = (Component) => {

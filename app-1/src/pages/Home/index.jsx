@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import TestMf1 from "../../examples/TestMf1";
 import store from "./store";
 
 const Home = () => {

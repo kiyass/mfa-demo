@@ -26,8 +26,11 @@ export default defineConfig({
       }
     },
   },
-  // moduleFederation: {
-  //   options: mfConfig,
-  // },
+  moduleFederation: {
+    options: mfConfig,
+  },
+  dev: {
+    assetPrefix: "http://localhost:2011/",
+  },
   plugins: [pluginStyledComponents()],
 });

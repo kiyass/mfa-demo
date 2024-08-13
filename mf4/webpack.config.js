@@ -7,14 +7,14 @@ module.exports = {
   },
   mode: "development",
   devServer: {
-    port: 7002,
+    port: 7004,
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
   },
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "http://localhost:7002/",
+    publicPath: "http://localhost:7004/",
   },
   module: {
     rules: [
@@ -30,22 +30,22 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "mf2",
-      library: { type: "umd", name: "mf2" },
+      name: "mf4",
+      library: { type: "umd", name: "mf4" },
       filename: "remoteEntry.js",
       remoteType: "script",
       exposes: {
-        "./Mf2": "./src/components/ModernReactComponent",
+        "./Mf4": "./src/components/ModernReactComponent",
       },
       remotes: {
         mf3: "mf3@http://localhost:7003/remoteEntry.js",
       },
       shared: {
         react: {
-          requiredVersion: false,
+          requiredVersion: "18.3.1",
         },
         "react-dom": {
-          requiredVersion: false,
+          requiredVersion: "18.3.1",
         },
       },
     }),

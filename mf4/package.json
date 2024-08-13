@@ -19,7 +19,7 @@
     "webpack-dev-server": "5.0.4"
   },
   "scripts": {
-    "start": "rspack serve",
+    "start": "webpack-dev-server",
     "legacy:start": "webpack-cli serve",
     "build": "rspack --mode production",
     "legacy:build": "webpack --mode production",

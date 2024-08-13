@@ -6,26 +6,7 @@ import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
 import TestMf1 from "./examples/TestMf1";
-import { init, registerRemotes } from "@module-federation/runtime";
 
-init({
-  name: "app12",
-  remotes: [
-    {
-      name: "mf2",
-      entry: "http://localhost:7002/remoteEntry.js",
-      overrides: true,
-    },
-  ],
-});
-
-// registerRemotes([
-//   {
-//     name: "mf2",
-//     entry: "http://localhost:7002/remoteEntry.js",
-//     overrides: true,
-//   },
-// ]);
 const theme = createTheme({
   components: {
     MuiTooltip: {

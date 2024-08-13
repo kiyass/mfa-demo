@@ -7,10 +7,7 @@ const ModernReactComponent = (props) => {
 
   return (
     <div style={{ color: "#000" }}>
-      <strong>
-        This Component uses hooks, if loaded on localhost:3001, it should work,
-        even though that host does not support React Hooks
-      </strong>
+      <h1>MF4</h1>
       <button
         onClick={() => {
           a.value = Date.now();
