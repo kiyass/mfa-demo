@@ -30,7 +30,7 @@ export function defineConfig({ packageJson, mfConfig, ...config }: Config) {
     | undefined = {};
   for (const key in externals) {
     if (dependencies[key]) {
-      const src = getUrl(key, dependencies[key]);
+      const src = getUrl(key, dependencies[key].replace(/^[^0-9]+/, ''));
 
       tags.push({
         tag: 'script',
