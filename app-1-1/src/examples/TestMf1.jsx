@@ -4,8 +4,6 @@
  */
 
 import { a, getLib1InstanceId } from "mf3/utils";
-import Mf2 from "mf2/Mf2";
-import RemoteComponent from "./RemoteComponent";
 import React from "react";
 import { createLifecycle } from "./createLifecycle";
 export default function TestMf1() {
@@ -18,7 +16,6 @@ export default function TestMf1() {
       >
         xxx
       </button>
-      <Mf2 />
     </div>
   );
 }

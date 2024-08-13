@@ -6,7 +6,7 @@ const ModernReactComponent = (props) => {
   const { children, input } = props;
 
   return (
-    <div style={{ color: "#000" }}>
+    <div style={{ color: "#000", margin: 100 }}>
       <h1>MF4</h1>
       <button
         onClick={() => {
