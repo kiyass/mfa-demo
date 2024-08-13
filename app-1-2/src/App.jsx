@@ -5,7 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
-import RemoteComponent2 from "./examples/RemoteComponent2";
 import TestMf1 from "./examples/TestMf1";
 import { init, registerRemotes } from "@module-federation/runtime";
 
@@ -55,9 +54,7 @@ const App = () => {
               <Route path="/mf3" element={<TestMf1 />} />
               <Route
                 path="/mf2"
-                element={
-                  <RemoteComponent2 module="Mf2" scope="mf2" key="mf2" />
-                }
+                element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
               />
               <Route
                 path="/mf4"

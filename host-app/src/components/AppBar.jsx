@@ -107,6 +107,7 @@ export default function Header() {
   const handleClick = (url) => {
     navigate(url);
     handleDrawerClose();
+    // window.location.replace(`${window.location.origin}${url}`);
   };
 
   return (

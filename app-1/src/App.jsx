@@ -57,17 +57,19 @@ const InnerApp = () => {
   const classes = useStyles();
 
   const handleClick = (url) => {
-    if (window.__MICRO_APP_BASE_APPLICATION__) {
-      if (window?.__MICRO_APP_BASE_ROUTE__) {
-        window.location.replace(
-          `${window.location.origin}${window.__MICRO_APP_BASE_ROUTE__}${url}`
-        );
-      } else {
-        window.location.replace(`${window.location.origin}${url}`);
-      }
-    } else {
-      navigate(url);
-    }
+    navigate(url);
+
+    // if (window.__MICRO_APP_BASE_APPLICATION__) {
+    //   if (window?.__MICRO_APP_BASE_ROUTE__) {
+    //     window.location.replace(
+    //       `${window.location.origin}${window.__MICRO_APP_BASE_ROUTE__}${url}`
+    //     );
+    //   } else {
+    //     window.location.replace(`${window.location.origin}${url}`);
+    //   }
+    // } else {
+    //   navigate(url);
+    // }
   };
 
   return (
