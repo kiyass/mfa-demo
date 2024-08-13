@@ -32,7 +32,10 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<div>home</div>} />
-              <Route path="/mf3" element={<TestMf1 />} />
+              <Route
+                path="/mf3"
+                element={<RemoteComponent module="TestEcharts" scope="app11" />}
+              />
               <Route
                 path="/mf2"
                 element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactECharts from "echarts-for-react";
-// import * as echarts from "echarts";
+import { createLifecycle } from "./createLifecycle";
 
 const getOption = () => {
   return {
@@ -24,7 +24,7 @@ const getOption = () => {
     ],
   };
 };
-export default () => {
+export default function TestEcharts() {
   const [option, setOption] = useState({});
 
   useEffect(() => {
@@ -38,4 +38,5 @@ export default () => {
       style={{ width: "100%", height: "500px" }}
     />
   );
-};
+}
+export const lifecycle = createLifecycle(TestEcharts);

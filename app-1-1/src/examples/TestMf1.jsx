@@ -6,8 +6,8 @@
 import { a, getLib1InstanceId } from "mf3/utils";
 import RemoteComponent from "./RemoteComponent";
 import React from "react";
-
-export default () => {
+import { createLifecycle } from "./createLifecycle";
+export default function TestMf1() {
   return (
     <div style={{ margin: 100 }}>
       <button
@@ -17,7 +17,8 @@ export default () => {
       >
         xxx
       </button>
-      <RemoteComponent module="Mf1" scope="mf1" />
+      <RemoteComponent module="Mf2" scope="mf2" />
     </div>
   );
-};
+}
+export const lifecycle = createLifecycle(TestMf1);

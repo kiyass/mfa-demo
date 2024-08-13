@@ -17,7 +17,7 @@ export const mfConfig: ModuleFederationPluginOptions = {
       requiredVersion: false,
     },
   },
-  // exposes: {
-  //   "./TestEcharts": "./src/examples/TestEcharts.jsx",
-  // },
+  exposes: {
+    "./TestEcharts": "./src/examples/TestMf1.jsx",
+  },
 };
