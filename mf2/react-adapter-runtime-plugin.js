@@ -49,19 +49,19 @@ const NpmRuntimeGlobalPlugin = () => {
       return args;
     },
 
-    resolveShare: (args) => {
-      const { shareScopeMap, scope, pkgName, version, resolver } = args;
-      const currentPackageRef = shareScopeMap[scope][pkgName][version];
+    // resolveShare: (args) => {
+    //   const { shareScopeMap, scope, pkgName, version, resolver } = args;
+    //   const currentPackageRef = shareScopeMap[scope][pkgName][version];
 
-      args.resolver = () => {
-        if (!useLocalShares.has(pkgName)) {
-          currentPackageRef.get = getShareFromUnpkg(pkgName, version);
-        }
-        return resolver();
-      };
+    //   args.resolver = () => {
+    //     if (!useLocalShares.has(pkgName)) {
+    //       currentPackageRef.get = getShareFromUnpkg(pkgName, version);
+    //     }
+    //     return resolver();
+    //   };
 
-      return args;
-    },
+    //   return args;
+    // },
     initContainerShareScopeMap(args) {
       try {
         const { hostShareScopeMap, origin, scopeName } = args;
@@ -79,13 +79,13 @@ const NpmRuntimeGlobalPlugin = () => {
       }
       return args;
     },
-    beforeLoadShare: async (args) => {
-      // old workaround, may not be required anymore
-      while (__FEDERATION__.__INSTANCES__.length <= 1) {
-        await new Promise((r) => setTimeout(r, 50));
-      }
-      return args;
-    },
+    // beforeLoadShare: async (args) => {
+    //   // old workaround, may not be required anymore
+    //   while (__FEDERATION__.__INSTANCES__.length <= 1) {
+    //     await new Promise((r) => setTimeout(r, 50));
+    //   }
+    //   return args;
+    // },
   };
 };
 

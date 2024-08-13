@@ -24,7 +24,7 @@ const webpackConfig = {
     },
   },
   output: {
-    publicPath: "auto",
+    publicPath: "http://localhost:7003/",
   },
   module: {
     rules: [

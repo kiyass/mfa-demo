@@ -13,12 +13,12 @@ export const mfConfig: ModuleFederationPluginOptions = {
   },
   shared: {
     react: {
-      requiredVersion: false,
-      shareScope: "react@17.0.2",
+      requiredVersion: "17.0.2",
+      // shareScope: "react@17.0.2",
     },
     "react-dom": {
-      requiredVersion: false,
-      shareScope: "react@17.0.2",
+      requiredVersion: "17.0.2",
+      // shareScope: "react@17.0.2",
     },
     // "react-router-dom": {
     //   requiredVersion: false,

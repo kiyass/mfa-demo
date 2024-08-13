@@ -1,7 +1,6 @@
 import { a } from "mf3/utils";
 import React, { useEffect } from "react";
 import { createLifecycle } from "./createLifecycle";
-import { Route, Routes, useLocation } from "react-router-dom";
 
 // console.log(a);
 const ModernReactComponent = (props) => {

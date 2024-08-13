@@ -1,9 +1,9 @@
+import type { Rspack } from '@rsbuild/core';
 import {
-  defineConfig as define,
   RsbuildConfig,
+  defineConfig as define,
   mergeRsbuildConfig,
 } from '@rsbuild/core';
-import type { Rspack } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { parse } from 'semver';
@@ -61,7 +61,7 @@ export function defineConfig({ packageJson, ...config }: Config) {
     mfConfig = {
       options: {
         name: config.moduleFederation.options.name,
-        runtimePlugins: [require.resolve('./runtime-plugin.js')],
+        // runtimePlugins: [require.resolve('./runtime-plugin.js')],
       },
     };
   }
