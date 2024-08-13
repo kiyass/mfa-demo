@@ -70,9 +70,16 @@ export function defineConfig({ packageJson, ...config }: Config) {
     define(config),
     define({
       moduleFederation: mfConfig,
-      // html: {
-      //   tags,
-      // },
+      html: {
+        tags: [
+          {
+            tag: 'script',
+            head: true,
+            children:
+              'if(window.parent !== window && window.__MICRO_APP_ENVIRONMENT__) {window.stop()}',
+          },
+        ],
+      },
       // output: {
       //   externals: newExternals,
       // },

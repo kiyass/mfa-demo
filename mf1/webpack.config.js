@@ -50,6 +50,10 @@ module.exports = {
           requiredVersion: "17.0.2",
           // shareScope: "react@17.0.2",
         },
+        "react-router-dom": {
+          requiredVersion: "6.25.1",
+          shareKey: "react-router-dom@react@17.0.2",
+        },
       },
     }),
     new HtmlWebpackPlugin({

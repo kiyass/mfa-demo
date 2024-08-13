@@ -15,14 +15,13 @@ function MicroApp({
   path,
   ...props
 }) {
-  return createElement(`micro-app-${packageJsonName}`, {
+  return createElement(`micro-app`, {
     ...props,
     name,
     url,
     baseroute: window.__MICRO_APP_BASE_ROUTE__
       ? `${window.__MICRO_APP_BASE_ROUTE__}${path}`
       : path,
-    iframe: true,
   });
 }
 

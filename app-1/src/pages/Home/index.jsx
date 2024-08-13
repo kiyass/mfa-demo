@@ -1,5 +1,22 @@
 import React, { useEffect, useState } from "react";
+// import TestEditor from "../../examples/TestEditor";
 import store from "./store";
+
+import { a, getLib1InstanceId } from "mf3/utils";
+
+const TestUtils = () => {
+  return (
+    <div style={{ margin: 100 }}>
+      <button
+        onClick={() => {
+          console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
+        }}
+      >
+        xxx
+      </button>
+    </div>
+  );
+};
 
 const Home = () => {
   const [count, setCount] = useState(0);
@@ -41,6 +58,8 @@ const Home = () => {
         <button onClick={handleApp2Dec}>APP2_DECREMENT</button>
       </div>
       {/* <TestMf1 /> */}
+      {/* <TestEditor /> */}
+      <TestUtils />
     </div>
   );
 };

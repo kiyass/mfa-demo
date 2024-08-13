@@ -78,10 +78,10 @@ const webpackConfig = {
           requiredVersion: "17.0.2",
           // shareScope: "react@17.0.2",
         },
-        // "react-router-dom": {
-        //   requiredVersion: false,
-        //   shareScope: "react@17.0.2",
-        // },
+        "react-router-dom": {
+          requiredVersion: "6.25.1",
+          shareKey: "react-router-dom@react@17.0.2",
+        },
       },
       dts: false,
       // runtimePlugins: [require.resolve("./react-adapter-runtime-plugin.js")],
