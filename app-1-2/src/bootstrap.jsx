@@ -1,8 +1,8 @@
-import ReactDOM from "react-dom";
-import App from "./App";
-import { BrowserRouter } from "react-router-dom";
 import startMicroApp from "micro-utils/startMicroApp";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import { name } from "../package.json";
+import App from "./App";
 
 startMicroApp({
   renderApp: (basename) => (

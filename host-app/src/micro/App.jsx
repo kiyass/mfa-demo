@@ -1,10 +1,10 @@
-import React, { createElement, Suspense } from "react";
+import React, { createElement } from "react";
 
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import "../App.scss";
 import MicroApp from "micro-utils/MicroApp";
-import Header from "../components/AppBar";
+import { Route, Routes } from "react-router-dom";
 import { name } from "../../package.json";
+import "../App.scss";
+import Header from "../components/AppBar";
 
 export default function App() {
   return (
@@ -22,6 +22,7 @@ export default function App() {
               name="app-1"
               url={process.env.PUBLIC_MICRO_APP1_URL}
               path="/app1"
+              iframe={true}
             />
           }
         />
@@ -35,6 +36,7 @@ export default function App() {
               name="app-4"
               url={process.env.PUBLIC_MICRO_APP4_URL}
               path="/app4"
+              iframe={true}
             />
           }
         />

@@ -56,15 +56,29 @@ export default function startMicroApp({
   if (!window.__MICRO_APP_ENVIRONMENT__) {
     window.mount();
   }
-  console.log(packageJsonName, 'packageJsonName');
   if (host) {
     microApp.start({
-      tagName:
-        packageJsonName === 'host-app'
-          ? 'micro-app'
-          : `micro-app-${packageJsonName}`,
+      // tagName: `micro-app-${packageJsonName}`,
       disableScopecss: true,
-      'router-mode': 'native-scope',
+      'router-mode': 'native',
+      // iframeSrc: 'http://localhost:2001/empty.html',
+      lifeCycles: {
+        created: (_, name) => {
+          console.log('app status: ', name, 'created');
+        },
+        beforemount: (_, name) => {
+          console.log('app status: ', name, 'beforemount');
+        },
+        mounted: (_, name) => {
+          console.log('app status: ', name, 'mounted');
+        },
+        unmount: (_, name) => {
+          console.log('app status: ', name, 'unmount');
+        },
+        error: (_, name) => {
+          console.log('app status: ', name, 'error');
+        },
+      },
     });
   }
 }

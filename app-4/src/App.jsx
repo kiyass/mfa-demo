@@ -16,14 +16,14 @@ import {
 import "./App.scss";
 
 import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MicroApp from "micro-utils/MicroApp";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import TestDialog from "./examples/TestDialog";
 import { Suspense } from "react/cjs/react.production.min";
+import { name } from "../package.json";
+import TestDialog from "./examples/TestDialog";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
-import MicroApp from "micro-utils/MicroApp";
-import { name } from "../package.json";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "app2",
@@ -120,6 +120,7 @@ const InnerApp = () => {
                 name="app-1-1"
                 url={process.env.PUBLIC_MICRO_APP1_1_URL}
                 path="/app-1-1"
+                iframe={true}
               />
             }
           />
@@ -133,6 +134,7 @@ const InnerApp = () => {
                 name="app-1-2"
                 url={process.env.PUBLIC_MICRO_APP1_2_URL}
                 path="/app-1-2"
+                iframe={true}
               />
             }
           />

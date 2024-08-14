@@ -75,6 +75,10 @@ const webpackConfig = {
           requiredVersion: false,
           shareScope: "react@17.0.2",
         },
+        "react-router-dom": {
+          requiredVersion: "6.25.1",
+          shareKey: "react-router-dom@react@17.0.2",
+        },
       },
       runtimePlugins: [
         require.resolve("./runtime-cdn.js"),

@@ -15,20 +15,14 @@ function MicroApp({
   path,
   ...props
 }) {
-  return createElement(
-    packageJsonName === 'host-app'
-      ? 'micro-app'
-      : `micro-app-${packageJsonName}`,
-    {
-      ...props,
-      name,
-      url,
-      baseroute: window.__MICRO_APP_BASE_ROUTE__
-        ? `${window.__MICRO_APP_BASE_ROUTE__}${path}`
-        : path,
-      iframe: true,
-    },
-  );
+  return createElement(`micro-app`, {
+    ...props,
+    name,
+    url,
+    baseroute: window.__MICRO_APP_BASE_ROUTE__
+      ? `${window.__MICRO_APP_BASE_ROUTE__}${path}`
+      : path,
+  });
 }
 
 export default MicroApp;
