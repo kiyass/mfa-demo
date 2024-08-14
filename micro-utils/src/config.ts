@@ -43,7 +43,14 @@ export function defineConfig({ packageJson, ...config }: Config) {
       newExternals[key] = externals[key];
     }
   }
-
+  tags.push({
+    tag: 'script',
+    children:
+      'if(window.parent !== window && window.__MICRO_APP_BASE_APPLICATION__) {window.stop()}',
+    head: true,
+    append: false,
+    global: true,
+  });
   tags.push({
     tag: 'script',
     attrs: {
@@ -56,34 +63,32 @@ export function defineConfig({ packageJson, ...config }: Config) {
     append: false,
     global: true,
   });
-  if (['host-app', 'app1', 'app4'].includes(packageJson?.name)) {
-    tags.push({
-      tag: 'script',
-      children: 'if(window.parent !== window) {window.stop()}',
-      head: true,
-      append: false,
-      global: true,
-    });
-  }
-  if (packageJson?.name === 'host-app') {
-    tags.push({
-      tag: 'script',
-      attrs: {
-        defer: true,
-        type: 'module',
-      },
-      children:
-        'import React from "react";\n window.React=React;import ReactDOM from "react-dom";\n window.ReactDOM=ReactDOM',
-      head: true,
-      append: false,
-      global: true,
-    });
-  }
+  tags.push({
+    tag: 'script',
+    attrs: {
+      defer: true,
+      type: 'module',
+    },
+    children:
+      'import React from "react";\n window.React=React;import ReactDOM from "react-dom";\n window.ReactDOM=ReactDOM',
+    head: true,
+    append: false,
+    global: true,
+  });
 
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
     // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
-    tags = undefined;
+    tags = [
+      {
+        tag: 'script',
+        children:
+          'if(window.parent !== window && window.__MICRO_APP_BASE_APPLICATION__) {window.stop()}',
+        head: true,
+        append: false,
+        global: true,
+      },
+    ];
     newExternals = undefined;
     const runtimePlugins = [
       require.resolve('./runtime-scope.js'),
