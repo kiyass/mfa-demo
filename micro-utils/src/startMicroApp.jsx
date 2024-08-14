@@ -56,9 +56,13 @@ export default function startMicroApp({
   if (!window.__MICRO_APP_ENVIRONMENT__) {
     window.mount();
   }
+  console.log(packageJsonName, 'packageJsonName');
   if (host) {
     microApp.start({
-      tagName: `micro-app-${packageJsonName}`,
+      tagName:
+        packageJsonName === 'host-app'
+          ? 'micro-app'
+          : `micro-app-${packageJsonName}`,
       disableScopecss: true,
       'router-mode': 'native-scope',
     });

@@ -1,13 +1,14 @@
-import type { Rspack } from '@rsbuild/core';
 import {
-  RsbuildConfig,
   defineConfig as define,
+  RsbuildConfig,
   mergeRsbuildConfig,
 } from '@rsbuild/core';
+import type { Rspack } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { parse } from 'semver';
 import { externals } from './externals';
+import getUrl from './getUrl';
 
 function getMajorVersion(versionRange: string) {
   // 获取主要版本号
@@ -27,55 +28,76 @@ interface Config extends RsbuildConfig {
 export function defineConfig({ packageJson, ...config }: Config) {
   const { name, dependencies } = packageJson;
   let tags: any[] | undefined = [];
-  let newExternals: {
+  let imports: {
     [key: string]: string;
   } = {};
+  let newExternals:
+    | {
+        [key: string]: string;
+      }
+    | undefined = {};
   for (const key in externals) {
     if (dependencies[key]) {
-      const majorVersion = getMajorVersion(dependencies[key]);
-      let src = undefined;
-      if (['react', 'react-dom'].includes(key)) {
-        src = `https://unpkg.com/${key}@${majorVersion}/umd/${key}.development.js`;
-      } else if (['axios'].includes(key)) {
-        src = `https://unpkg.com/${key}@${majorVersion}/dist/${key}.js`;
-      } else {
-        src = `https://unpkg.com/${key}@${majorVersion}/${key}.js`;
-      }
-
-      tags.push({
-        tag: 'script',
-        attrs: {
-          defer: true,
-          crossorigin: 'anonymous',
-          src,
-        },
-        head: true,
-        append: false,
-        global: true,
-      });
+      const src = getUrl(key, dependencies[key]);
+      imports[key] = src;
       newExternals[key] = externals[key];
     }
   }
+
+  tags.push({
+    tag: 'script',
+    attrs: {
+      type: 'importmap',
+    },
+    children: JSON.stringify({
+      imports,
+    }),
+    head: true,
+    append: false,
+    global: true,
+  });
+  if (packageJson?.name === 'host-app') {
+    tags.push({
+      tag: 'script',
+      attrs: {
+        defer: true,
+        type: 'module',
+      },
+      children:
+        'import React from "react";\n window.React=React;import ReactDOM from "react-dom";\n window.ReactDOM=ReactDOM',
+      head: true,
+      append: false,
+      global: true,
+    });
+  }
+
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
+    // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
+    tags = undefined;
+    newExternals = undefined;
+    const runtimePlugins = [
+      require.resolve('./runtime-scope.js'),
+      require.resolve('./runtime-cdn.js'),
+    ];
+
     mfConfig = {
       options: {
         name: config.moduleFederation.options.name,
-        // runtimePlugins: [require.resolve('./runtime-plugin.js')],
+        runtimePlugins,
       },
     };
   }
-
   return mergeRsbuildConfig(
     define(config),
     define({
       moduleFederation: mfConfig,
-      // html: {
-      //   tags,
-      // },
-      // output: {
-      //   externals: newExternals,
-      // },
+      html: {
+        tags,
+      },
+      output: {
+        externals: newExternals,
+      },
       server: {
         headers: {
           'Access-Control-Allow-Origin': '*',

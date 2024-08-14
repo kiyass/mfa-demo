@@ -22,70 +22,41 @@
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
 
-const useLocalShares = new Set(["lodash"]);
-
-//workaround for rspack who cannot process webpackIgnore comments yet
+const esmShares = new Set(['react', 'react-dom']);
+import getUrl from './getUrl';
 
 const getShareFromUnpkg = (packageName, version) => {
   return () => {
+    const src = getUrl(packageName, version);
     const mod = new Function(
-      "packageName",
-      "version",
-      "return import(/* webpackIgnore: true */ `https://esm.sh/${packageName}@${version}`)"
-    )(packageName, version);
-    return mod.then((m) => {
+      'src',
+      'return import(/* webpackIgnore: true */ src)',
+    )(src);
+    return mod.then(m => {
       return () => m;
     });
   };
 };
 
-const store = {};
-
 const NpmRuntimeGlobalPlugin = () => {
   return {
-    name: "share-from-npm-plugin",
-    beforeInit: (args) => {
-      store.name = args.options.name;
+    name: 'share-from-npm-plugin',
+    beforeInit: args => {
       return args;
     },
 
-    // resolveShare: (args) => {
-    //   const { shareScopeMap, scope, pkgName, version, resolver } = args;
-    //   const currentPackageRef = shareScopeMap[scope][pkgName][version];
+    resolveShare: args => {
+      const { shareScopeMap, scope, pkgName, version, resolver } = args;
+      const currentPackageRef = shareScopeMap[scope][pkgName][version];
 
-    //   args.resolver = () => {
-    //     if (!useLocalShares.has(pkgName)) {
-    //       currentPackageRef.get = getShareFromUnpkg(pkgName, version);
-    //     }
-    //     return resolver();
-    //   };
-
-    //   return args;
-    // },
-    initContainerShareScopeMap(args) {
-      try {
-        const { hostShareScopeMap, origin, scopeName } = args;
-        if (hostShareScopeMap) {
-          Object.keys(hostShareScopeMap).forEach((hostShareScopeName) => {
-            if (hostShareScopeName === scopeName) {
-              return;
-            }
-            const hostShareScope = hostShareScopeMap[hostShareScopeName];
-            origin.shareScopeMap[hostShareScopeName] = hostShareScope;
-          });
+      args.resolver = () => {
+        if (esmShares.has(pkgName)) {
+          currentPackageRef.get = getShareFromUnpkg(pkgName, version);
         }
-      } catch (err) {
-        console.error(new Error(err));
-      }
+        return resolver();
+      };
       return args;
     },
-    // beforeLoadShare: async (args) => {
-    //   // old workaround, may not be required anymore
-    //   while (__FEDERATION__.__INSTANCES__.length <= 1) {
-    //     await new Promise((r) => setTimeout(r, 50));
-    //   }
-    //   return args;
-    // },
   };
 };
 
