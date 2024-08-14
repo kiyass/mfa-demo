@@ -13,4 +13,7 @@ export default defineConfig({
   dev: {
     assetPrefix: "http://localhost:2004/",
   },
+  output: {
+    assetPrefix: "http://localhost:2004/",
+  },
 });

@@ -16,5 +16,8 @@ export default defineConfig({
   dev: {
     assetPrefix: "http://localhost:2012/",
   },
+  output: {
+    assetPrefix: "http://localhost:2012/",
+  },
   plugins: [pluginStyledComponents()],
 });

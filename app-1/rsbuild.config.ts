@@ -14,4 +14,7 @@ export default defineConfig({
   dev: {
     assetPrefix: "http://localhost:2001/",
   },
+  output: {
+    assetPrefix: "http://localhost:2001/",
+  },
 });

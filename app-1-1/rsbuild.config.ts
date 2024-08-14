@@ -29,6 +29,9 @@ export default defineConfig({
   dev: {
     assetPrefix: "http://localhost:2011/",
   },
+  output: {
+    assetPrefix: "http://localhost:2011/",
+  },
   moduleFederation: {
     options: mfConfig,
   },
