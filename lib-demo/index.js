@@ -3,8 +3,8 @@ function getRandomInt(max) {
 }
 
 window.instanceId = getRandomInt(100000);
-
+console.log(window.__MICRO_APP_NAME__, "window.__MICRO_APP_NAME__");
 export function getLib1InstanceId() {
-  console.log(window.instanceId, window, window.appName, "appNamexxxx");
+  console.log(window.__MICRO_APP_NAME__, window.instanceId, "appNamexxxx");
   return instanceId;
 }

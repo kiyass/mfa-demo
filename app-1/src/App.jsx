@@ -19,6 +19,7 @@ import React, { Suspense, createElement } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { name } from "../package.json";
 import TestDialog from "./examples/TestDialog";
+import TestVideo from "./examples/TestVideo";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import Home from "./pages/Home";
@@ -106,6 +107,7 @@ const InnerApp = () => {
       <div className={classes.container}>
         <Routes>
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/page1" element={<TestVideo />} />
           <Route
             exact
             path="/app-1-1/*"
