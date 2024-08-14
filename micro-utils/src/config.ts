@@ -56,6 +56,15 @@ export function defineConfig({ packageJson, ...config }: Config) {
     append: false,
     global: true,
   });
+  if (['host-app', 'app1', 'app4'].includes(packageJson?.name)) {
+    tags.push({
+      tag: 'script',
+      children: 'if(window.parent !== window) {window.stop()}',
+      head: true,
+      append: false,
+      global: true,
+    });
+  }
   if (packageJson?.name === 'host-app') {
     tags.push({
       tag: 'script',
