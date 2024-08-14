@@ -57,11 +57,12 @@ export default function startMicroApp({
     window.mount();
   }
   if (host) {
+    console.log('iframeSrc', `${location.origin}/empty.html`);
     microApp.start({
       // tagName: `micro-app-${packageJsonName}`,
       disableScopecss: true,
       'router-mode': 'native',
-      // iframeSrc: 'http://localhost:2001/empty.html',
+      iframeSrc: `${location.origin}/empty.html`,
       lifeCycles: {
         created: (_, name) => {
           console.log('app status: ', name, 'created');

@@ -1,9 +1,9 @@
+import type { Rspack } from '@rsbuild/core';
 import {
-  defineConfig as define,
   RsbuildConfig,
+  defineConfig as define,
   mergeRsbuildConfig,
 } from '@rsbuild/core';
-import type { Rspack } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { parse } from 'semver';
@@ -43,14 +43,7 @@ export function defineConfig({ packageJson, ...config }: Config) {
       newExternals[key] = externals[key];
     }
   }
-  tags.push({
-    tag: 'script',
-    children:
-      'if(window.parent !== window && window.__MICRO_APP_BASE_APPLICATION__) {window.stop()}',
-    head: true,
-    append: false,
-    global: true,
-  });
+
   tags.push({
     tag: 'script',
     attrs: {
@@ -80,14 +73,14 @@ export function defineConfig({ packageJson, ...config }: Config) {
   if (config.moduleFederation?.options?.name) {
     // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
     tags = [
-      {
-        tag: 'script',
-        children:
-          'if(window.parent !== window && window.__MICRO_APP_BASE_APPLICATION__) {window.stop()}',
-        head: true,
-        append: false,
-        global: true,
-      },
+      // {
+      //   tag: 'script',
+      //   children:
+      //     'if(window.parent !== window && window.__MICRO_APP_BASE_APPLICATION__) {window.stop()}',
+      //   head: true,
+      //   append: false,
+      //   global: true,
+      // },
     ];
     newExternals = undefined;
     const runtimePlugins = [
