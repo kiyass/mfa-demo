@@ -1,27 +1,20 @@
-import React, { useRef } from "react";
+import React from "react";
 
-import Editor from "@monaco-editor/react";
+import { useQuill } from "react-quilljs";
+// or const { useQuill } = require('react-quilljs');
 
-export default function TestEditor() {
-  const editorRef = useRef(null);
+import "quill/dist/quill.snow.css"; // Add css for snow theme
+// or import 'quill/dist/quill.bubble.css'; // Add css for bubble theme
 
-  function handleEditorDidMount(editor, monaco) {
-    editorRef.current = editor;
-  }
+export default () => {
+  const { quill, quillRef } = useQuill({ placeholder: "123" });
 
-  function showValue() {
-    alert(editorRef.current.getValue());
-  }
+  console.log(quill); // undefined > Quill Object
+  console.log(quillRef); // { current: undefined } > { current: Quill Editor Reference }
 
   return (
-    <>
-      <button onClick={showValue}>Show value</button>
-      <Editor
-        height="90vh"
-        defaultLanguage="javascript"
-        defaultValue="// some comment"
-        onMount={handleEditorDidMount}
-      />
-    </>
+    <div style={{ width: 500, height: 300 }}>
+      <div ref={quillRef} />
+    </div>
   );
-}
+};
