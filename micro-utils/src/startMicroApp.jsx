@@ -8,6 +8,7 @@ import microApp from '@micro-zoe/micro-app';
  * @param {*} host "是否为主应用"
  * @param {*} packageJsonName
  * @param {*} handleMount handleMount
+ * @param {*} preFetchApps preFetchApps
  * @param {*} handleUnMount handleUnMount
  * @param {*} handleUpdate handleUpdate
  * @return {*}
@@ -19,6 +20,7 @@ export default function startMicroApp({
   mountId = '#root',
   handleMount,
   packageJsonName,
+  preFetchApps,
   handleUnMount,
 }) {
   let rootDom = null;
@@ -62,6 +64,14 @@ export default function startMicroApp({
       // tagName: `micro-app-${packageJsonName}`,
       disableScopecss: true,
       'router-mode': 'native',
+      prefetchLevel: 1,
+      preFetchApps: preFetchApps
+        ? () =>
+            preFetchApps.map(item => ({
+              ...item,
+              disableScopecss: true,
+            }))
+        : undefined,
       iframeSrc: `${location.origin}/empty.html`,
       lifeCycles: {
         created: (_, name) => {
