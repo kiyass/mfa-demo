@@ -106,7 +106,7 @@ const InnerApp = () => {
       </div>
       <div className={classes.container}>
         <Routes>
-          <Route exact path="/home" element={<Home />} />
+          {/* <Route exact path="/home" element={<Home />} /> */}
           <Route exact path="/page1" element={<TestVideo />} />
           <Route
             exact

@@ -12,7 +12,7 @@ import getUrl from './getUrl';
 
 function getMajorVersion(versionRange: string) {
   // 获取主要版本号
-  const majorVersion = parse(versionRange.replace(/^[^0-9]+/, ''))?.major;
+  const majorVersion = parse(versionRange.replace(/^[^0-9]+/, ''))?.raw;
   return majorVersion;
 }
 
@@ -36,34 +36,25 @@ export function defineConfig({ packageJson, ...config }: Config) {
         [key: string]: string;
       }
     | undefined = {};
+  let children = '';
+
   for (const key in externals) {
     if (dependencies[key]) {
-      const src = getUrl(key, dependencies[key]);
-      imports[key] = src;
       newExternals[key] = externals[key];
+      const moduleName = externals[key];
+      children += `const ${moduleName} = await import("${getUrl(
+        key,
+        getMajorVersion(dependencies[key]),
+      )}");\n window.${moduleName} = ${moduleName};`;
     }
   }
-
-  tags.push({
-    tag: 'script',
-    attrs: {
-      type: 'importmap',
-    },
-    children: JSON.stringify({
-      imports,
-    }),
-    head: true,
-    append: false,
-    global: true,
-  });
   tags.push({
     tag: 'script',
     attrs: {
       defer: true,
       type: 'module',
     },
-    children:
-      'import React from "react";\n window.React=React;import ReactDOM from "react-dom";\n window.ReactDOM=ReactDOM',
+    children,
     head: true,
     append: false,
     global: true,
@@ -72,16 +63,7 @@ export function defineConfig({ packageJson, ...config }: Config) {
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
     // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
-    tags = [
-      // {
-      //   tag: 'script',
-      //   children:
-      //     'if(window.parent !== window && window.__MICRO_APP_BASE_APPLICATION__) {window.stop()}',
-      //   head: true,
-      //   append: false,
-      //   global: true,
-      // },
-    ];
+    tags = undefined;
     newExternals = undefined;
     const runtimePlugins = [
       require.resolve('./runtime-scope.js'),
