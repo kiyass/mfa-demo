@@ -7,7 +7,7 @@ import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
 import TestCssinJs from "./examples/TestCssinJs";
-import TestDialog from "./examples/TestDialog";
+import DraggableDialog from "./examples/TestDraggableDialog";
 import TestEcharts from "./examples/TestEcharts";
 import TestEditor from "./examples/TestEditor";
 import TestMf1 from "./examples/TestMf1";
@@ -56,7 +56,7 @@ const App = () => {
         <Suspense fallback="loading">
           <BasicLayout>
             <Routes>
-              <Route path="/" element={<TestDialog />} />
+              <Route path="/" element={<DraggableDialog />} />
               {/* <Route path="/store" element={<TestStore />} /> */}
               <Route path="/cssinjs" element={<TestCssinJs />} />
               <Route path="/toastMessage" element={<TestToast />} />
