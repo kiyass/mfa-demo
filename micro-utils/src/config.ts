@@ -9,7 +9,6 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import { parse } from 'semver';
 import { externals } from './externals';
 import getUrl from './getUrl';
-import { htmlPlugin } from './html.plugin';
 function getMajorVersion(versionRange: string) {
   // 获取主要版本号
   const majorVersion = parse(versionRange.replace(/^[^0-9]+/, ''))?.raw;
@@ -36,12 +35,16 @@ export function defineConfig({ packageJson, ...config }: Config) {
 
   for (const key in externals) {
     if (dependencies[key]) {
-      newExternals[key] = externals[key];
-      const moduleName = externals[key];
-      children += `const ${moduleName} = await import("${getUrl(
-        key,
-        getMajorVersion(dependencies[key]),
-      )}");\n window.${moduleName} = ${moduleName};`;
+      newExternals[key] = getUrl(key, getMajorVersion(dependencies[key]));
+      // [
+      //   getUrl(key, getMajorVersion(dependencies[key])),
+      //   externals[key],
+      // ];
+      // const moduleName = externals[key];
+      // children += `const ${moduleName} = await import("${getUrl(
+      //   key,
+      //   getMajorVersion(dependencies[key]),
+      // )}");\n window.${moduleName} = ${moduleName};`;
     }
   }
 
@@ -78,6 +81,9 @@ export function defineConfig({ packageJson, ...config }: Config) {
       },
       tools: {
         rspack: {
+          experiments: {
+            outputModule: true,
+          },
           output: {
             globalObject: 'window',
             chunkLoadingGlobal: `webpackJsonp_${name}`,
@@ -91,10 +97,10 @@ export function defineConfig({ packageJson, ...config }: Config) {
       plugins: [
         pluginReact(),
         pluginSass(),
-        htmlPlugin({
-          isChangeHtml: !config.moduleFederation?.options?.name,
-          children,
-        }),
+        // htmlPlugin({
+        //   isChangeHtml: !config.moduleFederation?.options?.name,
+        //   children,
+        // }),
       ],
     }),
   );
