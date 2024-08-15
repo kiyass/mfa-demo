@@ -11,7 +11,10 @@ startMicroApp({
     </BrowserRouter>
   ),
   ReactDOM,
-  // BrowserRouter,
+  preFetchApps: [
+    { name: "app-1-1", url: process.env.PUBLIC_MICRO_APP1_1_URL },
+    { name: "app-1-2", url: process.env.PUBLIC_MICRO_APP1_2_URL },
+  ],
   host: true,
   packageJsonName: name,
   handleMount: () => {
