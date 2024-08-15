@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { createLifecycle } from "./createLifecycle";
-import Mf2 from "mf2/Mf2";
+// import Mf2 from "mf2/Mf2";
 import TestStore from "./TestStore";
 
 const arr = new Array(100).fill(0);
@@ -12,7 +12,7 @@ const List = React.memo(() => {
 
   return (
     <div style={{ color: "#000" }}>
-      <Mf2 />
+      {/* <Mf2 /> */}
       <TestStore />
       {arr.map((item, index) => (
         <div key={`${item}-${index}`}>
