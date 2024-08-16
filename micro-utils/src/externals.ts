@@ -5,4 +5,5 @@ export const externals: {
   'react-dom': 'ReactDOM',
   lodash: 'lodash',
   axios: 'axios',
+  'video.js': 'videojs',
 };
