@@ -35,7 +35,7 @@ export function defineConfig({ packageJson, ...config }: Config) {
 
   for (const key in externals) {
     if (dependencies[key]) {
-      newExternals[key] = getUrl(key, getMajorVersion(dependencies[key]));
+      newExternals[key] = getUrl(key, dependencies[key]);
       // [
       //   getUrl(key, getMajorVersion(dependencies[key])),
       //   externals[key],
