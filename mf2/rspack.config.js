@@ -60,7 +60,7 @@ const webpackConfig = {
   plugins: [
     new ModuleFederationPlugin({
       name: "mf2",
-      library: { type: "umd", name: "mf2" },
+      library: { type: "window", name: "mf2" },
       filename: "remoteEntry.js",
       remoteType: "script",
       exposes: {

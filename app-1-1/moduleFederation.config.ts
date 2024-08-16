@@ -2,7 +2,7 @@ import type { ModuleFederationPluginOptions } from "micro-utils/config";
 
 export const mfConfig: ModuleFederationPluginOptions = {
   name: "app11",
-  library: { type: "umd", name: "app11" },
+  library: { type: "window", name: "app11" },
   remoteType: "script",
   filename: "remoteEntry.js",
   remotes: {

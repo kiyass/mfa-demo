@@ -3,15 +3,18 @@ import ModalProvider from "mui-modal-provider";
 import React, { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+import TestDraggableTable from "../../app-1/src/examples/TestDraggableTable";
 import "./App.scss";
 import BasicLayout from "./components/BasicLayout";
 import RemoteComponent from "./examples/RemoteComponent";
+import TestBreakPoint from "./examples/TestBreakPoint";
 import TestCssinJs from "./examples/TestCssinJs";
 import DraggableDialog from "./examples/TestDraggableDialog";
 import TestEcharts from "./examples/TestEcharts";
 import TestEditor from "./examples/TestEditor";
 import TestMf1 from "./examples/TestMf1";
 import TestSelect from "./examples/TestSelect";
+import TestStore from "./examples/TestStore";
 import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
@@ -57,7 +60,9 @@ const App = () => {
           <BasicLayout>
             <Routes>
               <Route path="/" element={<DraggableDialog />} />
-              {/* <Route path="/store" element={<TestStore />} /> */}
+              <Route path="/draggable" element={<TestDraggableTable />} />
+              <Route path="/breakpoint" element={<TestBreakPoint />} />
+              <Route path="/store" element={<TestStore />} />
               <Route path="/cssinjs" element={<TestCssinJs />} />
               <Route path="/toastMessage" element={<TestToast />} />
               <Route path="/tooltip" element={<TestTooltip />} />

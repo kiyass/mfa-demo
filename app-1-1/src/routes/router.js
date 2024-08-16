@@ -4,6 +4,14 @@ export const routes = [
     name: "弹窗",
   },
   {
+    path: "/draggable",
+    name: "拖拽列表",
+  },
+  {
+    path: "/breakpoint",
+    name: "breakpoint",
+  },
+  {
     path: "/store",
     name: "store",
   },

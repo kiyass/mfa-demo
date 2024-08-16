@@ -29,9 +29,18 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  immutability-helper:
+    specifier: ^3.1.1
+    version: 3.1.1
   react:
     specifier: ^17.0.2
     version: 17.0.2
+  react-dnd:
+    specifier: ^16.0.1
+    version: 16.0.1(@types/node@20.14.12)(react@17.0.2)
+  react-dnd-html5-backend:
+    specifier: ^16.0.1
+    version: 16.0.1
   react-dom:
     specifier: ^17.0.2
     version: 17.0.2(react@17.0.2)
@@ -42,8 +51,8 @@ dependencies:
     specifier: ^1.3.0
     version: 1.3.0
   video.js:
-    specifier: ^8.17.2
-    version: 8.17.2
+    specifier: ^8.17.3
+    version: 8.17.3
 
 devDependencies:
   '@rsbuild/core':
@@ -364,6 +373,18 @@ packages:
       '@module-federation/sdk': 0.2.6
     dev: false
 
+  /@react-dnd/asap@5.0.2:
+    resolution: {integrity: sha512-WLyfoHvxhs0V9U+GTsGilGgf2QsPl6ZZ44fnv0/b8T3nQyvzxidxsg/ZltbWssbsRDlYW8UKSQMTGotuTotZ6A==}
+    dev: false
+
+  /@react-dnd/invariant@4.0.2:
+    resolution: {integrity: sha512-xKCTqAK/FFauOM9Ta2pswIyT3D8AQlfrYdOi/toTPEhqCuAs1v5tcJ3Y08Izh1cJ5Jchwy9SeAXmMg6zrKs2iw==}
+    dev: false
+
+  /@react-dnd/shallowequal@4.0.2:
+    resolution: {integrity: sha512-/RVXdLvJxLg4QKvMoM5WlwNR9ViO9z8B/qPcc+C0Sa/teJY7QG7kJ441DwzOjMYEY7GmU4dj5EcGHIkKZiQZCA==}
+    dev: false
+
   /@remix-run/router@1.17.1:
     resolution: {integrity: sha512-mCOMec4BKd6BRGBZeSnGiIgwsbLGp3yhVqAD8H+PxiRNEHgDpZb8J1TnrSDlg97t0ySKMQJTHCWBCmBpSmkF6Q==}
     engines: {node: '>=14.0.0'}
@@ -512,7 +533,6 @@ packages:
     resolution: {integrity: sha512-r7wNXakLeSsGT0H1AU863vS2wa5wBOK4bWMjZz2wj+8nBx+m5PeIn0k8AloSLpRuiwdRQZwarZqHE4FNArPuJQ==}
     dependencies:
       undici-types: 5.26.5
-    dev: true
 
   /@types/prop-types@15.7.12:
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -572,7 +592,7 @@ packages:
       nanoid: 3.3.7
     dev: false
 
-  /@videojs/http-streaming@3.13.2(video.js@8.17.2):
+  /@videojs/http-streaming@3.13.2(video.js@8.17.3):
     resolution: {integrity: sha512-eCfQp61w00hg7Y9npmLnsJ6UvDF+SsFYzu7mQJgVXxWpVm9AthYWA3KQEKA7F7Sy6yzlm/Sps8BHs5ItelNZgQ==}
     engines: {node: '>=8', npm: '>=5'}
     peerDependencies:
@@ -585,7 +605,7 @@ packages:
       m3u8-parser: 7.1.0
       mpd-parser: 1.3.0
       mux.js: 7.0.3
-      video.js: 8.17.2
+      video.js: 8.17.3
     dev: false
 
   /@videojs/vhs-utils@3.0.5:
@@ -1040,6 +1060,14 @@ packages:
     engines: {node: '>= 0.8', npm: 1.2.8000 || >= 1.4.16}
     dev: false
 
+  /dnd-core@16.0.1:
+    resolution: {integrity: sha512-HK294sl7tbw6F6IeuK16YSBUoorvHpY8RHO+9yFfaJyCDVb6n7PRcezrOEOa2SBCqiYpemh5Jx20ZcjKdFAVng==}
+    dependencies:
+      '@react-dnd/asap': 5.0.2
+      '@react-dnd/invariant': 4.0.2
+      redux: 4.2.1
+    dev: false
+
   /dom-helpers@5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
     dependencies:
@@ -1129,6 +1157,10 @@ packages:
     resolution: {integrity: sha512-6hxeJYaL110a9b5TEJSj0gojyHQAmA2ch5Os+ySCiA1QGdS697XWY1pzsrSjqA9LDEEgdB/KypIlR59RcLuHYw==}
     dependencies:
       type: 2.7.3
+    dev: false
+
+  /fast-deep-equal@3.1.3:
+    resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: false
 
   /find-file-up@2.0.1:
@@ -1311,6 +1343,10 @@ packages:
 
   /immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
+    dev: false
+
+  /immutability-helper@3.1.1:
+    resolution: {integrity: sha512-Q0QaXjPjwIju/28TsugCHNEASwoCcJSyJV3uO1sOIQGI0jKgm9f41Lvz0DZj3n46cNCyAZTsEYoY4C2bVRUzyQ==}
     dev: false
 
   /individual@2.0.0:
@@ -1738,6 +1774,36 @@ packages:
     resolution: {integrity: sha512-6Dp+QQVQuAuhwBlbIvL2FjJVHCKF29W+n9ca/BMTVDqpj+Q7KKqUh7UAINEna8aaB2/oRvPuL5hViCTQARa70Q==}
     dev: false
 
+  /react-dnd-html5-backend@16.0.1:
+    resolution: {integrity: sha512-Wu3dw5aDJmOGw8WjH1I1/yTH+vlXEL4vmjk5p+MHxP8HuHJS1lAGeIdG/hze1AvNeXWo/JgULV87LyQOr+r5jw==}
+    dependencies:
+      dnd-core: 16.0.1
+    dev: false
+
+  /react-dnd@16.0.1(@types/node@20.14.12)(react@17.0.2):
+    resolution: {integrity: sha512-QeoM/i73HHu2XF9aKksIUuamHPDvRglEwdHL4jsp784BgUuWcg6mzfxT0QDdQz8Wj0qyRKx2eMg8iZtWvU4E2Q==}
+    peerDependencies:
+      '@types/hoist-non-react-statics': '>= 3.3.1'
+      '@types/node': '>= 12'
+      '@types/react': '>= 16'
+      react: '>= 16.14'
+    peerDependenciesMeta:
+      '@types/hoist-non-react-statics':
+        optional: true
+      '@types/node':
+        optional: true
+      '@types/react':
+        optional: true
+    dependencies:
+      '@react-dnd/invariant': 4.0.2
+      '@react-dnd/shallowequal': 4.0.2
+      '@types/node': 20.14.12
+      dnd-core: 16.0.1
+      fast-deep-equal: 3.1.3
+      hoist-non-react-statics: 3.3.2
+      react: 17.0.2
+    dev: false
+
   /react-dom@17.0.2(react@17.0.2):
     resolution: {integrity: sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==}
     peerDependencies:
@@ -1983,7 +2049,6 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-    dev: true
 
   /universalify@0.1.2:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
@@ -2009,11 +2074,11 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /video.js@8.17.2:
-    resolution: {integrity: sha512-oa4BGAr5H965OBcn83qM9xMMtjtSCRh0zMLnyouD9itQJ994FY/NlYo+XSPujk4NpsBGHSUF/+rGy0Wu5Mrzqg==}
+  /video.js@8.17.3:
+    resolution: {integrity: sha512-zhhmE0LNxJRA603/48oYzF7GYdT+rQRscvcsouYxFE71aKhalHLBP6S9/XjixnyjcrYgwIx8OQo6eSjcbbAW0Q==}
     dependencies:
       '@babel/runtime': 7.24.8
-      '@videojs/http-streaming': 3.13.2(video.js@8.17.2)
+      '@videojs/http-streaming': 3.13.2(video.js@8.17.3)
       '@videojs/vhs-utils': 4.0.0
       '@videojs/xhr': 2.7.0
       aes-decrypter: 4.0.1
@@ -2022,19 +2087,19 @@ packages:
       mpd-parser: 1.3.0
       mux.js: 7.0.3
       safe-json-parse: 4.0.0
-      videojs-contrib-quality-levels: 4.1.0(video.js@8.17.2)
+      videojs-contrib-quality-levels: 4.1.0(video.js@8.17.3)
       videojs-font: 4.2.0
       videojs-vtt.js: 0.15.5
     dev: false
 
-  /videojs-contrib-quality-levels@4.1.0(video.js@8.17.2):
+  /videojs-contrib-quality-levels@4.1.0(video.js@8.17.3):
     resolution: {integrity: sha512-TfrXJJg1Bv4t6TOCMEVMwF/CoS8iENYsWNKip8zfhB5kTcegiFYezEA0eHAJPU64ZC8NQbxQgOwAsYU8VXbOWA==}
     engines: {node: '>=16', npm: '>=8'}
     peerDependencies:
       video.js: ^8
     dependencies:
       global: 4.4.0
-      video.js: 8.17.2
+      video.js: 8.17.3
     dev: false
 
   /videojs-font@4.2.0:

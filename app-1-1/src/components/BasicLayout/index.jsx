@@ -17,11 +17,12 @@ function BasicLayout({ children }) {
         style={{
           display: "flex",
           alignItems: "center",
-          height: "64px",
+          // height: "64px",
           padding: "0 50px",
           color: "rgba(255, 255, 255, 0.65)",
           lineHeight: "64px",
           background: "#001529",
+          flexWrap: "wrap",
         }}
       >
         {routes.map((item) => {
@@ -33,6 +34,9 @@ function BasicLayout({ children }) {
                 color: "rgba(255, 255, 255, 0.65)",
                 textDecoration: "none",
                 padding: "0 10px",
+                display: "inline-block",
+                // minWidth: "100px",
+                // textAlign: "center",
               }}
             >
               <span>{item.name}</span>

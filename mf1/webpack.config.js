@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "mf1",
-      library: { type: "umd", name: "mf1" },
+      library: { type: "window", name: "mf1" },
       remoteType: "script",
       filename: "remoteEntry.js",
       remotes: {
