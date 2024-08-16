@@ -45,6 +45,9 @@
     "new": "modern new",
     "upgrade": "modern upgrade"
   },
+  "bin": {
+    "custombuild": "./build.mjs"
+  },
   "eslintIgnore": [
     "node_modules/",
     "dist/"
