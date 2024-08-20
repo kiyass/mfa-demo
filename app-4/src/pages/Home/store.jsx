@@ -4,10 +4,10 @@ let initialState = {
   global: 0,
 };
 
-const App2Reducer = (state = initialState, action) => {
-  if (action.type === "APP2_INCREMENT")
+const App4Reducer = (state = initialState, action) => {
+  if (action.type === "APP4_INCREMENT")
     return { ...state, global: state.global + 1 };
-  if (action.type === "APP2_DECREMENT")
+  if (action.type === "APP4_DECREMENT")
     return { ...state, global: state.global - 1 };
 
   return state;
@@ -15,8 +15,8 @@ const App2Reducer = (state = initialState, action) => {
 
 const store = GlobalStore.Get(false);
 
-store.CreateStore("App2", App2Reducer, []);
+store.CreateStore("App4", App4Reducer, []);
 
-store.RegisterGlobalActions("App2", ["APP2_INCREMENT", "APP2_DECREMENT"]);
+store.RegisterGlobalActions("App4", ["APP4_INCREMENT", "APP4_DECREMENT"]);
 
 export default store;

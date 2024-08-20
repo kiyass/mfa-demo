@@ -5,25 +5,44 @@ import store from "./store";
 import { a, getLib1InstanceId } from "mf3/utils";
 
 const TestUtils = () => {
+  const [id, setId] = useState();
+
   return (
-    <div style={{ margin: 100 }}>
-      <button
-        onClick={() => {
-          console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
-        }}
-      >
-        xxx
-      </button>
-    </div>
+    <>
+      <div style={{ marginTop: 60 }}>
+        <button
+          onClick={() => {
+            console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
+            setId(getLib1InstanceId());
+          }}
+        >
+          Get window.instanceId: {id}
+        </button>
+      </div>
+    </>
   );
 };
 
 const Home = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(
+    () => store.GetGlobalState()?.CounterApp?.global ?? 0
+  );
+  const [app1, setApp1] = useState(
+    () => store.GetGlobalState()?.App1?.global ?? 0
+  );
 
   useEffect(() => {
     const unsub = store.SubscribeToGlobalState("CounterApp", (state) => {
       setCount(state.CounterApp.global);
+    });
+    return () => {
+      unsub();
+    };
+  }, []);
+
+  useEffect(() => {
+    const unsub = store.SubscribeToGlobalState("App1", (state) => {
+      setApp1(state.App1.global);
     });
     return () => {
       unsub();
@@ -38,24 +57,24 @@ const Home = () => {
     store.DispatchGlobalAction("CounterApp", { type: "DECREMENT_GLOBAL" });
   };
 
-  const handleApp2Inc = () => {
-    store.DispatchGlobalAction("App2", { type: "APP2_INCREMENT" });
+  const handleApp1Inc = () => {
+    store.DispatchGlobalAction("App1", { type: "APP1_INCREMENT" });
   };
 
-  const handleApp2Dec = () => {
-    store.DispatchGlobalAction("App2", { type: "APP2_DECREMENT" });
+  const handleApp1Dec = () => {
+    store.DispatchGlobalAction("App1", { type: "APP1_DECREMENT" });
   };
 
   return (
     <div style={{ padding: 20 }}>
-      app-2 home get count: {count}{" "}
+      app-1 home get global count: {count} , app1 count: {app1}
       <div style={{ padding: "20px 0" }}>
         <button onClick={handleInc}>INCREMENT_GLOBAL</button>{" "}
         <button onClick={handleDec}>DECREMENT_GLOBAL</button>
       </div>
       <div>
-        <button onClick={handleApp2Inc}>APP2_INCREMENT</button>{" "}
-        <button onClick={handleApp2Dec}>APP2_DECREMENT</button>
+        <button onClick={handleApp1Inc}>APP1_INCREMENT</button>{" "}
+        <button onClick={handleApp1Dec}>APP1_DECREMENT</button>
       </div>
       {/* <TestMf1 /> */}
       {/* <TestEditor /> */}

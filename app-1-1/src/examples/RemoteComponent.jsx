@@ -39,7 +39,17 @@ export default ({ module, scope }) => {
   }, [lifecycle]);
 
   return (
-    <div style={{ margin: 100, color: "#000" }}>
+    <div
+      style={{
+        margin: 60,
+        color: "#000",
+        border: "2px dashed #aaa",
+        padding: 20,
+      }}
+    >
+      <div style={{ color: "red", marginBottom: "10px" }}>
+        From [{scope}/{module}]
+      </div>
       <div key={`${scope}/${module}`} ref={containerRef}></div>
     </div>
   );

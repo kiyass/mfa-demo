@@ -9,7 +9,7 @@ import React from "react";
 
 export default () => {
   return (
-    <div style={{ margin: 100 }}>
+    <div style={{ margin: 60 }}>
       <button
         onClick={() => {
           // console.log("getLib1InstanceId", getLib1InstanceId());

@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import store from "./store";
 
 const TestStore = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(
+    () => store.GetGlobalState()?.Mf2?.global ?? 0
+  );
 
   useEffect(() => {
     const unsub = store.SubscribeToGlobalState("Mf2", (state) => {
@@ -30,7 +32,7 @@ const TestStore = () => {
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ paddingTop: 20 }}>
       <div>
         <p>count: {count}</p>
         <button onClick={handleInc}>MF2_INCREMENT</button>{" "}

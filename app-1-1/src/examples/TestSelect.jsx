@@ -1,9 +1,9 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import * as React from "react";
 
 export default function TestSelect() {
   const [age, setAge] = React.useState("");
@@ -13,7 +13,7 @@ export default function TestSelect() {
   };
 
   return (
-    <div style={{ margin: 100 }}>
+    <div style={{ margin: 60 }}>
       <Box>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Age</InputLabel>

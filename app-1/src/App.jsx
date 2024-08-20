@@ -19,10 +19,11 @@ import React, { Suspense, createElement } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { name } from "../package.json";
 import TestDialog from "./examples/TestDialog";
-import TestDraggableTable from "./examples/TestDraggableTable";
+// import TestDraggableTable from "./examples/TestDraggableTable";
 import TestSelect from "./examples/TestSelect";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
+import Home from "./pages/Home";
 
 const generateClassName = createGenerateClassName({
   productionPrefix: "app2",
@@ -106,8 +107,8 @@ const InnerApp = () => {
       </div>
       <div className={classes.container}>
         <Routes>
-          {/* <Route exact path="/home" element={<Home />} /> */}
-          <Route exact path="/home" element={<TestDraggableTable />} />
+          <Route exact path="/home" element={<Home />} />
+          {/* <Route exact path="/home" element={<TestDraggableTable />} /> */}
           <Route exact path="/page1" element={<TestVideo />} />
           <Route
             exact

@@ -1,6 +1,6 @@
+import { Button as MuiButton } from "@mui/material";
 import { useModal } from "mui-modal-provider";
 import Dialog from "../components/Dialog";
-import { Button as MuiButton } from "@mui/material";
 
 function TestDialog() {
   const { showModal } = useModal();
@@ -18,7 +18,7 @@ function TestDialog() {
     });
   };
   return (
-    <div style={{ margin: 100 }}>
+    <div style={{ margin: 60 }}>
       <MuiButton
         style={{
           paddingTop: 1,

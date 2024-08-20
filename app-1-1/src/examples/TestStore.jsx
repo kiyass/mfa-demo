@@ -4,7 +4,9 @@ import React, { useEffect, useState } from "react";
 const store = GlobalStore.Get(false);
 
 const TestStore = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(
+    () => store.GetGlobalState()?.CounterApp?.global ?? 0
+  );
 
   useEffect(() => {
     const unsub = store.SubscribeToGlobalState("CounterApp", (state) => {

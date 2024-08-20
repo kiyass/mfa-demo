@@ -3,9 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "custombuild dev --open",
-    "build": "custombuild build",
-    "preview": "custombuild preview"
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.4",

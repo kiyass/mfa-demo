@@ -6,7 +6,7 @@ function TestToast() {
     toast.error("system error");
   };
   return (
-    <div style={{ margin: 100 }}>
+    <div style={{ margin: 60 }}>
       <MuiButton
         style={{
           paddingTop: 1,
