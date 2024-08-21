@@ -9,7 +9,7 @@ import TestStore from "./TestStore";
 import { createLifecycle } from "./createLifecycle";
 
 const cache = createCache({
-  key: "mf2",
+  key: "mf",
   // prepend: true, // ymmv
   speedy: false,
 });

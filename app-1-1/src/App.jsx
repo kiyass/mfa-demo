@@ -22,7 +22,7 @@ import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
 const cache = createCache({
-  key: "app-1-1",
+  key: "app",
   // prepend: true, // ymmv
   speedy: false,
 });
