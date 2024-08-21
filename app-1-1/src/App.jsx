@@ -1,3 +1,5 @@
+import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import ModalProvider from "mui-modal-provider";
 import React, { Suspense } from "react";
@@ -19,6 +21,12 @@ import TestToast from "./examples/TestToast";
 import TestTooltip from "./examples/TestTooltip";
 import TestVideo from "./examples/TestVideo";
 
+const cache = createCache({
+  key: "app-1-1",
+  // prepend: true, // ymmv
+  speedy: false,
+});
+
 // import { init } from "@module-federation/runtime";
 
 // init({
@@ -36,6 +44,14 @@ import TestVideo from "./examples/TestVideo";
 // });
 
 const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#9c27b0",
+      light: "#9c27b0",
+      dark: "#9c27b0",
+      contrastText: "#fff",
+    },
+  },
   components: {
     MuiTooltip: {
       styleOverrides: {
@@ -53,37 +69,43 @@ const theme = createTheme({
 });
 const App = () => {
   return (
-    <ModalProvider>
-      <Toaster />
-      <ThemeProvider theme={theme}>
-        <Suspense fallback="loading">
-          <BasicLayout>
-            <Routes>
-              <Route path="/" element={<DraggableDialog />} />
-              <Route path="/draggable" element={<TestDraggableTable />} />
-              <Route path="/breakpoint" element={<TestBreakPoint />} />
-              <Route path="/store" element={<TestStore />} />
-              <Route path="/cssinjs" element={<TestCssinJs />} />
-              <Route path="/toastMessage" element={<TestToast />} />
-              <Route path="/tooltip" element={<TestTooltip />} />
-              <Route path="/select" element={<TestSelect />} />
-              <Route path="/editor" element={<TestEditor />} />
-              <Route path="/video" element={<TestVideo />} />
-              <Route path="/echart" element={<TestEcharts />} />
-              <Route path="/mf1" element={<TestMf1 />} />
-              <Route
-                path="/mf2"
-                element={<RemoteComponent module="Mf2" scope="mf2" key="mf2" />}
-              />
-              <Route
-                path="/mf4"
-                element={<RemoteComponent module="Mf4" scope="mf4" key="mf4" />}
-              />
-            </Routes>
-          </BasicLayout>
-        </Suspense>
-      </ThemeProvider>
-    </ModalProvider>
+    <CacheProvider value={cache}>
+      <ModalProvider>
+        <Toaster />
+        <ThemeProvider theme={theme}>
+          <Suspense fallback="loading">
+            <BasicLayout>
+              <Routes>
+                <Route path="/" element={<DraggableDialog />} />
+                <Route path="/draggable" element={<TestDraggableTable />} />
+                <Route path="/breakpoint" element={<TestBreakPoint />} />
+                <Route path="/store" element={<TestStore />} />
+                <Route path="/cssinjs" element={<TestCssinJs />} />
+                <Route path="/toastMessage" element={<TestToast />} />
+                <Route path="/tooltip" element={<TestTooltip />} />
+                <Route path="/select" element={<TestSelect />} />
+                <Route path="/editor" element={<TestEditor />} />
+                <Route path="/video" element={<TestVideo />} />
+                <Route path="/echart" element={<TestEcharts />} />
+                <Route path="/mf1" element={<TestMf1 />} />
+                <Route
+                  path="/mf2"
+                  element={
+                    <RemoteComponent module="Mf2" scope="mf2" key="mf2" />
+                  }
+                />
+                <Route
+                  path="/mf4"
+                  element={
+                    <RemoteComponent module="Mf4" scope="mf4" key="mf4" />
+                  }
+                />
+              </Routes>
+            </BasicLayout>
+          </Suspense>
+        </ThemeProvider>
+      </ModalProvider>
+    </CacheProvider>
   );
 };
 

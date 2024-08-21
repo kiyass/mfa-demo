@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   lib-demo:
-    specifier: file:../lib-demo/lib-demo-1.0.3.tgz
-    version: file:../lib-demo/lib-demo-1.0.3.tgz
+    specifier: file:../lib-demo/lib-demo-1.0.10.tgz
+    version: file:../lib-demo/lib-demo-1.0.10.tgz
   react:
     specifier: 17.0.2
     version: 17.0.2
@@ -4631,8 +4631,8 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  file:../lib-demo/lib-demo-1.0.3.tgz:
-    resolution: {integrity: sha512-Kg91t7UbfNp3Kxc6f+sqRgBnzExsVqQGA64DEq+Ih/NOm9WQwTL2gZoQWVYUEmG0i+lOyVK4q/ap3v817ooOeA==, tarball: file:../lib-demo/lib-demo-1.0.3.tgz}
+  file:../lib-demo/lib-demo-1.0.10.tgz:
+    resolution: {integrity: sha512-jQHomn/jq43e3BsvQlzZ8N4Rxghsk07qmDU8V6iPIo1FeAigRCT5YucciauagNAxkSdhKZs/wogtLSFBKA8xIg==, tarball: file:../lib-demo/lib-demo-1.0.10.tgz}
     name: lib-demo
-    version: 1.0.3
+    version: 1.0.10
     dev: false

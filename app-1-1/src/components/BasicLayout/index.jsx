@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { routes } from "../../routes/router";
@@ -43,6 +44,9 @@ function BasicLayout({ children }) {
             </NavLink>
           );
         })}
+        <Button variant="contained" color="primary" style={{ marginLeft: 20 }}>
+          Contained
+        </Button>
       </div>
       <div>{children}</div>
     </div>

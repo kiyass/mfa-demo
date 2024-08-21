@@ -23,5 +23,8 @@
     "redux-micro-frontend": "^1.3.0",
     "wujie": "^1.0.22",
     "wujie-react": "^1.0.22"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "1.0.1-beta.8"
   }
 }

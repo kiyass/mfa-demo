@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 // import TestEditor from "../../examples/TestEditor";
 import store from "./store";
 
+import { Button } from "@material-ui/core";
 import { a, getLib1InstanceId } from "mf3/utils";
 
 const TestUtils = () => {
@@ -20,6 +21,22 @@ const TestUtils = () => {
         </button>
       </div>
     </>
+  );
+};
+
+const TestCss = () => {
+  return (
+    <div style={{ marginTop: 60 }}>
+      <Button variant="text" color="primary">
+        Text
+      </Button>
+      <Button variant="contained" color="primary" style={{ marginLeft: 20 }}>
+        Contained
+      </Button>
+      <Button variant="outlined" color="primary" style={{ marginLeft: 20 }}>
+        Outlined
+      </Button>
+    </div>
   );
 };
 
@@ -79,6 +96,7 @@ const Home = () => {
       {/* <TestMf1 /> */}
       {/* <TestEditor /> */}
       <TestUtils />
+      <TestCss />
     </div>
   );
 };
