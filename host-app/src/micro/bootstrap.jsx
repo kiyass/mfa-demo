@@ -1,22 +1,37 @@
-import startMicroApp from "micro-utils/startMicroApp";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { name } from "../../package.json";
 import App from "./App";
 import "./store";
 
-startMicroApp({
-  renderApp: (basename) => (
-    <BrowserRouter basename={basename}>
+import { startMicroApp } from "micro-utils/micro-app";
+
+const apps = [
+  {
+    name: "app-1",
+    url: process.env.PUBLIC_MICRO_APP1_URL,
+    path: "/app1",
+    prefetch: true,
+  },
+  {
+    name: "app-4",
+    url: process.env.PUBLIC_MICRO_APP4_URL,
+    path: "/app4",
+    prefetch: true,
+  },
+];
+
+function renderApp(basename, isStandAlone) {
+  console.log("render host app");
+  return (
+    <BrowserRouter basename={isStandAlone ? "/" : basename}>
       <App />
     </BrowserRouter>
-  ),
-  preFetchApps: [
-    { name: "app-1", url: process.env.PUBLIC_MICRO_APP1_URL },
-    { name: "app-4", url: process.env.PUBLIC_MICRO_APP4_URL },
-  ],
+  );
+}
+
+startMicroApp({
+  renderApp,
+  apps,
   ReactDOM,
-  host: true,
-  packageJsonName: name,
 });

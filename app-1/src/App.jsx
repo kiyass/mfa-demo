@@ -14,7 +14,7 @@ import {
 import "./App.scss";
 
 import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MicroApp from "micro-utils/MicroApp";
+import { MicroApp, getMicroAppsWithRoute } from "micro-utils/micro-app";
 import React, { Suspense, createElement } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { name } from "../package.json";
@@ -110,34 +110,20 @@ const InnerApp = () => {
           <Route exact path="/home" element={<Home />} />
           {/* <Route exact path="/home" element={<TestDraggableTable />} /> */}
           <Route exact path="/page1" element={<TestVideo />} />
-          <Route
-            exact
-            path="/app-1-1/*"
-            element={
-              <MicroApp
-                createElement={createElement}
-                packageJsonName={name}
-                name="app-1-1"
-                url={process.env.PUBLIC_MICRO_APP1_1_URL}
-                path="/app-1-1"
-                iframe={true}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/app-1-2/*"
-            element={
-              <MicroApp
-                createElement={createElement}
-                packageJsonName={name}
-                name="app-1-2"
-                url={process.env.PUBLIC_MICRO_APP1_2_URL}
-                path="/app-1-2"
-                iframe={true}
-              />
-            }
-          />
+          {getMicroAppsWithRoute().map((item) => (
+            <Route
+              exact
+              path={`${item.path}/*`}
+              key={item.name}
+              element={
+                <MicroApp
+                  createElement={createElement}
+                  name={item.name}
+                  key={item.name}
+                />
+              }
+            />
+          ))}
         </Routes>
       </div>
     </div>

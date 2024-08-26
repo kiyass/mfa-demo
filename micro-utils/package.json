@@ -14,20 +14,15 @@
       "import": "./dist/es/public-path.js",
       "default": "./dist/es/public-path.js"
     },
-    "./startMicroApp": {
-      "import": "./dist/es/startMicroApp.js",
-      "types": "./dist/types/startMicroApp.d.ts",
-      "default": "./dist/lib/startMicroApp.js"
+    "./micro-app": {
+      "import": "./dist/es/micro-app/index.js",
+      "types": "./dist/types/micro-app/index.d.ts",
+      "default": "./dist/lib/micro-app/index.js"
     },
     "./config": {
-      "import": "./dist/es/config.js",
-      "types": "./dist/types/config.d.ts",
-      "default": "./dist/lib/config.js"
-    },
-    "./MicroApp": {
-      "import": "./dist/es/renderMicroApp.js",
-      "types": "./dist/types/renderMicroApp.d.ts",
-      "default": "./dist/lib/renderMicroApp.js"
+      "import": "./dist/es/scripts/config.js",
+      "types": "./dist/types/scripts/config.d.ts",
+      "default": "./dist/lib/scripts/config.js"
     }
   },
   "scripts": {

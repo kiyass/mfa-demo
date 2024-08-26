@@ -1,21 +1,18 @@
-import startMicroApp from "micro-utils/startMicroApp";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { name } from "../package.json";
 import App from "./App";
 
-startMicroApp({
-  renderApp: (basename) => (
-    <BrowserRouter basename={basename}>
+import { startMicroApp } from "micro-utils/micro-app";
+
+function renderApp(basename, isStandAlone) {
+  return (
+    <BrowserRouter basename={isStandAlone ? "/" : basename}>
       <App />
     </BrowserRouter>
-  ),
+  );
+}
+
+startMicroApp({
+  renderApp,
   ReactDOM,
-  packageJsonName: name,
-  handleMount: () => {
-    console.log("handleMount");
-  },
-  handleUnMount: () => {
-    console.log("handleUnMount");
-  },
 });
