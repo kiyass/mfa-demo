@@ -22,24 +22,6 @@ export default function startMicroApp({
 
   if (apps?.length) {
     setMicroApps(apps); // 必须在 mount 之前执行
-
-    const disableScopecss = true;
-
-    const preFetchApps = apps
-      .filter(item => !!item.prefetch)
-      .map(item => ({
-        name: item.name,
-        url: item.url,
-        disableScopecss,
-      }));
-
-    microApp.start({
-      disableScopecss,
-      'router-mode': 'native',
-      prefetchLevel: 1,
-      preFetchApps: preFetchApps,
-      lifeCycles,
-    });
   }
 
   async function mount(isStandAlone = false) {
@@ -69,5 +51,26 @@ export default function startMicroApp({
 
   if (!window.__MICRO_APP_ENVIRONMENT__) {
     window.mount(true);
+  }
+
+  if (apps?.length) {
+    const disableScopecss = true;
+
+    const preFetchApps = apps
+      .filter(item => !!item.prefetch)
+      .map(item => ({
+        name: item.name,
+        url: item.url,
+        disableScopecss,
+      }));
+
+    microApp.start({
+      disableScopecss,
+      'router-mode': 'native',
+      iframe: true,
+      prefetchLevel: 1,
+      preFetchApps: preFetchApps,
+      lifeCycles,
+    });
   }
 }

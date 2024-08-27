@@ -1,7 +1,6 @@
 let microApps = [];
 
 export function setMicroApps(apps) {
-  console.log('apps', apps);
   microApps = apps;
 }
 
@@ -10,7 +9,6 @@ export function getMicroApps() {
 }
 
 export function getMicroAppsWithRoute() {
-  console.log('microApps', microApps);
   return microApps.filter(item => !!item.path);
 }
 

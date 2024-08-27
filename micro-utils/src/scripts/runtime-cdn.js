@@ -23,7 +23,7 @@
  */
 
 const esmShares = new Set(['react', 'react-dom']);
-import getUrl from './getUrl';
+import { getUrl } from './utils';
 
 const getShareFromUnpkg = (packageName, version) => {
   return () => {

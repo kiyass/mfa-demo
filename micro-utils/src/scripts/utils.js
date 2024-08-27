@@ -1,4 +1,12 @@
-export default function getUrl(packageName, version) {
+import { parse } from 'semver';
+
+export function getMajorVersion(versionRange) {
+  // 获取主要版本号
+  const majorVersion = parse(versionRange.replace(/^[^0-9]+/, ''))?.raw;
+  return majorVersion;
+}
+
+export function getUrl(packageName, version) {
   // let src = undefined;
 
   // if (['react', 'react-dom'].includes(packageName)) {
