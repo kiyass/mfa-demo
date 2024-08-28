@@ -11,13 +11,13 @@ const apps = [
     name: "app-1",
     url: process.env.PUBLIC_MICRO_APP1_URL,
     path: "/app1",
-    prefetch: true,
+    // prefetch: true,
   },
   {
     name: "app-4",
     url: process.env.PUBLIC_MICRO_APP4_URL,
     path: "/app4",
-    prefetch: true,
+    // prefetch: true,
   },
 ];
 
@@ -29,6 +29,9 @@ function renderApp(basename, isStandAlone) {
     </BrowserRouter>
   );
 }
+
+window.React = React;
+window.ReactDOM = ReactDOM;
 
 startMicroApp({
   renderApp,

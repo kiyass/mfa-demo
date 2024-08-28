@@ -1,4 +1,4 @@
-import { GlobalStore } from "mf3/utils";
+import { GlobalStore } from "redux-micro-frontend";
 
 let initialState = {
   global: 0,

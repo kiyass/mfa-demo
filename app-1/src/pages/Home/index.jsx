@@ -3,26 +3,26 @@ import React, { useEffect, useState } from "react";
 import store from "./store";
 
 import { Button } from "@material-ui/core";
-import { a, getLib1InstanceId } from "mf3/utils";
+// import { a, getLib1InstanceId } from "mf3/utils";
 
-const TestUtils = () => {
-  const [id, setId] = useState();
+// const TestUtils = () => {
+//   const [id, setId] = useState();
 
-  return (
-    <>
-      <div style={{ marginTop: 60 }}>
-        <button
-          onClick={() => {
-            console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
-            setId(getLib1InstanceId());
-          }}
-        >
-          Get window.instanceId: {id}
-        </button>
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div style={{ marginTop: 60 }}>
+//         <button
+//           onClick={() => {
+//             console.log("getLib1InstanceId", getLib1InstanceId(), a.value);
+//             setId(getLib1InstanceId());
+//           }}
+//         >
+//           Get window.instanceId: {id}
+//         </button>
+//       </div>
+//     </>
+//   );
+// };
 
 const TestCss = () => {
   return (
@@ -95,7 +95,7 @@ const Home = () => {
       </div>
       {/* <TestMf1 /> */}
       {/* <TestEditor /> */}
-      <TestUtils />
+      {/* <TestUtils /> */}
       <TestCss />
     </div>
   );

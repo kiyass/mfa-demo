@@ -1,8 +1,10 @@
 import { RsbuildConfig } from '@rsbuild/core';
+import { CopyRspackPlugin } from '@rspack/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
-import { getUrl } from './utils';
+import { getUrl, getMajorVersion } from './utils';
+const { resolve } = require('path');
 
 export function getDefaultConfig(
   config: RsbuildConfig,
@@ -35,12 +37,48 @@ export function getDefaultConfig(
   }
 
   const defaultConfig: RsbuildConfig = {
-    moduleFederation: mfConfig,
+    // moduleFederation: mfConfig,
+    // html: {
+    //   scriptLoading: 'module',
+    // },
+    // output: {
+    //   externals: newExternals,
+    // },
     html: {
-      scriptLoading: 'module',
+      tags: [
+        {
+          tag: 'script',
+          attrs: { src: './libs/react.production.min.js', exclude: true },
+          head: true,
+          publicPath: true,
+        },
+        {
+          tag: 'script',
+          attrs: { src: './libs/react-dom.production.min.js', exclude: true },
+          head: true,
+          publicPath: true,
+        },
+        {
+          tag: 'script',
+          children: [
+            'window.__app_require_version__={};',
+            `window.__app_require_version__.react='${getMajorVersion(
+              dependencies.react,
+            )}';`,
+            `window.__app_require_version__['react-dom']='${getMajorVersion(
+              dependencies['react-dom'],
+            )}';`,
+          ].join('\n'),
+          head: true,
+          publicPath: true,
+        },
+      ],
     },
     output: {
-      externals: newExternals,
+      externals: {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+      },
     },
     server: {
       headers: {
@@ -49,13 +87,31 @@ export function getDefaultConfig(
     },
     tools: {
       rspack: {
-        experiments: {
-          outputModule: true,
-        },
+        // experiments: {
+        //   outputModule: true,
+        // },
         output: {
           globalObject: 'window',
           chunkLoadingGlobal: `webpackJsonp_${name}`,
         },
+        plugins: [
+          new CopyRspackPlugin({
+            patterns: [
+              {
+                from: resolve(
+                  './node_modules/react/umd/react.production.min.js',
+                ),
+                to: resolve('./dist/libs/react.production.min.js'),
+              },
+              {
+                from: resolve(
+                  './node_modules/react-dom/umd/react-dom.production.min.js',
+                ),
+                to: resolve('./dist/libs/react-dom.production.min.js'),
+              },
+            ],
+          }),
+        ],
       },
     },
     dev: {

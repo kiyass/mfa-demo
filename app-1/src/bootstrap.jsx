@@ -8,13 +8,13 @@ const apps = [
     name: "app-1-1",
     url: process.env.PUBLIC_MICRO_APP1_1_URL,
     path: "/app-1-1",
-    prefetch: true,
+    // prefetch: true,
   },
   {
     name: "app-1-2",
     url: process.env.PUBLIC_MICRO_APP1_2_URL,
     path: "/app-1-2",
-    prefetch: true,
+    // prefetch: true,
   },
 ];
 
