@@ -3,7 +3,7 @@ import { CopyRspackPlugin } from '@rspack/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
-import { getUrl, getMajorVersion } from './utils';
+import { getUrl, getVersion } from './utils';
 const { resolve } = require('path');
 
 export function getDefaultConfig(
@@ -37,10 +37,7 @@ export function getDefaultConfig(
   }
 
   const defaultConfig: RsbuildConfig = {
-    // moduleFederation: mfConfig,
-    // html: {
-    //   scriptLoading: 'module',
-    // },
+    moduleFederation: mfConfig,
     // output: {
     //   externals: newExternals,
     // },
@@ -62,10 +59,10 @@ export function getDefaultConfig(
           tag: 'script',
           children: [
             'window.__app_require_version__={};',
-            `window.__app_require_version__.react='${getMajorVersion(
+            `window.__app_require_version__.react='${getVersion(
               dependencies.react,
             )}';`,
-            `window.__app_require_version__['react-dom']='${getMajorVersion(
+            `window.__app_require_version__['react-dom']='${getVersion(
               dependencies['react-dom'],
             )}';`,
           ].join('\n'),

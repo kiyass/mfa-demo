@@ -1,14 +1,22 @@
-import { parse } from 'semver';
+/*
+ *  Author:
+ *  Description:
+ */
+import { parse } from "semver";
 
 export function getVersion(versionRange) {
   // 获取主要版本号
-  const majorVersion = parse(versionRange.replace(/^[^0-9]+/, ''))?.raw;
+  console.log(
+    parse(versionRange.replace(/^[^0-9]+/, "")),
+    "parse(versionRange.replace(/^[^0-9]+/, "
+  );
+  const majorVersion = parse(versionRange.replace(/^[^0-9]+/, ""))?.raw;
   return majorVersion;
 }
 
 export function getMajorVersion(versionRange) {
   // 获取主要版本号
-  const majorVersion = semver.parse(versionRange.replace(/^[^0-9]+/, '')).major;
+  const majorVersion = semver.parse(versionRange.replace(/^[^0-9]+/, "")).major;
   return majorVersion;
 }
 
