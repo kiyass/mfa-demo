@@ -64,6 +64,11 @@ export default function startMicroApp({
         disableScopecss,
       }));
 
+    microApp.setGlobalData({
+      React: window.React,
+      ReactDOM: window.ReactDOM,
+    });
+
     microApp.start({
       disableScopecss,
       'router-mode': 'native',

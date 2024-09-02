@@ -9,11 +9,10 @@ function loadScript(url) {
 }
 export default function initLoadScript() {
   if (window.__MICRO_APP_ENVIRONMENT__) {
-    if (
-      window.rawWindow.React?.version === window.__app_require_version__.react
-    ) {
-      window.React = window.rawWindow.React;
-      window.ReactDOM = window.rawWindow.ReactDOM;
+    const data = window.microApp.getGlobalData();
+    if (data.React?.version === window.__app_require_version__.react) {
+      window.React = data.React;
+      window.ReactDOM = data.ReactDOM;
     } else {
       loadScript('./libs/react.production.min.js');
       loadScript('./libs/react-dom.production.min.js');
