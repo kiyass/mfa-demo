@@ -3,7 +3,7 @@ import { CopyRspackPlugin } from '@rspack/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
-import { getUrl, getVersion } from './utils';
+import { getUrl, initTags, setRequiredVersion } from './utils';
 const { resolve } = require('path');
 
 export function getDefaultConfig(
@@ -15,7 +15,7 @@ export function getDefaultConfig(
 
   for (const key in externals) {
     if (dependencies[key]) {
-      newExternals[key] = getUrl(key, dependencies[key]);
+      newExternals[key] = externals[key];
     }
   }
 
@@ -38,44 +38,22 @@ export function getDefaultConfig(
 
   const defaultConfig: RsbuildConfig = {
     moduleFederation: mfConfig,
-    // output: {
-    //   externals: newExternals,
-    // },
+    output: {
+      externals: newExternals,
+    },
     html: {
       tags: [
+        ...initTags(newExternals),
         {
           tag: 'script',
-          attrs: { src: './libs/react.production.min.js', exclude: true },
-          head: true,
-          publicPath: true,
-        },
-        {
-          tag: 'script',
-          attrs: { src: './libs/react-dom.production.min.js', exclude: true },
-          head: true,
-          publicPath: true,
-        },
-        {
-          tag: 'script',
-          children: [
-            'window.__app_require_version__={};',
-            `window.__app_require_version__.react='${getVersion(
-              dependencies.react,
-            )}';`,
-            `window.__app_require_version__['react-dom']='${getVersion(
-              dependencies['react-dom'],
-            )}';`,
-          ].join('\n'),
+          children: `window.__app_require_version__= ${setRequiredVersion(
+            newExternals,
+            dependencies,
+          )};`,
           head: true,
           publicPath: true,
         },
       ],
-    },
-    output: {
-      externals: {
-        react: 'React',
-        'react-dom': 'ReactDOM',
-      },
     },
     server: {
       headers: {
