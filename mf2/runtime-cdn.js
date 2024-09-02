@@ -1,11 +1,3 @@
-/*
- *  Author:
- *  Description:
- */
-/*
- *  Author:
- *  Description:
- */
 /**
  * NpmRuntimePlugin for Module Federation
  * --------------------------------------
@@ -29,21 +21,14 @@
  * Notes:
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
-
+import { externals } from "./externals";
 const esmShares = new Set(["react", "react-dom"]);
-import getUrl from "./getUrl";
 
 const getShareFromUnpkg = (packageName, version) => {
-  return () => {
-    const src = getUrl(packageName, version);
-    const mod = new Function(
-      "src",
-      "return import(/* webpackIgnore: true */ src)"
-    )(src);
-    return mod.then((m) => {
-      return () => m;
-    });
-  };
+  function getLib() {
+    return window?.[externals?.[packageName]];
+  }
+  return () => getLib;
 };
 
 const NpmRuntimeGlobalPlugin = () => {
@@ -56,9 +41,12 @@ const NpmRuntimeGlobalPlugin = () => {
     resolveShare: (args) => {
       const { shareScopeMap, scope, pkgName, version, resolver } = args;
       const currentPackageRef = shareScopeMap[scope][pkgName][version];
-      console.log(pkgName, version, "xxxx");
+
       args.resolver = () => {
-        if (esmShares.has(pkgName)) {
+        if (
+          esmShares.has(pkgName) &&
+          window.__app_require_version__[pkgName] === version
+        ) {
           currentPackageRef.get = getShareFromUnpkg(pkgName, version);
         }
         return resolver();
