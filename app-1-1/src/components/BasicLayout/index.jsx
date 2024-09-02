@@ -47,6 +47,17 @@ function BasicLayout({ children }) {
         <Button variant="contained" color="primary" style={{ marginLeft: 20 }}>
           Contained
         </Button>
+        <button
+          style={{
+            background: "#008eff",
+            color: "#fff",
+            borderRadius: "3px",
+            border: "none",
+            margin: "0 6px",
+          }}
+        >
+          V {window.React.version}
+        </button>
       </div>
       <div>{children}</div>
     </div>

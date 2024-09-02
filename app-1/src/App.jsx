@@ -91,7 +91,20 @@ const InnerApp = () => {
             <ListItemText primary={"app-1-2"} />
           </ListItem>
         </List>
-
+        <Divider />
+        <div className={classes.testItem}>
+          <button
+            style={{
+              background: "#008eff",
+              color: "#fff",
+              borderRadius: "3px",
+              border: "none",
+              margin: "0 6px",
+            }}
+          >
+            V {window.React.version}
+          </button>
+        </div>
         <Divider />
         <div className={classes.testItem}>
           <TestDialog />
