@@ -127,6 +127,17 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
+          <button
+            style={{
+              background: "#008eff",
+              color: "#fff",
+              borderRadius: "3px",
+              border: "none",
+              margin: "0 6px",
+            }}
+          >
+            V {window.React.version}
+          </button>
           <p>count: {count}</p>
         </Toolbar>
       </AppBar>
