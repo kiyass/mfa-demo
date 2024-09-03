@@ -3,7 +3,7 @@ import { CopyRspackPlugin } from '@rspack/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
-import { getUrl, initTags, setRequiredVersion } from './utils';
+import { getUrl, initTags, getRequirePackages } from './utils';
 const { resolve } = require('path');
 
 export function getDefaultConfig(
@@ -22,7 +22,7 @@ export function getDefaultConfig(
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
     // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
-    newExternals = undefined;
+    // newExternals = undefined;
     const runtimePlugins = [
       require.resolve('./runtime-scope.js'),
       require.resolve('./runtime-cdn.js'),
@@ -46,7 +46,7 @@ export function getDefaultConfig(
         ...initTags(newExternals),
         {
           tag: 'script',
-          children: `window.__app_require_version__= ${setRequiredVersion(
+          children: `window.__app_require_packages__= ${getRequirePackages(
             newExternals,
             dependencies,
           )};`,

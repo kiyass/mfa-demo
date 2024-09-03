@@ -26,12 +26,18 @@ export function getUrl(packageName, version) {
   return `https://esm.sh/${packageName}@${version}`;
 }
 
-export function setRequiredVersion(externals, dependencies) {
-  const requiredVersion = {};
+export function getRequirePackages(externals, dependencies) {
+  const result = {};
+  const libraryManager = new LibraryManager();
+  const libs = libraryManager.getLibs();
   Object.keys(externals).forEach(item => {
-    requiredVersion[item] = getVersion(dependencies[item]);
+    result[item] = {
+      globalName: externals[item],
+      version: getVersion(dependencies[item]),
+      url: libs[item].src,
+    };
   });
-  return requiredVersion;
+  return JSON.stringify(result);
 }
 
 export function initTags(externals) {

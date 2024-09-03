@@ -7,15 +7,19 @@ function loadScript(url) {
     document.head.appendChild(script);
   });
 }
+
 export default function initLoadScript() {
+  console.log(window.__app_require_packages__);
   if (window.__MICRO_APP_ENVIRONMENT__) {
-    const data = window.microApp.getGlobalData();
-    if (data.React?.version === window.__app_require_version__.react) {
-      window.React = data.React;
-      window.ReactDOM = data.ReactDOM;
-    } else {
-      loadScript('./libs/react.production.min.js');
-      loadScript('./libs/react-dom.production.min.js');
-    }
+    const { packages } = window.microApp.getGlobalData() || {};
+
+    Object.keys(window.__app_require_packages__).forEach(pkg => {
+      const item = window.__app_require_packages__[pkg];
+      if (item.version === packages?.[pkg]?.version) {
+        window[item.globalName] = packages[pkg].source;
+      } else {
+        loadScript(item.url);
+      }
+    });
   }
 }

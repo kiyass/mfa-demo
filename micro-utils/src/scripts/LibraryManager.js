@@ -9,7 +9,7 @@ export class LibraryManager {
       'react-dom': {
         from: '/node_modules/react-dom/umd/react-dom.production.min.js',
         to: './dist/libs/react-dom.production.min.js',
-        src: './libs/react.production.min.js',
+        src: './libs/react-dom.production.min.js',
       },
       axios: {
         from: '/node_modules/axios/dist/axios.min.js',

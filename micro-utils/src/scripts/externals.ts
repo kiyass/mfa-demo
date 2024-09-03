@@ -3,5 +3,5 @@ export const externals: {
 } = {
   react: 'React',
   'react-dom': 'ReactDOM',
-  axios: 'axios',
+  // axios: 'axios',
 };

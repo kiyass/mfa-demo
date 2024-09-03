@@ -21,12 +21,10 @@
  * Notes:
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
-import { externals } from "./externals";
-const esmShares = new Set(["react", "react-dom"]);
 
-const getShareFromUnpkg = (packageName, version) => {
+const getShareFromUnpkg = (packageName) => {
   function getLib() {
-    return window?.[externals?.[packageName]];
+    return window?.[window.__app_require_packages__[packageName].globalName];
   }
   return () => getLib;
 };
@@ -41,13 +39,12 @@ const NpmRuntimeGlobalPlugin = () => {
     resolveShare: (args) => {
       const { shareScopeMap, scope, pkgName, version, resolver } = args;
       const currentPackageRef = shareScopeMap[scope][pkgName][version];
-
       args.resolver = () => {
         if (
-          esmShares.has(pkgName) &&
-          window.__app_require_version__[pkgName] === version
+          window.__app_require_packages__?.[pkgName] &&
+          window.__app_require_packages__[pkgName].version === version
         ) {
-          currentPackageRef.get = getShareFromUnpkg(pkgName, version);
+          currentPackageRef.get = getShareFromUnpkg(pkgName);
         }
         return resolver();
       };

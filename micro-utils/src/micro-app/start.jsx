@@ -64,9 +64,17 @@ export default function startMicroApp({
         disableScopecss,
       }));
 
+    const packages = {};
+    Object.keys(window.__app_require_packages__).forEach(key => {
+      const item = window.__app_require_packages__[key];
+      packages[key] = {
+        ...item,
+        source: window[item.globalName],
+      };
+    });
+
     microApp.setGlobalData({
-      React: window.React,
-      ReactDOM: window.ReactDOM,
+      packages,
     });
 
     microApp.start({
