@@ -3,8 +3,7 @@ import { CopyRspackPlugin } from '@rspack/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
-import { getUrl, initTags, getRequirePackages } from './utils';
-const { resolve } = require('path');
+import { getCopyLibs, initTags, getRequirePackages } from './utils';
 
 export function getDefaultConfig(
   config: RsbuildConfig,
@@ -71,20 +70,7 @@ export function getDefaultConfig(
         },
         plugins: [
           new CopyRspackPlugin({
-            patterns: [
-              {
-                from: resolve(
-                  './node_modules/react/umd/react.production.min.js',
-                ),
-                to: resolve('./dist/libs/react.production.min.js'),
-              },
-              {
-                from: resolve(
-                  './node_modules/react-dom/umd/react-dom.production.min.js',
-                ),
-                to: resolve('./dist/libs/react-dom.production.min.js'),
-              },
-            ],
+            patterns: getCopyLibs(newExternals),
           }),
         ],
       },
