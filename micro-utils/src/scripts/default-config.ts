@@ -4,6 +4,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
 import { getCopyLibs, initTags, getRequirePackages } from './utils';
+const { resolve } = require('path');
 
 export function getDefaultConfig(
   config: RsbuildConfig,
@@ -20,12 +21,7 @@ export function getDefaultConfig(
 
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
-    // 如果当前mf配置作为被消费者，此时需要走runtime cdn的逻辑，因为此时不能配置external，如果配置则会拿host的依赖版本
-    // newExternals = undefined;
-    const runtimePlugins = [
-      require.resolve('./runtime-scope.js'),
-      require.resolve('./runtime-cdn.js'),
-    ];
+    const runtimePlugins = [require.resolve('./runtime-scope.js')];
 
     mfConfig = {
       options: {
@@ -61,16 +57,26 @@ export function getDefaultConfig(
     },
     tools: {
       rspack: {
-        // experiments: {
-        //   outputModule: true,
-        // },
         output: {
           globalObject: 'window',
           chunkLoadingGlobal: `webpackJsonp_${name}`,
         },
         plugins: [
           new CopyRspackPlugin({
-            patterns: getCopyLibs(newExternals),
+            patterns: [
+              {
+                from: resolve(
+                  './node_modules/react/umd/react.production.min.js',
+                ),
+                to: resolve('./dist/libs/react.production.min.js'),
+              },
+              {
+                from: resolve(
+                  './node_modules/react-dom/umd/react-dom.production.min.js',
+                ),
+                to: resolve('./dist/libs/react-dom.production.min.js'),
+              },
+            ],
           }),
         ],
       },
