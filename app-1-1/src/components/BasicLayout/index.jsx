@@ -55,6 +55,13 @@ function BasicLayout({ children }) {
             border: "none",
             margin: "0 6px",
           }}
+          onClick={() => {
+            // 应用间跳转测试(可行)
+            window.rawWindow.history.pushState({}, "_", "/app4/app-1-2/mf3");
+            window.rawWindow.dispatchEvent(
+              new PopStateEvent("popstate", window.rawWindow.history.state)
+            );
+          }}
         >
           V {window.React.version}
         </button>

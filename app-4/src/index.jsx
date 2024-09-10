@@ -1,10 +1,5 @@
-import { initLoadScript } from "micro-utils/micro-app";
-initLoadScript();
+import { init } from "micro-utils/micro-app";
 
-if (window.__MICRO_APP_ENVIRONMENT__) {
-  Object.assign(window, {
-    GlobalStoreInstance: window.rawWindow.GlobalStoreInstance,
-  });
-}
+init();
 
 import("./bootstrap");

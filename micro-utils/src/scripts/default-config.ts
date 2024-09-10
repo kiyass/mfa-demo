@@ -3,21 +3,22 @@ import { CopyRspackPlugin } from '@rspack/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import { externals } from './externals';
-import { getCopyLibs, initTags, getRequirePackages } from './utils';
-const { resolve } = require('path');
+import { LibraryManager } from './LibraryManager';
 
 export function getDefaultConfig(
   config: RsbuildConfig,
   packageJson: Record<string, any>,
 ) {
   const { name, dependencies } = packageJson;
-  let newExternals: Record<string, string> | undefined = {};
 
-  for (const key in externals) {
-    if (dependencies[key]) {
-      newExternals[key] = externals[key];
-    }
-  }
+  const libraryManager = new LibraryManager({
+    dependencies,
+    config: {
+      path: './dist',
+      libs: {},
+      externals: config.output?.externals || externals,
+    },
+  });
 
   let mfConfig = undefined;
   if (config.moduleFederation?.options?.name) {
@@ -34,21 +35,10 @@ export function getDefaultConfig(
   const defaultConfig: RsbuildConfig = {
     moduleFederation: mfConfig,
     output: {
-      externals: newExternals,
+      externals: libraryManager.externals,
     },
     html: {
-      tags: [
-        ...initTags(newExternals),
-        {
-          tag: 'script',
-          children: `window.__app_require_packages__= ${getRequirePackages(
-            newExternals,
-            dependencies,
-          )};`,
-          head: true,
-          publicPath: true,
-        },
-      ],
+      tags: [...libraryManager.initTags()],
     },
     server: {
       headers: {
@@ -63,20 +53,7 @@ export function getDefaultConfig(
         },
         plugins: [
           new CopyRspackPlugin({
-            patterns: [
-              {
-                from: resolve(
-                  './node_modules/react/umd/react.production.min.js',
-                ),
-                to: resolve('./dist/libs/react.production.min.js'),
-              },
-              {
-                from: resolve(
-                  './node_modules/react-dom/umd/react-dom.production.min.js',
-                ),
-                to: resolve('./dist/libs/react-dom.production.min.js'),
-              },
-            ],
+            patterns: [...libraryManager.getCopyPatterns()],
           }),
         ],
       },

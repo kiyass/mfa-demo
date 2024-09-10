@@ -1,3 +1,3 @@
-import { initLoadScript } from "micro-utils/micro-app";
-initLoadScript();
+import { init } from "micro-utils/micro-app";
+init();
 import("./micro/bootstrap");

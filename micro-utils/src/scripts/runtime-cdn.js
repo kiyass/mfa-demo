@@ -21,7 +21,7 @@
  * Notes:
  * - This plugin provides a flexible way to control module resolution, optimizing bundle sizes and leveraging CDN-hosted modules when desirable.
  */
-import { getMajorVersion } from './utils';
+import { getMajorVersion } from '../utils';
 
 const getShareFromUnpkg = packageName => {
   function getLib() {

@@ -12,7 +12,7 @@ import {
   makeStyles,
 } from "@material-ui/core/styles";
 import "./App.scss";
-
+import microApp from "micro-utils/micro-app";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import { MicroApp, getMicroAppsWithRoute } from "micro-utils/micro-app";
 import React, { Suspense, createElement } from "react";
@@ -100,6 +100,22 @@ const InnerApp = () => {
               borderRadius: "3px",
               border: "none",
               margin: "0 6px",
+            }}
+            onClick={() => {
+              // microApp.router.push({
+              //   name: "app-1-1",
+              //   path: "/app1/app-1-1/draggable",
+              // });
+
+              // 应用跳转测试（可行）
+              window.rawWindow.history.pushState(
+                {},
+                "_",
+                "/app1/app-1-1/draggable"
+              );
+              window.rawWindow.dispatchEvent(
+                new PopStateEvent("popstate", window.rawWindow.history.state)
+              );
             }}
           >
             V {window.React.version}
