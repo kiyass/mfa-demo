@@ -80,7 +80,7 @@ const webpackConfig = {
         },
         "react-router-dom": {
           requiredVersion: "6.25.1",
-          shareKey: "react-router-dom@react@18.3.1",
+          shareScope: "react@18.3.1",
         },
       },
       runtimePlugins: [
