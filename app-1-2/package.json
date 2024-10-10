@@ -17,6 +17,7 @@
     "antd": "^5.19.2",
     "echarts": "^5.5.1",
     "echarts-for-react": "^3.0.2",
+    "micro-utils": "file:/Users/apple/Desktop/mfa-demo/micro-utils/micro-utils-0.1.0.tgz",
     "mui-modal-provider": "^2.4.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",

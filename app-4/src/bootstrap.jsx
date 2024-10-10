@@ -1,7 +1,7 @@
-import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { startMicroApp } from "micro-utils/micro-app";
+import { name } from "../package.json";
 
 const apps = [
   {
@@ -18,7 +18,7 @@ const apps = [
   },
 ];
 
-function renderApp(basename, isStandAlone) {
+function render(basename, isStandAlone) {
   return (
     <BrowserRouter basename={isStandAlone ? "/" : basename}>
       <App />
@@ -27,7 +27,7 @@ function renderApp(basename, isStandAlone) {
 }
 
 startMicroApp({
-  renderApp,
+  name,
+  render,
   apps,
-  ReactDOM,
 });

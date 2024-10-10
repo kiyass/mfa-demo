@@ -1,10 +1,11 @@
 import microApp from '@micro-zoe/micro-app';
-import { setMicroApps } from './apps';
+import ReactDOM from 'react-dom';
+import { setMicroApps, setTagName } from './apps';
 import { getPackagesWithSource } from '../utils';
 
 /**
  * @description:
- * @param {*} renderApp App实例 <App />
+ * @param {*} render App实例 <App />
  * @param {*} apps 微应用列表
  * @param {*} ReactDOM react-dom
  * @param {*} mountId "#root"
@@ -12,38 +13,39 @@ import { getPackagesWithSource } from '../utils';
  * @return {*}
  */
 export default function startMicroApp({
-  renderApp,
+  name,
+  render,
   apps,
-  ReactDOM,
   mountId = '#root',
   lifeCycles,
 }) {
   let rootDom = null;
   let app = null;
 
+  const tagName = setTagName(name);
   if (apps?.length) {
     setMicroApps(apps); // 必须在 mount 之前执行
   }
 
   async function mount(isStandAlone = false) {
-    const App = renderApp(window.__MICRO_APP_BASE_ROUTE__ || '/', isStandAlone);
-    if (ReactDOM?.render) {
-      rootDom = document.querySelector(mountId);
+    const App = render(window.__MICRO_APP_BASE_ROUTE__ || '/', isStandAlone);
 
-      ReactDOM.render(App, rootDom);
-    } else {
+    if (ReactDOM?.createRoot) {
       app = ReactDOM.createRoot(document.querySelector(mountId));
       app.render(App);
+    } else {
+      rootDom = document.querySelector(mountId);
+      ReactDOM.render(App, rootDom);
     }
   }
 
   async function unmount() {
-    if (ReactDOM?.render) {
-      const rootDom = document.querySelector(mountId);
-      ReactDOM.unmountComponentAtNode(rootDom);
-    } else {
+    if (ReactDOM?.createRoot) {
       app.unmount();
       app = null;
+    } else {
+      const rootDom = document.querySelector(mountId);
+      ReactDOM.unmountComponentAtNode(rootDom);
     }
   }
 
@@ -70,6 +72,7 @@ export default function startMicroApp({
     });
 
     microApp.start({
+      tagName,
       disableScopecss,
       'router-mode': 'native',
       iframe: true,

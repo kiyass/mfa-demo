@@ -21,7 +21,7 @@ const apps = [
   },
 ];
 
-function renderApp(basename, isStandAlone) {
+function render(basename, isStandAlone) {
   console.log("render host app");
   return (
     <BrowserRouter basename={isStandAlone ? "/" : basename}>
@@ -34,7 +34,6 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 
 startMicroApp({
-  renderApp,
+  render,
   apps,
-  ReactDOM,
 });

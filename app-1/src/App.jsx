@@ -144,13 +144,7 @@ const InnerApp = () => {
               exact
               path={`${item.path}/*`}
               key={item.name}
-              element={
-                <MicroApp
-                  createElement={createElement}
-                  name={item.name}
-                  key={item.name}
-                />
-              }
+              element={<MicroApp name={item.name} key={item.name} />}
             />
           ))}
         </Routes>

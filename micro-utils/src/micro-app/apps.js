@@ -1,4 +1,14 @@
 let microApps = [];
+let tagName = 'micro-app';
+
+export function getTagName() {
+  return tagName;
+}
+
+export function setTagName(name) {
+  tagName = `micro-app-${name}`;
+  return tagName;
+}
 
 export function setMicroApps(apps) {
   microApps = apps;
